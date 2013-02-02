@@ -1,0 +1,12 @@
+<% title("New User") %>
+
+<%= error_count_message_for("user") %>
+
+<div class="page_content mid_width">
+  <%= link_to("Lookup User in LDAP", ldap_search_url("ldap_search[search_for]" => 'user'), :class => "button_widget") %>
+  <br/>
+  <br/>
+  <br/>
+
+  <%= render('form') %>
+</div>

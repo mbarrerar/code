@@ -1,0 +1,14 @@
+
+Hi <%= h(@admin.full_name) %>,
+
+The  user [<%= h(@user.full_name) %>] has been deactivated and the following spaces have
+been transfered to you:
+
+<% @spaces.each do |s| %>
+* <%= h(s.name) %>
+<% end %>
+
+You may want to try contacting one of the space administrators and see if you can transfer
+the space(s) to them.
+
+~ Code@Berkeley

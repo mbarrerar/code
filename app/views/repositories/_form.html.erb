@@ -1,0 +1,12 @@
+<% simple_form_for(@repo) do |f| %>
+  <% f.inputs do %>
+    <%= f.input(:space_id, :required => true, :as => :select, :collection => @spaces, :prompt => "Select One") %>
+    <%= f.input(:name) %>
+    <%= f.input(:description, :input_html => { :rows => 4, :columns => 10 }) %>
+  <% end %>
+
+  <% f.buttons do %>
+    <%= f.commit_button(create_or_update(f, "Repository")) %>
+      <%= link_to_cancel(repositories_path) %>
+  <% end %>
+<% end %>

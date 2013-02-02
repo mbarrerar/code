@@ -1,0 +1,25 @@
+<% title(user_title(@user)) %>
+
+<%= user_left_nav_tabs.html() %>
+
+<div class="page_content_right">
+  <table id="admin_user_permission_list" class="horizontal">
+    <tr>
+      <th>Repository</th>
+      <th>Space</th>
+      <th>Url</th>
+      <th>Permission</th>
+    </tr>
+    <tbody class="highlight">
+      <% @permissions.each do |perm| %>
+        <tr id='<%= dom_id(perm) %>'>
+          <td><%= h(perm.repository.name) %></td>
+          <td><%= h(perm.space.name) %></td>
+          <td><%= perm.repository.url %></td>
+          <td><%= h(perm.permission) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

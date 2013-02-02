@@ -1,0 +1,20 @@
+<% title(space_title(@space)) %>
+<% set_bread_crumbs(:spaces_crumb, view_space_crumb(@space), "Detail") %>
+
+<%= render(:partial => "space_detail", :locals => { :space => @space }) %>
+
+<%= error_count_message_for(:space) %>
+<%= minor_tabs(@space).html() %>
+
+<div class="page_content_right">
+  <% simple_form_for(@space) do |f| %>
+    <% f.inputs do %>
+      <%= f.input(:name, :input_html => {:readonly => true}) %>
+      <%= f.input(:owner, :as => :string, :input_html => {:value => @space.owner.full_name, :readonly => true}) %>
+      <%= f.input(:description, :input_html => { :rows => 3, :columns => 10, :readonly => true }) %>
+      <%= size_display(f) %>
+    <% end %>
+  <% end %>
+  <br/>
+</div>
+

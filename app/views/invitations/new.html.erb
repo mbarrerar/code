@@ -1,0 +1,26 @@
+<% title("Invite New Users") %>
+
+<div class="page_content min_width invitation">
+  <p>
+    Enter the email address of any UC Berkeley employee to send them
+    an invitation to sign up for Code@Berkeley.
+  </p>
+    
+
+  <% form_remote_tag(:url => invitation_url) do %>
+      <p>
+        <%= label_tag("invitation[to_email]", "To Email") %><br/>
+        <%= text_field_tag("invitation[to_email]", {}, :size => "70") %>
+        <span id="error_msg" style="color: red;"></span>
+      </p>
+
+      <p>
+        <%= label_tag("invitation[message]", "Message") %><br/>
+        <%= text_area_tag("invitation[message]", {}, :rows => "5", :cols => "50") %>
+      </p>
+
+      <p>
+        <%= submit_tag("Send Invitation", :class => "button_widget") %>
+      </p>
+  <% end %>
+</div>

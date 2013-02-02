@@ -1,0 +1,15 @@
+
+<%= h(@msg.updated_by.full_name()) %> has changed the url for the repository: <%= h(@msg.url_was()) %>
+
+The new URL for this repository is: <%= h(@msg.repository.url()) %>
+
+
+In order to continue accessing this svn repository, you will need to update your svn
+client settings to use the new url.
+
+<% unless @msg.message.blank? %>
+Note From <%= @msg.updated_by.full_name() %>:
+<%= @msg.message() %>
+<% end %>
+
+~ Code@Berkeley

@@ -1,0 +1,77 @@
+<% title("Confirm Space Update") %>
+
+
+<% set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), "Confirm Update") %>
+
+
+<div class="page_content max_width">
+  <div class="ui-widget">
+    <div class="ui-state-error ui-corner-all" style="padding: 0 .7em; margin-right: 1em;">
+      <p style="font-size: 11pt;">
+        <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+        <strong>Alert:</strong> you are about to make a serous change to your space.
+        Please read the following information carefully before confirming these changes.
+      </p>
+    </div>
+  </div>
+
+  <br/>
+
+  <p>
+    <em style="font-size: 14pt;">
+      If you change the space name, the URL of each repository in the space will also change.
+      All users of these repositories will need to update their SVN connection information
+      in order to continue accessing the repositories in this space.
+    </em>
+  </p>
+
+  <br/>
+
+  <h3>Affected Repositories</h3>
+  <table class="horizontal">
+    <tr>
+      <th>Repository</th>
+      <th>Current SVN URL:</th>
+      <th>Updated SVN URL:</th>
+    </tr>
+
+    <% @space.repositories.each do |repo| %>
+        <tr>
+          <td><%= repo.name() %></td>
+          <td><%= repo.url() %></td>
+          <td><%= url_will_be(@space, repo) %></td>
+        </tr>
+    <% end %>
+  </table>
+
+  <br/>
+
+  <h3>Email Repository Collaborators</h3>
+  <% form_tag(confirm_update_space_url(@space)) do %>
+      <p>
+        <%= hidden_field_tag("space[id]", @space.id()) %>
+        <%= hidden_field_tag("space[name]", @space.name()) %>
+        <%= hidden_field_tag("space[description]", @space.description()) %>
+
+        <%= hidden_field_tag("space_changed[id]", @space.id()) %>
+        <% @space.repositories.each do |repo| %>
+            <%= hidden_field_tag("space_changed[url_was][#{repo.id()}]", repo.url()) %>
+        <% end %>
+      </p>
+
+      <p>
+        <%= check_box_tag("perform_notification", 1, true) %>
+        Send email notification of this change to all collaborators of this repository.
+      </p>
+
+      <p>
+        <%= label_tag("space_changed[message]", "Email Message") %><br/>
+        <%= text_area_tag("space_changed[message]", nil, :size => "80x10") %>
+      </p>
+
+      <p>
+        <%= submit_tag("Yes - Perform Update", :class => "button_widget") %>
+        <%= link_to("Cancel", edit_space_url(@space)) %>
+      </p>
+  <% end %>
+</div>

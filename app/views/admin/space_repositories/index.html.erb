@@ -1,0 +1,30 @@
+<% title(space_title(@space)) %>
+
+<%= error_count_message_for(:repository) %>
+
+<%= minor_tabs(@space).html %>
+
+
+<div class="page_content_right">
+  <%= link_to_new("New Repository", new_admin_space_repository_path) %>
+  <br/><br/>
+
+  <table id="admin_repository_list" class="horizontal">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Size</th>
+      <th width="1%">Actions</th>
+    </tr>
+    <tbody class="highlight">
+      <% @repos.each do |repo| %>
+        <tr id="<%= dom_id(repo) %>">
+          <td><%= h(repo.name) %></td>
+          <td><%= h(truncate(repo.description)) %></td>
+          <td><%= h(repo.size_display) %></td>
+          <td><%= link_to_edit(edit_admin_repository_path(repo)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

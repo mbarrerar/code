@@ -1,0 +1,9 @@
+<% title(space_title(@space)) %>
+
+<%= error_count_message_for(:repo) %>
+
+<%= minor_tabs(@space).html() %>
+
+<div class="page_content_right">
+  <%= render('form') %>
+</div>

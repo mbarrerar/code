@@ -1,0 +1,63 @@
+<% title("Repositories (#{@repos.length})") %>
+
+<script type="text/javascript">
+    $(document).ready(function() { admin.repositories.init(); });
+</script>
+
+
+<div id="repository_filter" style="float: right; padding: 1em 2em;">
+    <% form_tag(admin_repositories_url, :method => :get) do %>
+        <%= text_field_tag("search") %>
+    <% end %>
+</div>
+
+<div style="float: right; padding: 1em 2em;">
+    <% form_tag(admin_repositories_url, :method => :get) do %>
+        <%= label_tag("Space") %>
+        <%= select_tag("space",
+                       options_for_select(@spaces,
+                                          :selected => params[:space]),
+                       :id => "space_select") %>
+        <%= link_to("reset", admin_repositories_path) %>
+    <% end %>
+</div>
+
+
+<div class="page_content">
+    <%= link_to_new("New Repository", new_admin_repository_path) %>
+    <br/><br/>
+
+    <table id="repositories" class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Repo</th>
+            <th>Space</th>
+            <th>Owner</th>
+            <th>Size</th>
+            <th>Last Commit</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @repos.each do |repo| %>
+            <tr id="<%= dom_id(repo) %>">
+                <td><%= h(repo.name) %></td>
+                <td><%= h(repo.space.name) %></td>
+                <td><%= h(repo.owner.full_name) %></td>
+
+                <td class="disk_usage">
+                    <%= link_to("U", url_for(:controller => "api/repository_stats",
+                                             :action => "calc_disk_usage",
+                                             :space_name => repo.space_name,
+                                             :repo_name => repo.name)) %>
+                    <%= image_tag("loading.gif", :size => "17x17", :style => "vertical-align: bottom;") %>
+                    <span id='<%= "disk_usage_#{repo.id}" %>'> <%=h repo.size_display %></span>
+                </td>
+                <td><%= h(repo.committed_at.try(:to_s, :mdy)) %></td>
+                <td><%= link_to_edit(edit_admin_repository_path(repo)) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

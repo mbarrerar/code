@@ -1,0 +1,24 @@
+<% title('Lookup User in LDAP') %>
+
+
+<div class="page_content gray mid_width">
+  <% simple_form_for(@ldap_search, :url => do_ldap_search_path(), :html => { :method => :get }) do |form| %>
+    <% form.inputs do %>
+      <%= form.input(:search_by, :as => :select, :collection => @select_options) %>
+      <%= form.input(:search_value) %>
+    <% end %>
+
+    <% form.buttons do %>
+      <%= form.commit_button("Search") %>
+      <%= link_to_cancel(new_admin_user_path) %>
+    <% end %>
+
+  <% end %>
+</div>
+
+<div id="user_search_results_container">
+  <% if @users %>
+    <%= render(:partial => 'user_search_result', :locals => {:users => @users}) %>
+  <% end %>
+</div>
+

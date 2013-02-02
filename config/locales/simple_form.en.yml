@@ -1,0 +1,41 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+
+    errors:
+      default_message: "Please review the problems below:"
+
+    messages:
+      attachment:
+        create: "Document was successfully uploaded."
+        destroy: "Document was successfully deleted."
+      pool:
+        not_available: "Applicant Pool tab will open for the Analyst, Committee Chair and Equity Advisor once all the approvals for the Search Plan are complete and the Application Submission Final Date has been reached."
+        not_authorized: "You do not have permission to view the Pool"
+
+    view_messages:
+      no_attachments: "There are currently no documents on this page."
+      no_finalists: "No finalists have been added."
+
+    labels:
+      user:
+        username: "Username"
+        full_name: "Full Name"
+        email: "Email"
+
+    hints:
+      user:
+        username: "Your Calnet ID (Read Only)."
+        full_name: "(Read Only)."
+      ssh_key:
+        name: "A descriptive name for your key"
+        key: "The contents of your ssh public key file"
+
+

@@ -1,0 +1,47 @@
+<% title h("Space: #{@space.name}") %>
+
+<script type="text/javascript">
+  $(document).ready(function() { space_deploy_keys.init(); });
+</script>
+
+<% set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), "Deploy Keys") %>
+
+<%= render(:partial => "/spaces/space_detail", :locals => { :space => @space }) %>
+
+<%= minor_tabs(@space).html() %>
+
+
+<div class="page_content_right">
+  <%= link_to_new("New Deploy Key", new_space_deploy_key_url(@space)) %>
+
+  <br/>
+  <br/>
+
+  <% unless @keys.empty? %>
+    <table id="deploy_key_list" class="horizontal max_width">
+      <tr>
+        <th>Key Name</th>
+        <th>Key</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th width="1%" colspan="2">Actions</th>
+      </tr>
+
+      <tbody class="highlight">
+        <% @keys.each do |key| %>
+          <tr id="<%= dom_id(key) %>">
+            <td><%= h(key.name) %></td>
+            <td><%= text_area_tag("key", key.key, :disabled => true, :cols => 50, :rows => 10) %></td>
+            <td><%= h(key.created_at.to_s(:mdy)) %></td>
+            <td><%= h(key.updated_at.to_s(:mdy)) %></td>
+            <td><%= link_to_edit(edit_space_deploy_key_url(:space_id => @space, :id => key)) %></td>
+            <td>
+              <%= link_to("Delete", {:action => :destroy, :space_id => @space, :id => key},
+                          :class => "remote-delete mini_button_widget") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

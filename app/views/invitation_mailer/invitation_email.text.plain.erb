@@ -1,0 +1,15 @@
+
+<%= h(@invitation.from_name) %> would like to share code with you at <%= @invitation.site_url %>
+If you have faculty or staff status at UC Berkeley,
+please visit <%= @invitation.site_url %> and login with your calnet id.  Once 
+you have agreed the Terms of Service your acount will be activated.
+
+<% unless @invitation.message.blank? %>
+<%= h(@invitation.from_name) %> would also like to let you know that:
+
+<%= h(@invitation.message) %>
+<% end %>
+
+Sincerely,
+Code@Berkeley
+

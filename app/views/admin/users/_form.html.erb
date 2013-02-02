@@ -1,0 +1,47 @@
+<% simple_form_for([:admin, @user]) do |f| %>
+  <% f.inputs do %>
+    <% if f.object.new_record? %>
+      <%= f.input(:username, :hint => "Users Calnet Id.") %>
+      <%= f.input(:ldap_uid) %>
+    <% else %>
+      <%= f.input(:username, :hint => "Users Calnet Id (Read Only).", :input_html => {:readonly => true}) %>
+      <%= f.input(:ldap_uid, :hint => "(Read Only)", :input_html => {:readonly => true}) %>
+    <% end %>
+
+    <%= f.input(:full_name) %>
+    <%= f.input(:email, :as => :string) %>
+  <% end %>
+
+  <% f.inputs do %>
+    <p>
+      <label>Last Login</label>:
+      <%= h(f.object.last_login.try(:to_s, :mdy_hms)) %>
+    </p>
+
+    <p>
+      <label>Last SVN Access</label>:
+      <%= h(f.object.last_svn_access.try(:to_s, :mdy_hms)) %>
+    </p>
+
+    <p>
+      <label>Created At</label>:
+      <%= h(f.object.created_at.try(:to_s, :mdy_hms)) %>
+    </p>
+
+    <p>
+      <label>Updated At</label>:
+      <%= h(f.object.updated_at.try(:to_s, :mdy_hms)) %>
+    </p>
+  <% end %>
+
+  <% f.inputs do %>
+    <%= f.input(:admin) %>
+    <%= f.input(:active) %>
+    <%= f.input(:terms_and_conditions, :label => "Agreed to Terms of Service") %>
+  <% end %>
+
+  <% f.buttons do %>
+    <%= f.commit_button(create_or_update(f)) %>
+    <%= link_to_cancel(admin_users_path) %>
+  <% end %>
+<% end %>

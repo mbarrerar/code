@@ -1,0 +1,17 @@
+<% title(space_title(@space)) %>
+
+<script type="text/javascript">
+  $(document).ready(function() { setup_space_confirm_update(); });
+</script>
+
+<%= error_count_message_for(:space) %>
+
+<%= minor_tabs(@space).html() %>
+
+<div class="page_content_right">
+  <%= render('form') %>
+</div>
+
+<%= delete_button_to([:admin, @space], :label => "Delete this Space") %>
+
+<%= render("/layouts/space_confirm_update") %>

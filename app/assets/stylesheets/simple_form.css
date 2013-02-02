@@ -1,0 +1,41 @@
+.form-actions {
+    padding-left: 0;
+    background-color: white;
+    border: 0;
+}
+
+.simple_form.wide-labels label.control-label {
+    float: left;
+    width: 250px;
+    text-align: right;
+    margin: 2px 10px;
+}
+
+.simple_form.wide-labels div.controls {
+    margin-left: 290px;
+}
+
+.simple_form div.small-control-margin div.controls {
+    margin-left: 10px;
+}
+
+.simple_form label {
+    font-weight: bold;
+}
+
+.simple_form .controls label {
+    font-weight: normal;
+}
+
+.simple_form div.helpful-label label {
+    display: inline;
+}
+
+.simple_form div.helpful-label a > img {
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+abbr[title='required'] {
+    color: red;
+}

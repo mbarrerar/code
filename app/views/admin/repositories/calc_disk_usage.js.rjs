@@ -1,0 +1,2 @@
+page.replace_html("disk_usage_#{@repo.id}", @disk_usage)
+page.visual_effect(:highlight, "repository_#{@repo.id}", :duration => 2.0)

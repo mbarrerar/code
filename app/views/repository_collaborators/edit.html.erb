@@ -1,0 +1,53 @@
+<% title(repository_title(@repo)) %>
+
+<% set_bread_crumbs(:repositories_crumb, edit_repository_crumb(@repo), repository_collaborators_crumb(@repo), "Edit") %>
+
+<script type="text/javascript">
+  $(document).ready(function() { $('a[rel*=facebox]').facebox(); });
+</script>
+
+<%= render(:partial => "/repositories/repository_detail", :locals => {:repository => @repo}) %>
+
+<div style="text-align: center;">
+  <%= render(:partial => "/layouts/invitation") %>
+</div>
+
+<div class="page_content">
+  <% form_tag(:method => "post", :controller => "repository_collaborators", :action => "update", :id => "") do %>
+      <%= submit_tag("Update Collaborators", :class => "button_widget")  %>
+      &nbsp;&nbsp;<%= link_to("&larr; Back", repository_collaborations_url(@repo)) %>
+
+      <p><strong>Note:</strong> <em>Permissions for Space Administrators can only be changed at the Space level.</em></p>
+
+      <table id="user_list" class="horizontal">
+        <tr>
+          <th>Full Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Space Admin?</th>
+          <th>Permission</th>
+        </tr>
+        <tbody class="highlight">
+        <% @administrators.each do |admin| %>
+            <tr id="<%= dom_id(admin) %>" <%= has_permission_css(@repo, admin) %>>
+              <td><%= h(admin.full_name) %></td>
+              <td><%= h(admin.username) %></td>
+              <td><%= h(admin.email) %></td>
+              <td><%= boolean_check_mark(true) %></td>
+              <td><%= permission_widget(admin, @repo, @permissions) %></td>
+            </tr>
+        <% end %>
+
+        <% @users.each do |user| %>
+            <tr id="<%= dom_id(user) %>" <%= has_permission_css(@repo, user) %>>
+              <td><%= h(user.full_name) %></td>
+              <td><%= h(user.username) %></td>
+              <td><%= h(user.email) %></td>
+              <td></td>
+              <td><%= permission_widget(user, @repo, @permissions) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
+</div>

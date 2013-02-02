@@ -1,0 +1,13 @@
+<% simple_form_for([:admin,  @space]) do |f| %>
+  <% f.inputs do %>
+    <%= f.input(:name) %>
+    <%= f.input(:owner_id, :as => :select, :prompt => "Select One", :collection => User.all, :required => true) %>
+    <%= f.input(:description, :input_html => { :rows => 3, :columns => 10 }) %>
+    <%= size_display(f) %>
+  <% end %>
+
+  <% f.buttons do %>
+    <%= f.commit_button(create_or_update(f)) %>
+    <%= link_to_cancel(admin_spaces_url) %>
+  <% end %>
+<% end %>

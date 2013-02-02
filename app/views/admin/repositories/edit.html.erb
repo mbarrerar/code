@@ -1,0 +1,15 @@
+<% title(repository_title(@repo)) %>
+
+<% set_bread_crumbs(:repositories_crumb, edit_repository_crumb(@repo), "Detail") %>
+
+<%= render(:partial => "repository_detail", :locals => {:repository => @repo}) %>
+
+<%= minor_tabs(@repo).html() %>
+
+<%= error_count_message_for(:repository) %>
+
+<div class="page_content_right">
+    <%= render('form') %>
+</div>
+
+<%= delete_button_to([:admin, @repo], :label => "Delete this Repository") %>

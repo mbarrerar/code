@@ -1,0 +1,32 @@
+<% title(space_title(@space)) %>
+
+<% set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), "Administrators") %>
+
+<%= render(:partial => "/spaces/space_detail", :locals => { :space => @space }) %>
+
+<%= minor_tabs(@space).html() %>
+
+<div class="page_content_right">
+  <%= link_to_new("Edit Administrators", edit_space_space_administrations_url(@space, :id => "")) %>
+  <br class="spacing"/>
+
+  <table id="space_administration_list" class="horizontal">
+    <tr>
+      <th>Username</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Space Owner?</th>
+    </tr>
+    <tbody class="highlight">
+      <% @administrations.each do |administration|  %>
+        <% admin = administration.user %>
+        <tr id="<%= dom_id(administration) %>">
+          <td><%= h(admin.username) %></td>
+          <td><%= h(admin.full_name) %></td>
+          <td><%= h(admin.email) %></td>
+          <td><%= boolean_check_mark(administration.owner?) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

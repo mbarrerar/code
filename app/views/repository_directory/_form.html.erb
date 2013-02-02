@@ -1,0 +1,10 @@
+<% simple_form_for(@repo) do |f| %>
+  <% f.inputs do %>
+    <%= f.input(:name, :label => "Repository", :input_html => {:readonly => true}) %>
+    <%= f.input(:space_name, :label => "Space", :input_html => {:readonly => true}) %>
+    <%= f.input(:owner_name, :label => "Owner", :input_html => {:readonly => true}) %>
+    <%= f.input(:owner_email, :label => "Owner Email", :input_html => {:readonly => true}) %>
+    <%= f.input(:description, :input_html => { :rows => 4, :columns => 10, :disabled => true }) %>
+    <%= f.input(:url, :label => "Connection URL") %>
+  <% end %>
+<% end %>

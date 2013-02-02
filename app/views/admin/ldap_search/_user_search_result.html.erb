@@ -1,0 +1,26 @@
+<h3>Search Results</h3>
+
+<% if users.empty? %>
+  <p>No results were found</p>
+<% else %>
+  <p>Click on the user's 'Ldap Uid' to populate the form with their data.</p>
+
+  <table id="user_search_results" class="horizontal" style="margin-right: 5px;">
+    <tr>
+      <th>Ldap Uid</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    <tbody class="highlight">
+      <% users.each do |u| %>
+        <tr id="<%= u.ldap_uid %>" class="<%= tr_class(u) %>">
+          <td width="10%" name="ldap_uid">
+            <%= add_link(u) %>
+          </td>
+          <td name="full_name"><%= u.full_name %></td>
+          <td name="email"><%= u.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

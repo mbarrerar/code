@@ -1,0 +1,17 @@
+<% title(user_title(@user)) %>
+
+<%= error_count_message_for(:user) %>
+
+<%= user_left_nav_tabs.html() %>
+
+<div class="page_content_right">
+  <%= button_to("Login As", login_admin_user_path(@user), :method => :get) %>
+  <br/>
+  <br/>
+
+  <%= render('form') %>
+</div>
+
+<%= delete_button_to([:admin, @user], :label => "Delete this User") %>
+
+

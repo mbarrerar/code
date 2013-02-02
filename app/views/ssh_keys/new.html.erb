@@ -1,0 +1,4 @@
+<%= title("New SSH Public Key") %>
+<% set_bread_crumbs(:ssh_keys_crumb, "New") %>
+
+<%= render('form', :locals => {:ssh_key => ssh_key}) %>

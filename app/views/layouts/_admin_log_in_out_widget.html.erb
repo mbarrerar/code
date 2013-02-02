@@ -1,0 +1,5 @@
+<ul id="log_in_out_widget">
+  <li class="first"><strong><%= current_user.full_name %></strong></li>
+  <li><%= link_to("Public Site", root_url()) %></li>
+  <li><%= link_to("Logout", logout_url(), :confirm => "Click 'OK' to confirm logout") %></li>
+</ul>

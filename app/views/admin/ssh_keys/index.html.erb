@@ -1,0 +1,39 @@
+<% title(user_title(@user)) %>
+
+<script type="text/javascript">
+  $(document).ready(function() { admin.ssh_keys.init(); });
+</script>
+
+
+<%= user_left_nav_tabs.html() %>
+
+<div class="page_content_right">
+  <%= link_to_new('New SSH Key', new_admin_user_ssh_key_path(@user)) %>
+  <br/><br/>
+
+  <% unless @keys.empty? %>
+    <table id="admin_ssh_key_list" class="horizontal max_width">
+      <tr>
+        <th>Name</th>
+        <th>Key</th>
+        <th>Created At</th>
+        <th width="1%" colspan="2">Actions</th>
+      </tr>
+      
+      <tbody class="highlight">
+        <% @keys.each do |key| %>
+          <tr id="<%= dom_id(key) %>">
+            <td><%= h(key.name) %></td>
+            <td><%= text_area_tag("key", key.key, :disabled => true, :cols => 50, :rows => 5) %></td>
+            <td><%= h(key.created_at.to_s(:mdy)) %></td>
+            <td><%= link_to_edit(edit_admin_user_ssh_key_url(key.user, key)) %></td>
+            <td>
+              <%= link_to("Delete", {:action => :destroy, :user_id => @user, :id => key},
+                          :class => "remote-delete mini_button_widget") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

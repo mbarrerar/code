@@ -1,0 +1,47 @@
+<% title("Repository Directory") %>
+
+<script type="text/javascript">
+  $(document).ready(function() { repository_directory.init(); });
+</script>
+
+<% set_bread_crumbs("Repository Directory") %>
+
+
+<div class="page_content">
+  <div id="repository_filter" style="float: right; padding-right: 2em;">
+    <% form_tag(repository_directory_url, :method => :get) do %>
+        <%= label_tag("Permission") %>
+        <%= select_tag("permission", options_for_select(@search_options, params[:permission])) %>
+        <%= text_field_tag("search") %>
+        <%= submit_tag("Filter") %>
+    <% end %>
+  </div>
+
+  <br/>
+
+  <table id="repository_list" class="horizontal">
+    <tr>
+      <th>Repository</th>
+      <th>Space</th>
+      <th>Owner</th>
+      <th>Owner Email</th>
+      <th>Your Permission</th>
+      <th width="1%">Actions</th>
+    </tr>
+    <tbody class="highlight">
+      <% @repositories.each do |r| %>
+        <tr id="<%= dom_id(r) %>">
+          <td><%= h(r.name) %></td>
+          <td><%= h(r.space.name()) %></td>
+          <td><%= h(r.owner.full_name) %></td>
+          <td><%= h(r.owner.email) %></td>
+          <td><%= h(permission(@user, r)) %></td>
+          <td>
+            <%= link_to("More Info", repository_info_url(r), :class => "mini_button_widget") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

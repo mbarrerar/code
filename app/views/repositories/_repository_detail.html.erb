@@ -1,0 +1,15 @@
+<table id="repository_detail" style="text: align-left;">
+  <tr>
+    <th>Space</th>
+    <th>Owner</th>
+    <th>URL</th>
+  </tr>
+
+  <tbody>
+    <tr>
+      <td><%= repository.space.name() %></td>
+      <td><%= repository.owner.full_name() %></td>
+      <td><%= repository.url() %></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,28 @@
+<% title("Agree to Terms of Service") %>
+
+<div class="page_content gray mid_width">
+  <% simple_form_for(@user, :url => accept_terms_update_url,
+                       :method => :post, :html => {:method => :put}) do |f| %>
+    <% f.inputs do %>
+      <%= f.input(:username, 
+                  :hint => "Calnet Id (Read Only).", 
+                  :input_html => {:readonly => true}) %>
+      <%= f.input(:full_name, 
+                  :hint => "(Read Only)", 
+                  :input_html => {:readonly => true}) %>
+      <%= f.input(:email, :as => :string) %>
+
+      <br/>
+      <div>
+        <%= link_to("View Terms of Service", 
+                    "https://wikihub.berkeley.edu/display/ucbdvkt/Code+at+Berkeley+-+Terms+and+Conditions", 
+                    {:target => "_new"}) %>
+      </div>
+
+    <% end %>
+
+    <% f.buttons do %>
+      <%= f.commit_button("I Agree") %>
+    <% end %>
+  <% end %>
+</div>

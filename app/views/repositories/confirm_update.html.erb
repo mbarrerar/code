@@ -1,0 +1,69 @@
+<% title("Confirm Repository Update") %>
+
+
+<% set_bread_crumbs(:repositories_crumb, edit_repository_crumb(@repo), "Confirm Update") %>
+
+
+<div class="page_content mid_width">
+  <div class="ui-widget">
+    <div class="ui-state-error ui-corner-all" style="padding: 0 .7em; margin-right: 1em;">
+      <p style="font-size: 11pt;">
+        <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+        <strong>Alert:</strong> you are about to make a serous change to your repository.
+        Please read the following information carefully before confirming these changes.
+      </p>
+    </div>
+  </div>
+
+  <br/>
+
+  <p>
+    <em style="font-size: 14pt;">
+      Changing the name and/or space of a repository will cause its URL to change. If you
+      perform this update, all users of this repository will need to update their SVN
+      connection information in order to continue accessing this repository.
+    </em>
+  </p>
+
+  <br/>
+
+  <table>
+    <tr>
+      <th>Current SVN URL:</th>
+      <td><%= url_was(@repo) %></td>
+    </tr>
+    <tr>
+      <th>Updated SVN URL:</th>
+      <td><%= @repo.url() %></td>
+    </tr>
+  </table>
+
+  <br/>
+
+  <h3>Email Repository Collaborators</h3>
+  <% form_tag(confirm_update_repository_url(@repo)) do %>
+      <p>
+        <%= hidden_field_tag("repository[space_id]", @repo.space_id()) %>
+        <%= hidden_field_tag("repository[name]", @repo.name()) %>
+        <%= hidden_field_tag("repository[description]", @repo.description()) %>
+
+        <%= hidden_field_tag("repo_changed[id]", @repo.id()) %>
+        <%= hidden_field_tag("repo_changed[url_was]", url_was(@repo)) %>
+      </p>
+
+      <p>
+        <%= check_box_tag("perform_notification", 1, true) %>
+        Send email notification of this change to all collaborators of this repository.
+      </p>
+
+      <p>
+        <%= label_tag("repo_changed[message]", "Email Message") %><br/>
+        <%= text_area_tag("repo_changed[message]", nil, :size => "80x10") %>
+      </p>
+
+      <p>
+        <%= submit_tag("Yes - Perform Update", :class => "button_widget") %>
+        <%= link_to("Cancel", edit_repository_url(@repo)) %>
+      </p>
+  <% end %>
+</div>

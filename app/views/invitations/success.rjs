@@ -1,0 +1,1 @@
+page.replace_html(".invitation", :text => @msg_success + "<br/><br/>")

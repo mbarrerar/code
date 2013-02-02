@@ -1,0 +1,31 @@
+<% title h("Space: #{@space.name}") %>
+
+<% set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), "Repositories") %>
+
+<%= render(:partial => "/spaces/space_detail", :locals => { :space => @space }) %>
+
+<%= error_count_message_for(:repository) %>
+
+<%= minor_tabs(@space).html() %>
+
+<div class="page_content_right">
+  <%= link_to_new("New Repository", new_repository_path(:space_id => @space.id)) %>
+  <br/><br/>
+
+  <table id="admin_repository_list" class="horizontal">
+    <tr>
+      <th>Repository Name</th>
+      <th>Description</th>
+      <th width="1%">Actions</th>
+    </tr>
+    <tbody class="highlight">
+      <% @repos.each do |repo| %>
+        <tr id="<%= dom_id(repo) %>">
+          <td><%=h repo.name %></td>
+          <td><%=h truncate(repo.description) %></td>
+          <td><%= link_to_edit(edit_repository_path(repo)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

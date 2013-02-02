@@ -1,0 +1,12 @@
+<% simple_form_for(@space) do |f| %>
+  <% f.inputs do %>
+    <%= f.input(:name) %>
+    <%= f.input(:description, :input_html => { :rows => 3, :columns => 10 }) %>
+    <%= size_display(f) %>
+  <% end %>
+
+  <% f.buttons do %>
+    <%= f.commit_button(create_or_update(f)) %>
+    <%= link_to_cancel(spaces_url) %>
+  <% end %>
+<% end %>

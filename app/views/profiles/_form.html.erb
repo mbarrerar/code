@@ -1,0 +1,9 @@
+<%= simple_form_for(user, :html => { class: 'form-horizontal well' }) do |f| %>
+    <%= f.input(:username, :disabled => true) %>
+    <%= f.input(:full_name, :disabled => true) %>
+    <%= f.input(:email) %>
+
+    <br/>
+    <%= f.button(:submit, :class => 'btn-primary') %> or
+    <%= link_to_cancel(dashboard_url) %>
+<% end %>

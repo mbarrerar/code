@@ -1,0 +1,18 @@
+<% title(space_title(@space)) %>
+
+<% set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), deploy_keys_crumb(@space), "New") %>
+
+<%= render(:partial => "/spaces/space_detail", :locals => { :space => @space }) %>
+
+<%= error_count_message_for(:key) %>
+
+<%= minor_tabs(@space).html() %>
+
+<div class="page_content_right mid_width">
+  <%= render(:partial => 'form',
+             :locals => {
+                     :key => @key,
+                     :space => @space,
+                     :form_url => {:action => :create, :space_id => @space}
+             }) %>
+</div>

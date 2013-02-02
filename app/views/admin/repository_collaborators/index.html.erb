@@ -1,0 +1,42 @@
+<% title("Repository: #{@repo.canonical_name}") %>
+
+
+<%= render(:partial => "/repositories/repository_detail", :locals => {:repository => @repo}) %>
+
+<%= minor_tabs(@repo).html() %>
+
+<div class="page_content_right">
+  <%= link_to("Edit Collaborators", edit_admin_repository_collaboration_url(@repo, :id => ""), :class => "button_widget") %>
+  <br/><br/>
+
+  <table id="admin_collaboration_list" class="horizontal">
+    <tr>
+      <th>Full Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Space Admin?</th>
+      <th>Permission</th>
+    </tr>
+    <tbody class="highlight">
+      <% @administrators.each do |admin| %>
+        <tr id="<%= dom_id(admin) %>">
+          <td><%= h(admin.full_name) %></td>
+          <td><%= h(admin.username) %></td>
+          <td><%= h(admin.email) %></td>
+          <td><%= boolean_check_mark(true) %></td>
+          <td><%= Permission::COMMIT %></td>
+        </tr>
+      <% end %>
+
+      <% @collaborations.each do |c| %>
+        <tr id="<%= dom_id(c) %>">
+          <td><%= h(c.user.full_name) %></td>
+          <td><%= h(c.user.username) %></td>
+          <td><%= h(c.user.email) %></td>
+          <td></td>
+          <td><%= h(c.permission) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

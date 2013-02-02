@@ -1,0 +1,18 @@
+
+<% simple_form_for([:admin, user, key]) do |form| %>
+    <% form.inputs do %>
+      <%= form.input(:name) %>
+      <%= form.input(:key, :input_html => {:cols => 60, :rows => 20}) %>
+    <% end %>
+
+    <br/>
+
+    <% form.buttons do %>
+      <%= form.commit_button(create_or_update(form, "SSH Key")) %>
+      <%= link_to_cancel(admin_user_ssh_keys_path(@user)) %>
+    <% end %>
+<% end %>
+
+
+
+

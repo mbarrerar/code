@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <%= stylesheet_link_tag('application', :media => 'all') %>
+        <%= csrf_meta_tag %>
+
+        <title><%= @page_title %> - Code@Berkeley &rarr; Admin</title>
+    </head>
+
+
+    <body>
+        <%= render('layouts/admin_site_banner') %>
+        <%= flash_messages %>
+        <%= bread_crumbs %>
+
+        <div class='container'>
+
+            <%= yield %>
+
+
+            <footer><%= App::VERSION %></footer>
+        </div>
+
+        <%= javascript_include_tag("application") %>
+        <%= yield(:page_javascript) %>
+    </body>
+</html>
