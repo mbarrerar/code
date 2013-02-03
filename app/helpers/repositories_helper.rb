@@ -1,7 +1,7 @@
 module RepositoriesHelper
 
   def repository_title(repo)
-    "Repository: #{repo.name()}"
+    "Repository: #{repo.name}"
   end
 
   # Returns the select options for the 'edit' action
@@ -27,10 +27,10 @@ module RepositoriesHelper
   end
 
   def url_was(repository)
-    name = App.svn_username()
-    host = App.svn_connection_url()
-    space = Space.find(repository.space_id_was).name()
-    "svn+ssh://#{name}@#{host}/#{space}/#{repository.name_was()}"
+    name = App.svn_username
+    host = App.svn_connection_url
+    space = Space.find(repository.space_id_was).name
+    "svn+ssh://#{name}@#{host}/#{space}/#{repository.name_was}"
   end
 
 end

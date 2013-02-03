@@ -1,7 +1,3 @@
-<% title("New Repository") %>
+<%= title("New Repository") %>
+<%= render('form', :repository => repository, :spaces => spaces) %>
 
-<%= error_count_message_for(:repository) %>
-
-<div class="page_content mid_width">
-  <%= render('form') %>
-</div>

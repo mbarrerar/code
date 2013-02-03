@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20110717231223) do
     t.integer  "repository_id",                     :null => false
     t.integer  "user_id",                           :null => false
     t.string   "permission",    :default => "read", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "created_by_id"
   end
 
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20110717231223) do
     t.integer  "space_id"
     t.string   "name",                                     :null => false
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "actual_size",  :limit => 8, :default => 0
     t.datetime "committed_at"
   end
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20110717231223) do
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(:version => 20110717231223) do
   create_table "space_administrations", :force => true do |t|
     t.integer  "space_id",      :null => false
     t.integer  "user_id",       :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "created_by_id"
   end
 
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20110717231223) do
   create_table "spaces", :force => true do |t|
     t.string   "name",                                    :null => false
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.integer  "owner_id"
     t.integer  "actual_size", :limit => 8, :default => 0
   end
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(:version => 20110717231223) do
     t.string   "name",                         :null => false
     t.text     "key",                          :null => false
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "ssh_key_authenticatable_id"
     t.string   "ssh_key_authenticatable_type"
   end
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20110717231223) do
     t.string   "email"
     t.boolean  "admin",                :default => false, :null => false
     t.boolean  "active",               :default => true,  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.boolean  "terms_and_conditions", :default => false, :null => false
     t.datetime "last_svn_access"
     t.datetime "last_login"

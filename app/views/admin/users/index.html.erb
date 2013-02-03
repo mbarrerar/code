@@ -1,53 +1,34 @@
-<% title("Users (#{@users.length()})") %>
+<%= title("Users (#{users.length})") %>
 
-<script type="text/javascript">
-  $(document).ready(function() { admin.users.init(); });
-</script>
+<%= link_to_new("New User", new_admin_user_path) %>
 
-
-<div id="user_filter" style="float: right; padding: 1em 2em;">
-  <% form_tag(admin_users_url, :method => :get) do %>
-      <%= text_field_tag("search") %>
-  <% end %>
-</div>
-
-
-<div class="page_content">
-  <%= link_to_new("New User", new_admin_user_path) %>
-  <br/><br/>
-
-  <table id="admin_user_list" class="horizontal">
-    <tr>
-      <th>Full Name</th>
-      <th>Username</th>
-      <th>Ldap Uid</th>
-      <th>Email</th>
-      <th>Last SVN Access</th>
-      <th>Last Login</th>
-      <th>Created At</th>
-      <th>Updated At</th>
-      <th>Admin?</th>
-      <th>Active?</th>
-      <th colspan="2" width="1%">Actions</th>
-    </tr>
-    <tbody class="highlight">
-      <% @users.each do |user| %>
-        <tr id="<%= dom_id(user) %>">
-          <td><%=h user.full_name %></td>
-          <td><%= user.username %></td>
-          <td><%=h user.ldap_uid %></td>
-          <td><%=h user.email %></td>
-          <td><%= h(user.last_svn_access.try(:to_s, :mdy_hms)) %></td>
-          <td><%= h(user.last_login.try(:to_s, :mdy_hms)) %></td>
-          <td><%= h(user.created_at.try(:to_s, :mdy)) %></td>
-          <td><%= h(user.updated_at.try(:to_s, :mdy)) %></td>
-          <td><%= boolean_check_mark(user.admin) %></td>
-          <td><%= boolean_check_mark(user.active && user.terms_and_conditions) %></td>
-          <td><%= link_to("Edit", edit_admin_user_path(user), :class => "mini_button_widget") %></td>
-          <td><%= link_to("Login", login_admin_user_path(user), :class => "mini_button_widget") %></td>
+<table id="users" class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Full Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Ldap Uid</th>
+            <th>Last SVN Access</th>
+            <th>Last Login</th>
+            <th>Admin?</th>
         </tr>
-      <% end %>
+    </thead>
+
+    <tbody class="highlight">
+        <% users.each do |user| %>
+            <tr id="<%= dom_id(user) %>">
+                <td class="narrow"><%= link_to_edit(edit_admin_user_path(user)) %></td>
+                <td><%= user.full_name %></td>
+                <td><%= user.username %></td>
+                <td><%= user.email %></td>
+                <td><%= user.ldap_uid %></td>
+                <td><%= date_or_none(user.last_svn_access, :mdy) %></td>
+                <td><%= date_or_none(user.last_login, :mdy) %></td>
+                <td><%= boolean_check_mark(user.admin) %></td>
+            </tr>
+        <% end %>
     </tbody>
-  </table>
-</div>
+</table>
 

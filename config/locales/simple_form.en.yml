@@ -29,6 +29,7 @@ en:
         username: "Username"
         full_name: "Full Name"
         email: "Email"
+        terms_and_conditions: "Agreed to Terms of Service"
 
     hints:
       user:

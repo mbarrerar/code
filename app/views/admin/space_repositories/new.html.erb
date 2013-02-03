@@ -1,9 +1,17 @@
-<% title(space_title(@space)) %>
+<%= title(space_title(@space)) %>
 
-<%= error_count_message_for(:repo) %>
+<div class="row-fluid">
+    <div class="span4">
+        <%= minor_tabs(@space).html %>
+    </div>
 
-<%= minor_tabs(@space).html() %>
-
-<div class="page_content_right">
-  <%= render('form') %>
+    <div class="span8">
+        <div class="bs-docs-example">
+            <%= render('form', :space => @space, :repository => @repo) %>
+        </div>
+    </div>
 </div>
+
+
+
+

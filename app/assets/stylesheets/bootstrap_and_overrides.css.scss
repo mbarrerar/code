@@ -11,8 +11,14 @@ h2 {
 }
 
 body .container {
-  min-width: 800px;
-  max-width: 1000px;
+  min-width: 1200px;
+  max-width: 1500px;
+}
+
+input,
+textarea,
+.uneditable-input {
+  width: 400px;
 }
 
 .navbar .nav {
@@ -30,14 +36,6 @@ fieldset {
 legend {
   border-bottom-color: black;
 }
-
-body .modal {
-  // new custom width
-  width: 750px;
-  // must be half of the width, minus scrollbar on the left (30px)
-  margin: -250px 0 0 -280px;
-}
-
 
 label.error, span.error {
   color: #b94a48;

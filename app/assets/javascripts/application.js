@@ -14,4 +14,9 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 //= require popups_and_rollovers
+//= require admin.repositories.js
+//= require admin.spaces.js
+//= require admin.users.js

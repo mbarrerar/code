@@ -1,15 +1,20 @@
-<% title(repository_title(@repo)) %>
+<%= title(repository_title(repository)) %>
 
-<% set_bread_crumbs(:repositories_crumb, edit_repository_crumb(@repo), "Detail") %>
+<%= render("repository_detail", :repository => repository) %>
 
-<%= render(:partial => "repository_detail", :locals => {:repository => @repo}) %>
+<div class="row-fluid">
+    <div class="span3">
+        <%= minor_tabs(repository).html %>
+    </div>
 
-<%= minor_tabs(@repo).html() %>
+    <div class="span9">
+        <div class="boxed-group">
+            <h3>Repository Detail</h3>
 
-<%= error_count_message_for(:repository) %>
-
-<div class="page_content_right">
-    <%= render('form') %>
+            <div class="boxed-group-inner">
+                <%= render('form', :repository => repository, :spaces => spaces) %>
+                <%= delete_button_to([:admin, repository], :label => "Delete this Repository") %>
+            </div>
+        </div>
+    </div>
 </div>
-
-<%= delete_button_to([:admin, @repo], :label => "Delete this Repository") %>

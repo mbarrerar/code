@@ -1,12 +1,7 @@
-
-<% simple_form_for([:admin, @space, @repo]) do |form| %>
-  <% form.inputs do %>
+<%= simple_form_for([:admin, space, repository]) do |form| %>
     <%= form.input(:name) %>
     <%= form.input(:description, :input_html => { :rows => 3, :columns => 10 }) %>
-  <% end %>
 
-  <% form.buttons do %>
-      <%= form.commit_button(create_or_update(form, "Repository")) %>
-      <%= link_to_cancel(admin_space_repositories_url(@space)) %>
-  <% end %>
+    <%= form.button(:submit) %> or
+    <%= link_to_cancel(admin_space_repositories_url(space)) %>
 <% end %>

@@ -7,12 +7,12 @@ gem 'omniauth', '~> 1.0.3'
 gem 'omniauth-cas', '~> 0.0.6'
 gem 'simple_form', '2.0.2'
 gem 'ucb_ldap', '2.0.0.pre1'
-gem "exception_notification", :require => "exception_notifier"
 gem 'execjs'
 gem 'fuubar', '~> 1.1.0'
 gem 'active_attr'
 gem 'strong_parameters'
 gem 'warbler'
+gem "exception_notification", :require => "exception_notifier"
 gem 'debugger' if ENV['DEBUGGER']
 
 platforms :jruby do
@@ -43,6 +43,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem "jquery-datatables-rails"
   gem 'uglifier', '1.0.3'
   gem 'bootstrap-sass', '~> 2.2.2.0'
   gem 'sass-rails', '~> 3.2'

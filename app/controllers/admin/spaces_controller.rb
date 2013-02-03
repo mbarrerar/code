@@ -10,43 +10,57 @@ class Admin::SpacesController < Admin::BaseController
   def index
     @spaces = Space.all(:order => :name)
   end
-  
+
   def new
     @space = Space.new
   end
-  
+
   def create
     @space = Space.new(params[:space])
     if @space.save
-      flash[:notice] = msg_created(@space)
+      flash[:success] = msg_created(@space)
       redirect_to(edit_admin_space_url(@space))
     else
       render('new')
     end
   end
-  
+
   def edit
     @space = Space.find(params[:id])
   end
-  
+
   def update
-    @space = Space.find(params[:id])
-    if @space.update_attributes(params[:space])
-      flash[:notice] = msg_updated(@space)
-      redirect_to(edit_admin_space_url(@space))
+    if space.update_attributes(space_params)
+      flash[:success] = msg_updated(space)
+      redirect_to(edit_admin_space_url(space))
     else
       render('edit')
     end
   end
-  
+
   def destroy
-    @space = Space.find(params[:id])
-    if @space.destroy
-      flash[:notice] = msg_destroyed(@space)
+    if space.destroy
+      flash[:success] = msg_destroyed(space)
       redirect_to(admin_spaces_url)
     else
-      flash[:error] = @space.errors.full_messages
-      redirect_to(edit_admin_space_url(@space))
+      flash[:error] = space.errors.full_messages
+      redirect_to(edit_admin_space_url(space))
     end
   end
+
+  protected
+
+  def space_params
+    params.require(:space).permit!
+  end
+
+  def space
+    @space ||= Space.find(params[:id])
+  end
+  helper_method :space
+
+  def spaces
+    @spaces ||= Space.all
+  end
+  helper_method :spaces
 end

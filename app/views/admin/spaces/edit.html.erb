@@ -1,17 +1,26 @@
-<% title(space_title(@space)) %>
+<%= title(space_title(space)) %>
 
 <script type="text/javascript">
-  $(document).ready(function() { setup_space_confirm_update(); });
+    $(document).ready(function() {
+        setup_space_confirm_update();
+    });
 </script>
 
-<%= error_count_message_for(:space) %>
 
-<%= minor_tabs(@space).html() %>
+<div class="row-fluid">
+    <div class="span4">
+        <%= minor_tabs(space).html %>
+    </div>
 
-<div class="page_content_right">
-  <%= render('form') %>
+    <div class="span8">
+        <div class="boxed-group">
+            <h3>Space Details</h3>
+            <div class="boxed-group-inner">
+                <%= render('form', :space => space) %>
+                <%= delete_button_to([:admin, space], :label => "Delete this Space") %>
+            </div>
+        </div>
+    </div>
 </div>
 
-<%= delete_button_to([:admin, @space], :label => "Delete this Space") %>
-
-<%= render("/layouts/space_confirm_update") %>
+<!-- <%= render("/layouts/space_confirm_update") %> -->

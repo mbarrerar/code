@@ -5,22 +5,28 @@
         <%= stylesheet_link_tag('application', :media => 'all') %>
         <%= csrf_meta_tag %>
 
-        <title><%= @page_title %> - Code@Berkeley &rarr; Admin</title>
+        <title><%= @page_title %> - Code@Berkeley -> Admin</title>
     </head>
 
 
     <body>
         <%= render('layouts/admin_site_banner') %>
-        <%= flash_messages %>
-        <%= bread_crumbs %>
 
-        <div class='container'>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <%= flash_messages %>
+                </div>
+
+                <div class="span12">
+                    <%= major_tabs_html %>
+                </div>
+            </div>
 
             <%= yield %>
-
-
-            <footer><%= App::VERSION %></footer>
         </div>
+
+        <footer><%= App::VERSION %></footer>
 
         <%= javascript_include_tag("application") %>
         <%= yield(:page_javascript) %>

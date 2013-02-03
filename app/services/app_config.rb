@@ -1,7 +1,8 @@
 class AppConfig
   VERSION = "1.10"
 
-  @conf = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys!
+  @conf = YAML::load(ERB.new(IO.read("#{Rails.root}/config/config.yml")).result)[Rails.env].symbolize_keys!
+  #@conf = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys!
   @conf[:version] = VERSION
 
   def self.[](key)

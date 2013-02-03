@@ -1,39 +1,53 @@
-<% title(user_title(@user)) %>
+<%= title(user_title(user)) %>
 
 <script type="text/javascript">
-  $(document).ready(function() { admin.ssh_keys.init(); });
+    $(document).ready(function() {
+        admin.ssh_keys.init();
+    });
 </script>
 
+<div class="row-fluid">
+    <div class="span4">
+        <%= user_left_nav_tabs(user).html %>
+    </div>
 
-<%= user_left_nav_tabs.html() %>
+    <div class="span8 boxed-group">
+        <div>
+            <h3>SSH Keys</h3>
+        </div>
 
-<div class="page_content_right">
-  <%= link_to_new('New SSH Key', new_admin_user_ssh_key_path(@user)) %>
-  <br/><br/>
+        <div class="boxed-group-inner">
+            <%= link_to('Add SSH Key', new_admin_user_ssh_key_path(user), :class => "btn btn-small btn-primary") %>
+            <br/><br/>
+            <table id="ssh_keys" class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Key</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
 
-  <% unless @keys.empty? %>
-    <table id="admin_ssh_key_list" class="horizontal max_width">
-      <tr>
-        <th>Name</th>
-        <th>Key</th>
-        <th>Created At</th>
-        <th width="1%" colspan="2">Actions</th>
-      </tr>
-      
-      <tbody class="highlight">
-        <% @keys.each do |key| %>
-          <tr id="<%= dom_id(key) %>">
-            <td><%= h(key.name) %></td>
-            <td><%= text_area_tag("key", key.key, :disabled => true, :cols => 50, :rows => 5) %></td>
-            <td><%= h(key.created_at.to_s(:mdy)) %></td>
-            <td><%= link_to_edit(edit_admin_user_ssh_key_url(key.user, key)) %></td>
-            <td>
-              <%= link_to("Delete", {:action => :destroy, :user_id => @user, :id => key},
-                          :class => "remote-delete mini_button_widget") %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
+                <tbody class="highlight">
+                    <% ssh_keys.each do |key| %>
+                        <tr id="<%= dom_id(key) %>">
+                            <td>
+                                <%= link_to("Delete", { :action => :destroy, :user_id => user, :id => key },
+                                            :class => "remote-delete btn btn-danger btn-mini") %>
+                            </td>
+                            <td><%= key.name %></td>
+                            <td><%= truncate(key.key, :length => 50) %></td>
+                            <td><%= key.created_at.to_s(:mdy) %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+
+
+
+

@@ -8,7 +8,7 @@ module LayoutHelper
     @page_title = page_title.gsub(/<.*?>/, '')
     result      = "<h1>#{page_title}"
     result += " &nbsp;<small>#{sub_title}</small>" if sub_title
-    result += "</h1><br/>"
+    result += "</h1>"
     result.html_safe
   end
 

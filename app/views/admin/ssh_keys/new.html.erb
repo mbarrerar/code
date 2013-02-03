@@ -1,9 +1,13 @@
-<% title(user_title(@user)) %>
+<%= title(user_title(user)) %>
 
-<%= error_count_message_for(:key) %>
 
-<%= user_left_nav_tabs.html() %>
+<div class="row-fluid">
+    <div class="span4">
+        <%= user_left_nav_tabs(user).html %>
+    </div>
 
-<div class="page_content_right">
-  <%= render(:partial => 'form', :locals => {:key => @key, :user => @user}) %>
+    <div class="span8 bs-docs-example">
+        <%= render('form', :ssh_key => ssh_key, :user => user) %>
+    </div>
 </div>
+

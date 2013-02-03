@@ -1,1 +1,1 @@
-rvm --create use ruby-1.9.3-p327@code-rails3 > /dev/null
+rvm --create use ruby-1.9.3-p286@code-rails3 > /dev/null

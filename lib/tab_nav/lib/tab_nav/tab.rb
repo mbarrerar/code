@@ -108,7 +108,11 @@ module TabNav #:nodoc:
       elsif current? && display_current_tab_as_text?
         content_tag(:span, label)
       else
-        link_to(label, url)
+        link_name = label.titleize
+        if tab_set.layout_vertical?
+          link_name += "<i class='icon-chevron-right pull-right'></i>".html_safe
+        end
+        link_to(link_name.html_safe, url)
       end
     end
     

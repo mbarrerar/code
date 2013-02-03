@@ -1,17 +1,33 @@
-<% title(user_title(@user)) %>
+<%= title(user_title(user)) %>
 
-<%= error_count_message_for(:user) %>
 
-<%= user_left_nav_tabs.html() %>
+<div class="row-fluid">
+    <div class="span4">
+        <%= user_left_nav_tabs(user).html %>
+        <div class="boxed-group">
+            <h3>User Date Stats</h3>
+            <div class="boxed-group-inner">
+                <%= render(:partial => "user_date_stats", :user => user) %>
+                <%= button_to("Login As User", login_admin_user_path(user), :method => :get) %>
+            </div>
+        </div>
+    </div>
 
-<div class="page_content_right">
-  <%= button_to("Login As", login_admin_user_path(@user), :method => :get) %>
-  <br/>
-  <br/>
+    <div class="span8">
+        <div class="boxed-group">
+            <h3>User Details</h3>
 
-  <%= render('form') %>
+            <div class="boxed-group-inner">
+                <%= render('form', :user => user) %>
+                <%= delete_button_to([:admin, user], :label => "Delete this User") %>
+            </div>
+        </div>
+    </div>
 </div>
 
-<%= delete_button_to([:admin, @user], :label => "Delete this User") %>
+
+
+
+
 
 

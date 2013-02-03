@@ -1,61 +1,54 @@
 class Admin::SshKeysController < Admin::BaseController
+  before_filter(:find_user)
+  before_filter(:find_ssh_key, :only => [:edit, :update, :destroy])
+
   current_tab(:major, :users)
   current_tab(:minor, :ssh_keys)
-  helper(Admin::UsersHelper)
+
+  helper('admin/users')
 
 
   def index
-    @user = load_user()
-    @keys = @user.ssh_keys()
   end
 
   def new
-    @user = load_user()
-    @key = @user.ssh_keys.build()
+    @ssh_key = user.ssh_keys.build
   end
 
   def edit
-    @user = load_user()
-    @key = load_ssh_key_for(@user)
   end
   
   def create
-    @user = load_user()    
-    @key = @user.ssh_keys.build(params[:ssh_key])
+    @ssh_key = user.ssh_keys.build(ssh_key_params)
     
-    if @key.save
-      SshKeyAudit.log(@key, current_user(), :create)
-      flash[:notice] = msg_created(@key)
-      redirect_to(admin_user_ssh_keys_url(@user))
+    if @ssh_key.save
+      SshKeyAudit.log(@ssh_key, current_user, :create)
+      flash[:success] = msg_created(@ssh_key)
+      redirect_to(admin_user_ssh_keys_url(user))
     else
       render("new")
     end
   end
 
   def update
-    @user = load_user()    
-    @key = load_ssh_key_for(@user)
-    
-    if @key.update_attributes(params[:ssh_key])
-      SshKeyAudit.log(@key, current_user(), :update)
-      flash[:notice] = msg_updated(@key)
-      redirect_to(admin_user_ssh_keys_url(@user))
+    if @ssh_key.update_attributes(ssh_key_params)
+      SshKeyAudit.log(@ssh_key, current_user, :update)
+      flash[:success] = msg_updated(@ssh_key)
+      redirect_to(admin_user_ssh_keys_url(user))
     else
       render("edit")
     end
   end
 
-  def destroy()
-    @user = load_user()
-    @key = load_ssh_key_for(@user)
-    @key.destroy()
-    
-    SshKeyAudit.log(@key, current_user(), :destroy)
+  def destroy
+    @ssh_key.destroy
+
+    SshKeyAudit.log(@ssh_key, current_user, :destroy)
     
     respond_to do |format|
       format.html do
-        destroy_notification(@key)
-        redirect_to(redirect_to(admin_user_ssh_keys_url(@user)))
+        destroy_notification(@ssh_key)
+        redirect_to(redirect_to(admin_user_ssh_keys_url(user)))
       end
       
       format.js { render(:layout => false) }
@@ -64,12 +57,31 @@ class Admin::SshKeysController < Admin::BaseController
 
 
 protected
-  
-  def load_ssh_key_for(user)
-    user.ssh_keys.find(params[:id])
+
+  def ssh_key_params
+    params.require(:ssh_key).permit!
   end
 
-  def load_user()
-    User.find(params[:user_id])
+  def find_ssh_key
+    @ssh_key ||= user.ssh_keys.find(params[:id])
   end
+
+  def find_user
+    @user ||= User.find(params[:user_id])
+  end
+
+  def user
+    @user
+  end
+  helper_method :user
+
+  def ssh_key
+    @ssh_key
+  end
+  helper_method :ssh_key
+
+  def ssh_keys
+    @ssh_keys ||= user.ssh_keys
+  end
+  helper_method :ssh_keys
 end

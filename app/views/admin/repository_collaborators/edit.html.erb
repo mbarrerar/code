@@ -1,47 +1,50 @@
-<% title(repository_title(@repo)) %>
+<% title(repository_title(repository)) %>
 
-<%= render(:partial => "/repositories/repository_detail", :locals => {:repository => @repo}) %>
+<%= render("admin/repositories/repository_detail", :repository => repository) %>
 
 <div style="text-align: center;">
-  <%= render(:partial => "/layouts/invitation") %>
+    <%= render("/layouts/invitation") %>
 </div>
 
-<div class="page_content">
-  <% form_tag(:method => "post", :controller => "admin/repository_collaborators", :action => "update", :id => "") do %>
-      <%= submit_tag("Update Collaborators", :class => "button_widget")  %>
-      &nbsp;&nbsp;<%= link_to("&larr; Back", admin_repository_collaborations_url(@repo)) %>
 
-      <p><strong>Note:</strong> <em>Permissions for Space Administrators can only be changed at the Space level.</em></p>
+<%= form_tag(:method => "post", :controller => "admin/repository_collaborators", :action => "update", :id => "") do %>
+    <%= submit_tag("Update Collaborators", :class => "btn btn-primary") %> or
+    <%= link_to("Back", admin_repository_collaborations_url(repository)) %>
+    <br/><br/>
 
-      <table id="user_list" class="horizontal">
-        <tr>
-          <th>Full Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Space Admin?</th>
-          <th>Permission</th>
-        </tr>
+    <p><strong>Note:</strong> <em>Permissions for Space Administrators can only be changed at the Space level.</em></p>
+
+    <table id="users" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Space Admin?</th>
+                <th>Permission</th>
+            </tr>
+        </thead>
         <tbody class="highlight">
-        <% @administrators.each do |admin| %>
-            <tr id="<%= dom_id(admin) %>" <%= has_permission_css(@repo, admin) %>>
-              <td><%= h(admin.full_name) %></td>
-              <td><%= h(admin.username) %></td>
-              <td><%= h(admin.email) %></td>
-              <td><%= boolean_check_mark(true) %></td>
-              <td><%= permission_widget(admin, @repo, @permissions) %></td>
-            </tr>
-        <% end %>
+            <% administrators.each do |admin| %>
+                <tr id="<%= dom_id(admin) %>" <%= has_permission_css(repository, admin) %>>
+                    <td><%= h(admin.full_name) %></td>
+                    <td><%= h(admin.username) %></td>
+                    <td><%= h(admin.email) %></td>
+                    <td><%= boolean_check_mark(true) %></td>
+                    <td><%= permission_widget(admin, repository, permissions) %></td>
+                </tr>
+            <% end %>
 
-        <% @users.each do |user| %>
-            <tr id="<%= dom_id(user) %>" <%= has_permission_css(@repo, user) %>>
-              <td><%= h(user.full_name) %></td>
-              <td><%= h(user.username) %></td>
-              <td><%= h(user.email) %></td>
-              <td></td>
-              <td><%= permission_widget(user, @repo, @permissions) %></td>
-            </tr>
-        <% end %>
+            <% users.each do |user| %>
+                <tr id="<%= dom_id(user) %>" <%= has_permission_css(repository, user) %>>
+                    <td><%= h(user.full_name) %></td>
+                    <td><%= h(user.username) %></td>
+                    <td><%= h(user.email) %></td>
+                    <td></td>
+                    <td><%= permission_widget(user, repository, permissions) %></td>
+                </tr>
+            <% end %>
         </tbody>
-      </table>
-  <% end %>
-</div>
+    </table>
+<% end %>
+

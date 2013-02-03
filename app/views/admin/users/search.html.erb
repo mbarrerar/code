@@ -2,42 +2,41 @@
 
 
 <script type="text/javascript">
-  $(document).ready(function() { $("span#cancel_user_search").css("display", "none"); });
+    $(document).ready(function() {
+        $("span#cancel_user_search").css("display", "none");
+    });
 </script>
 
-<div class="page_content gray mid_width">
-
-  <% form_remote_tag(:url => do_search_admin_users_url, :html => {:method => "get"},
-    :method => :get, :loading => "$('div#loading_img').css('display', 'inline');",
-    :complete => "$('div#loading_img').css('display', 'none');") do %>
-    <%# form_tag(do_search_admin_users_url, :method => :get) do %>
+<%= form_remote_tag(:url => do_search_admin_users_url, :html => { :method => "get" },
+                   :method => :get, :loading => "$('div#loading_img').css('display', 'inline');",
+                   :complete => "$('div#loading_img').css('display', 'none');") do %>
     <table class="vertical">
-      <tr>
-        <th><label for="search_by">Search Option:</label></th>
-        <td>
-          <%= select_tag :search_by, options_for_select(@select_options, params[:search_by]) %> 
-        </td>
-      </tr>
-      <tr>
-        <th><label for="search_value">Search Value:</label></th>
-        <td><%= text_field_tag :search_value, params[:search_value] %></td>
-      </tr>
+        <tr>
+            <th><label for="search_by">Search Option:</label></th>
+            <td>
+                <%= select_tag :search_by, options_for_select(@select_options, params[:search_by]) %>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="search_value">Search Value:</label></th>
+            <td><%= text_field_tag :search_value, params[:search_value] %></td>
+        </tr>
     </table>
 
     <%= submit_tag("Search") %>
     <%= link_to_cancel(new_admin_user_path) %>
     <span id="cancel_user_search"> <%= link_to_back(new_admin_user_path) %></span>
-  <% end %>
-</div>
+<% end %>
+
 
 <br/>
 <div style="display: none;" id="loading_img">
-  <img src="/images/loadingAnimation.gif" alt="loading..."/>
+    <img src="/images/loadingAnimation.gif" alt="loading..."/>
 </div>
 
 <div id="user_search_results_container">
-  <% if @users %>
-    <%= render :partial => 'user_search_result', :locals => {:users => @users} %>
-  <% end %>
+    <% if @users %>
+        <%= render :partial => 'user_search_result', :locals => { :users => @users } %>
+    <% end %>
 </div>
 

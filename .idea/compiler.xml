@@ -20,9 +20,6 @@
       <profile default="false" name="Default" enabled="false">
         <processorPath useClasspath="false" />
       </profile>
-      <profile default="false" name="Default" enabled="false">
-        <processorPath useClasspath="false" />
-      </profile>
     </annotationProcessing>
   </component>
 </project>

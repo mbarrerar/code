@@ -1,11 +1,11 @@
 <div class="navbar">
     <div class="brand-wrapper">
-        <%= link_to("Code@Berkeley &rarr; Admin", root_url, :class => "brand") %>
+        <%= link_to("Code@Berkeley &nbsp;<span class='label label-important'> Admin</span>".html_safe, admin_root_url, :class => "brand") %>
     </div>
 
     <div class="navbar-inner">
-        <div class="container-fluid">
-            <div class="container-fluid nav-collapse">
+        <div class="container">
+            <div class="container nav-collapse">
                 <ul class="nav">
 
                     <li class="dropdown">

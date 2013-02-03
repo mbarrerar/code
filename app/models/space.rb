@@ -22,22 +22,22 @@ class Space < ActiveRecord::Base
   
 
   def <=>(other_space)
-    self.name.downcase() <=> other_space.name.downcase()
+    self.name.downcase <=> other_space.name.downcase
   end
 
-  def owner_name()
-    owner.full_name()
+  def owner_name
+    owner.full_name
   end
 
-  def owner_email()
-    owner.email()
+  def owner_email
+    owner.email
   end
   
   def owned_by?(user)
     user == owner()
   end
   
-  def actual_size()
+  def actual_size
     repositories.inject(0) { |sum, r| sum += r.actual_size }
   end
 
@@ -46,8 +46,8 @@ class Space < ActiveRecord::Base
   #
   # @return [Array<User>]
   #
-  def non_admins()
-    User.all() - administrators()
+  def non_admins
+    User.all - administrators
   end
   
   ##
@@ -57,58 +57,58 @@ class Space < ActiveRecord::Base
   #
   # @return [String] name of space deploy user: "app_<space_name>"
   #
-  def deploy_user_name()
-    "#{name()}_deployment"
+  def deploy_user_name
+    "#{name}_deployment"
   end
 
-  def delete_svn_space()
+  def delete_svn_space
     UcbSvn.delete_space(name)
     SshKey.write_authorized_keys_file(true)
   end
 
-  def create_svn_space()
+  def create_svn_space
     UcbSvn.create_space(name)
     # Space owner automatically gets added as an administrator
-    administrations.create(:user => owner())
+    administrations.create(:user => owner)
   end
   
-  def update_svn_space()
+  def update_svn_space
     return if !name_changed? && !owner_id_changed?
 
     if name_changed?
       UcbSvn.rename_space(name_was, name)
-      update_post_commit_hook_files()
+      update_post_commit_hook_files
       SshKey.write_authorized_keys_file(true)
     end
 
     if owner_id_changed?
       old_owner = User.find(owner_id_was)
       old_admin = administrations.find_by_user_id(old_owner)
-      old_admin.destroy()
-      administrations(true).create(:user_id => owner.id())
+      old_admin.destroy
+      administrations(true).create(:user_id => owner.id)
     end
 
-    write_repositories_authz_files()
+    write_repositories_authz_files
   end
 
   ##
   # Updates the authz file for all of its repositories
   #
-  def write_repositories_authz_files()
+  def write_repositories_authz_files
     repositories(true).each(&:write_authz_file)
   end
 
   ##
   # Updates the post_commit_hook file for all of its repositories.
   #
-  def update_post_commit_hook_files()
+  def update_post_commit_hook_files
     repositories(true).each { |r| UcbSvn.initialize_post_commit_hook_file(name, r.name) }
   end
 
   ##
   # @return [True] if no repos for this space.
   #
-  def ensure_has_no_repositories()
+  def ensure_has_no_repositories
     if !repositories(true).empty?
       errors.add_to_base("Error: must delete all repositories before space can be deleted.")
       false
@@ -126,13 +126,13 @@ class Space < ActiveRecord::Base
     raise(ArgumentError, "creator cannot be nil") unless creator
 
     ids_to_delete = params.inject([]) do |ids, (id,admin)|
-      if id.match(/^\d+$/) && admin.blank? && (id.to_i != owner.id())
+      if id.match(/^\d+$/) && admin.blank? && (id.to_i != owner.id)
         ids << id.to_i
       end
       ids
     end
 
-    SpaceAdministration.destroy_all(:user_id => ids_to_delete, :space_id => id())
+    SpaceAdministration.destroy_all(:user_id => ids_to_delete, :space_id => id)
 
     params.each do |id, admin|
       if id.match(/^\d+$/) && !admin.blank?
@@ -142,7 +142,7 @@ class Space < ActiveRecord::Base
       end
     end
 
-    self.write_repositories_authz_files()
+    self.write_repositories_authz_files
   end
 
   ##
@@ -152,12 +152,12 @@ class Space < ActiveRecord::Base
   # @return [Array<User>]
   #
   def administrators_available(excluded_users = [])
-    excluded_users << owner()
-    User.eligible_administrators() - excluded_users
+    excluded_users << owner
+    User.eligible_administrators - excluded_users
   end
 
 
-  def self.select_options()
+  def self.select_options
     spaces = Space.all.sort.map { |space|  [space.name, space.name] }
     spaces.unshift(["Any Space", ""])
   end
@@ -180,7 +180,6 @@ class Space < ActiveRecord::Base
   # @return [true, false]
   #
   def self.confirmation_required?(space)
-    (space.name_was() != space.name()) ? true : false
+    (space.name_was != space.name) ? true : false
   end
-
 end

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :ensure_authorized, :except => [:logout, :force_exception]
   # before_filter :record_last_access, :except => [:logout, :force_exception, :unknown_route]
 
+  helper :layout
 
   protect_from_forgery
 

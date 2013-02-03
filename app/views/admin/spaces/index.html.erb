@@ -1,27 +1,29 @@
-<% title("Spaces (#{@spaces.length()})") %>
+<%= title("Spaces (#{spaces.length})") %>
 
-<div class="page_content">
-  <%= link_to_new("New Space", new_admin_space_path) %>
-  <br/><br/>
 
-  <table id="admin_space_list" class="horizontal">
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Size</th>
-      <th>Owner</th>
-      <th width="1%"></th>
-    </tr>
-    <tbody class="highlight">
-      <% @spaces.each do |space| %>
-        <tr id="<%= dom_id(space) %>">
-          <td><%= h(space.name) %></td>
-          <td><%= truncate(space.description) %></td>
-          <td><%= h(space.size_display) %></td>
-          <td><%= h(space.owner.try(:full_name)) %></td>
-          <td><%= link_to_edit(edit_admin_space_path(space)) %></td>
+<%= link_to_new("New Space", new_admin_space_path) %>
+
+<table id="spaces" class="table table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Description</th>
+            <th>Size</th>
         </tr>
-      <% end %>
+    </thead>
+
+    <tbody class="highlight">
+        <% spaces.each do |space| %>
+            <tr id="<%= dom_id(space) %>">
+                <td class="narrow"><%= link_to_edit(edit_admin_space_path(space)) %></td>
+                <td><%= space.name %></td>
+                <td><%= space.owner.try(:full_name) %></td>
+                <td><%= truncate(space.description) %></td>
+                <td><%= space.size_display %></td>
+            </tr>
+        <% end %>
     </tbody>
-  </table>
-</div>
+</table>
+

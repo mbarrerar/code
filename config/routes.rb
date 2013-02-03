@@ -24,12 +24,14 @@ CodeRails3::Application.routes.draw do
       post :confirm_update
     end
 
-    #resources :collaborations,
-    #          :as => "collaborators",
-    #          :controller => "repository_collaborators",
-    #                     :except => [:new, :create, :destroy],
-    #                     :collection => {:edit => :get, :update => :post, :index => :get},
-    #                     :requirements => {:id => /.?/}
+    resources :collaborations, :except => [:new, :create, :destroy],
+              :as => "collaborators", :controller => "repository_collaborators", :requirements => { :id => /.?/ } do
+      collection do
+        get :edit
+        post :update
+        get :index
+      end
+    end
   end
 
   resources :spaces do
@@ -38,21 +40,15 @@ CodeRails3::Application.routes.draw do
     end
 
     resources :repositories, :controller => 'space_repositories'
-    resources :space_administrations,
-              :as           => "administrators",
-              :controller   => "space_administrators",
-              :requirements => { :id => /.?/ },
-              :except       => [:new, :create, :destroy] do
+    resources :space_administrations, :except => [:new, :create, :destroy],
+              :as => "administrators", :controller => "space_administrators", :requirements => { :id => /.?/ } do
       collection do
         get :edit
         post :update
         get :index
       end
 
-      resources :deploy_keys,
-                :controller => "space_deploy_keys",
-                :as         => "deploy_keys",
-                :except     => "show"
+      resources :deploy_keys, :except => "show", :as => "deploy_keys", :controller => "space_deploy_keys"
     end
   end
 
@@ -71,14 +67,12 @@ CodeRails3::Application.routes.draw do
       member do
         get :login
       end
+      resources :ssh_keys, :except => :show
+      resources :collaborations, :only => [:index], :as => "permissions", :controller => 'user_permissions'
     end
 
-    resources :ssh_keys, :except => :show
     resources :deploy_keys, :controller => "space_deploy_keys", :except => "show" do
-      resources :collaborations,
-                :as         => "permissions",
-                :controller => 'user_permissions',
-                :only       => [:index]
+      resources :collaborations, :only => [:index], :as => "permissions", :controller => 'user_permissions'
     end
 
     resources :spaces do
@@ -90,26 +84,24 @@ CodeRails3::Application.routes.draw do
         get :create_svn_directory
         post :confirm_update
       end
-    end
 
-
-    resources :space_administrations,
-              :as           => "administrators",
-              :controller   => "space_administrators",
-              :except       => [:new, :create, :destroy],
-              :requirements => { :id => /.?/ } do
-      collection do
-        get :edit
-        post :update
-        get :index
+      resources :space_administrations, :except => [:new, :create, :destroy],
+                :as => "administrators", :controller => "space_administrators", :requirements => { :id => /.?/ } do
+        collection do
+          get :edit
+          post :update
+          get :index
+        end
       end
-      #    repo.resources :collaborations,
-      #                   :as => "collaborators",
-      #                   :controller => "repository_collaborators",
-      #                   :except => [:new, :create, :destroy],
-      #                   :collection => {:edit => :get, :update => :post, :index => :get},
-      #                   :requirements => {:id => /.?/}
-      #  end
+
+      resources :collaborations, :except => [:new, :create, :destroy],
+                :controller => "repository_collaborators", :requirements => { :id => /.?/ } do
+        collection do
+          get :edit
+          post :update
+          get :index
+        end
+      end
     end
   end
 
