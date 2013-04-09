@@ -1,14 +1,10 @@
 class Api::BaseController < ActionController::Base
-  include ExceptionNotification::Notifiable
-  include ExceptionNotification::ConsiderLocal
-
   before_filter :verify_auth_user
-
 
   ##
   # Used only for testing
   #
-  def test_auth()
+  def test_auth
     render :text => "OK"
   end
 
@@ -19,7 +15,7 @@ class Api::BaseController < ActionController::Base
     false
   end
 
-  def verify_auth_user()
+  def verify_auth_user
     return true if ["development"].include?(Rails.env.to_s)
     Rails.logger.info("API Authentication attempt for: #{request.remote_ip}")
     if request.remote_ip == "127.0.0.1"

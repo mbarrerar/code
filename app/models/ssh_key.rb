@@ -79,7 +79,7 @@ class SshKey < ActiveRecord::Base
   # @return [String] a single complete key entry for the authorized_keys file.
   #
   def key_file_entry
-    "command=\"/home/svn/bin/svnserve_wrapper -t --tunnel-user=#{username()} #{virtual_root()}\",no-port-forwarding,no-agent-forwarding,no-X11-forwarding,no-pty #{key()}"
+    "command=\"/home/svn/bin/svnserve_wrapper -t --tunnel-user=#{username} #{virtual_root}\",no-port-forwarding,no-agent-forwarding,no-X11-forwarding,no-pty #{key}"
   end
   alias :authorized_keys_entry :key_file_entry
 

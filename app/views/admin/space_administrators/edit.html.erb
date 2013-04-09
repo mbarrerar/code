@@ -1,37 +1,31 @@
-<% title(space_title(@space)) %>
+<%= title(space_title(space)) %>
 
+<%= render("/layouts/invitation") %>
 
-<%= render(:partial => "/spaces/space_detail", :locals => { :space => @space }) %>
+<%= form_tag(:method => "post", :controller => "admin/space_administrators", :action => "update", :id => "") do %>
+    <%= submit_tag("Update Administrators", :class => "btn btn-primary") %> or
+    <%= link_to("Back", admin_space_administrators_url(space)) %>
+    <br/><br/>
 
-<div style="text-align: center;">
-  <%= render(:partial => "/layouts/invitation") %>
-</div>
-
-<div class="page_content">
-  <% form_tag(:method => "post", :controller => "admin/space_administrators", :action => "update", :id => "") do %>
-      <%= submit_tag("Update Administrators", :class => "button_widget")  %>
-      &nbsp;&nbsp;
-      <%= link_to("&larr; Back", admin_space_space_administrations_url(@space)) %>
-
-      <table id="user_list" class="horizontal">
-        <tr>
-          <th>Full Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th width="1%">Permission</th>
-        </tr>
-        <tbody class="highlight">
-
-        <% @users.each do |user| %>
-            <tr id="<%= dom_id(user) %>" <%= has_permission_css(@space, user) %>>
-              <td><%= h(user.full_name) %></td>
-              <td><%= h(user.username) %></td>
-              <td><%= h(user.email) %></td>
-              <td><%= permission_widget(user, @space) %></td>
+    <table id="users" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Permission</th>
             </tr>
-        <% end %>
+        </thead>
+        <tbody>
+            <% users.each do |user| %>
+                <tr id="<%= dom_id(user) %>" <%= has_permission_css(space, user) %>>
+                    <td><%= user.full_name %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.email %></td>
+                    <td><%= permission_widget(user, space) %></td>
+                </tr>
+            <% end %>
         </tbody>
-      </table>
-  <% end %>
+    </table>
+<% end %>
 
-</div>

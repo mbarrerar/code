@@ -32,9 +32,14 @@ abbr[title='required'] {
 
 .boxed-group h3 {
     padding-left: 10px;
-    background-color: #ccc;
+    background-color: #ddd;
     margin-top: 0;
     font-size: 15px;
+}
+
+.invitation {
+    text-align: center;
+    font-size: 11pt;
 }
 
 .repository-clone {

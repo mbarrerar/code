@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   # skip_before_filter :record_last_access
 
   def new
-    redirect_to("/auth/cas")
+    redirect_to('/auth/cas')
   end
 
   def create
@@ -19,12 +19,12 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to("%s?url=%s" % [AppConfig.cas_logout, root_path])
+    redirect_to('%s?url=%s' % [AppConfig.cas_logout, root_path])
   end
 
   def failure
     Rails.logger.debug("Authentication Failed for: #{auth_attributes}")
-    render(:text => "Not Authorized", :status => 401)
+    render(:text => 'Not Authorized', :status => 401)
   end
 
   protected

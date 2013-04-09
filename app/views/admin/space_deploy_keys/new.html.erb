@@ -1,18 +1,16 @@
-<% title(space_title(@space)) %>
+<%= title(space_title(space)) %>
 
-<% set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), deploy_keys_crumb(@space), "New") %>
+<div class="row-fluid">
+    <div class="span3">
+        <%= minor_tabs(space).html %>
+    </div>
 
-<%= render(:partial => "/spaces/space_detail", :locals => { :space => @space }) %>
+    <div class="span9 boxed-group">
+        <h3>New Deploy Key</h3>
 
-<%= error_count_message_for(:key) %>
-
-<%= minor_tabs(@space).html() %>
-
-<div class="page_content_right mid_width">
-  <%= render(:partial => 'form',
-             :locals => {
-                     :key => @key,
-                     :space => @space,
-                     :form_url => {:action => :create, :space_id => @space}
-             }) %>
+        <div class="boxed-group-inner">
+            <%= render('form', :deploy_key => deploy_key, :space => space,
+                       :form_url => { :action => :create, :space_id => space }) %>
+        </div>
+    </div>
 </div>

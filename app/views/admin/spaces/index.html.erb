@@ -6,7 +6,6 @@
 <table id="spaces" class="table table-bordered">
     <thead>
         <tr>
-            <th></th>
             <th>Name</th>
             <th>Owner</th>
             <th>Description</th>
@@ -17,8 +16,7 @@
     <tbody class="highlight">
         <% spaces.each do |space| %>
             <tr id="<%= dom_id(space) %>">
-                <td class="narrow"><%= link_to_edit(edit_admin_space_path(space)) %></td>
-                <td><%= space.name %></td>
+                <td><i class="icon-pencil"></i> <%= link_to(space.name, edit_admin_space_path(space)) %></td>
                 <td><%= space.owner.try(:full_name) %></td>
                 <td><%= truncate(space.description) %></td>
                 <td><%= space.size_display %></td>

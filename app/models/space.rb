@@ -34,7 +34,7 @@ class Space < ActiveRecord::Base
   end
   
   def owned_by?(user)
-    user == owner()
+    user == owner
   end
   
   def actual_size

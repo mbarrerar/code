@@ -1,33 +1,39 @@
 class Admin::SpaceAdministratorsController < Admin::BaseController
-  before_filter(:space)
-
   current_tab(:major, :spaces)
   current_tab(:minor, :administrators)
 
-  helper(Admin::SpaceTabsHelper)
-  helper(::SpacesHelper)
-  helper(::SpaceAdministratorsHelper)
+  helper('admin/space_tabs')
+  helper('spaces')
+  helper('space_administrators')
 
 
-  def index()
-    @administrations = space.administrations()
+  def index
   end
 
-  def edit()
-    @users = space.administrators_available([current_user()])
+  def edit
   end
 
-  def update()
-    space.update_administrators_from_params(current_user(), params)
+  def update
+    space.update_administrators_from_params(current_user, params)
     flash[:notice] = msg_updated("Administrators")
-    redirect_to(admin_space_space_administrations_url(@space, :id => ""))
+    redirect_to(admin_space_administrators_url(space, :id => ""))
   end
 
 
-private
+  protected
 
-  def space()
+  def space
     @space ||= Space.find(params[:space_id])
   end
+  helper_method :space
 
+  def users
+    @users ||= space.administrators_available([current_user])
+  end
+  helper_method :users
+
+  def administrations
+    @administrations ||= space.administrations
+  end
+  helper_method :administrations
 end

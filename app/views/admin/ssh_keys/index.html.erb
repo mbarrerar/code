@@ -7,14 +7,12 @@
 </script>
 
 <div class="row-fluid">
-    <div class="span4">
+    <div class="span3">
         <%= user_left_nav_tabs(user).html %>
     </div>
 
-    <div class="span8 boxed-group">
-        <div>
-            <h3>SSH Keys</h3>
-        </div>
+    <div class="span9 boxed-group">
+        <h3>SSH Keys</h3>
 
         <div class="boxed-group-inner">
             <%= link_to('Add SSH Key', new_admin_user_ssh_key_path(user), :class => "btn btn-small btn-primary") %>

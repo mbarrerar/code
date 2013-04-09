@@ -2,25 +2,21 @@ class Admin::SpaceRepositoriesController < Admin::BaseController
   current_tab(:major, :spaces)
   current_tab(:minor, :repos)
 
-  helper(Admin::SpaceTabsHelper)
-  helper(::SpacesHelper)
+  helper('admin/space_tabs')
+  helper('spaces')
 
   
   def index
-    @space = load_space()
-    @repos = @space.repositories.all()
   end
   
   def new
-    @space = load_space()
-    @repo = @space.repositories.build()
+    @repository = space.repositories.build
   end
   
   def create
-    @space = load_space()
-    @repo = @space.repositories.build(params[:repository])
-    if @repo.save
-      flash[:notice] = msg_created(@repo)
+    @repository = space.repositories.build(repository_params)
+    if @repository.save
+      flash[:success] = msg_created(@repository)
       redirect_to(admin_space_repositories_path)
     else
       render('new')
@@ -28,9 +24,24 @@ class Admin::SpaceRepositoriesController < Admin::BaseController
   end
 
 
-private
+  protected
 
-  def load_space()
-    Space.find(params[:space_id])
+  def repository_params
+    params.require(:repository).permit!
   end
+
+  def space
+    @space ||= Space.find(params[:space_id])
+  end
+  helper_method :space
+
+  def repository
+    @repository
+  end
+  helper_method :repository
+
+  def repositories
+    @repositories ||= space.repositories.all
+  end
+  helper_method :repositories
 end

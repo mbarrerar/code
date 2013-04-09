@@ -3,8 +3,8 @@ class Admin::SpacesController < Admin::BaseController
   current_tab(:major, :spaces)
   current_tab(:minor, :detail, :only => [:edit, :update])
 
-  helper(Admin::SpaceTabsHelper)
-  helper(::SpacesHelper)
+  helper('admin/space_tabs')
+  helper('spaces')
 
 
   def index

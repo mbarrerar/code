@@ -1,35 +1,34 @@
-<%= title(space_title(@space)) %>
+<%= title(space_title(space)) %>
 
 
 <div class="row-fluid">
-    <div class="span4">
-        <%= minor_tabs(@space).html %>
+    <div class="span3">
+        <%= minor_tabs(space).html %>
     </div>
 
-    <div class="span8">
-        <div class="boxed-group">
-            <h3>Repositories</h3>
+    <div class="span9 boxed-group">
+        <h3>Repositories</h3>
 
-            <div class="boxed-group-inner">
-                <%= link_to("Add Repository", new_admin_space_repository_path, :class => 'btn btn-small btn-primary') %>
-                <table id="repositories" class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Size</th>
+        <div class="boxed-group-inner">
+            <%= link_to("Add Repository", new_admin_space_repository_path, :class => 'btn btn-small btn-primary') %>
+            <br class="spacing"/>
+            <table id="repositories" class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Size</th>
+                    </tr>
+                </thead>
+
+                <tbody class="highlight">
+                    <% repositories.each do |repo| %>
+                        <tr id="<%= dom_id(repo) %>">
+                            <td><%= link_to(repo.name, edit_admin_repository_path(repo)) %></td>
+                            <td><%= repo.size_display %></td>
                         </tr>
-                    </thead>
-
-                    <tbody class="highlight">
-                        <% @repos.each do |repo| %>
-                            <tr id="<%= dom_id(repo) %>">
-                                <td><%= link_to(repo.name, edit_admin_repository_path(repo)) %></td>
-                                <td><%= repo.size_display %></td>
-                            </tr>
-                        <% end %>
-                    </tbody>
-                </table>
-            </div>
+                    <% end %>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

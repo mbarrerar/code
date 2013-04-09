@@ -2,7 +2,7 @@
 <% set_bread_crumbs("SSH Keys") %>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         ssh_keys.init();
     });
 </script>
@@ -13,7 +13,7 @@
 <br/>
 
 <% unless ssh_keys.empty? %>
-    <table id="ssh_keys" class="table table-bordered table-striped">
+    <table id="ssh_keys" class="<%= table_class %>">
         <thead>
             <tr>
                 <th width="1%" colspan="2">Actions</th>
@@ -26,10 +26,10 @@
         <tbody>
             <% ssh_keys.each do |key| %>
                 <tr id="<%= dom_id(key) %>">
-                    <td><%= link_to_edit(edit_ssh_key_url(key)) %></td>
-                    <td><%= link_to("Delete", key, :class => "remote-delete mini_button_widget") %></td>
+                    <td class='edit'><%= link_to(icon_edit(:text => 'Edit'), edit_ssh_key_url(key)) %></td>
+                    <td class='delete'><%= link_to(icon_delete(:text => 'Delete'), key, :class => 'remote-delete') %></td>
                     <td><%= h(key.name) %></td>
-                    <td><%= text_area_tag("key", key.key, :disabled => true, :cols => 50, :rows => 5) %></td>
+                    <td><%= text_area_tag('key', key.key, :disabled => true, :cols => 50, :rows => 5) %></td>
                     <td><%= h(key.created_at.to_s(:mdy)) %></td>
                 </tr>
             <% end %>

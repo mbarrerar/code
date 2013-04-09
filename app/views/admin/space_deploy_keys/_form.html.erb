@@ -1,17 +1,6 @@
-<% simple_form_for([:admin, space, key], :url => form_url) do |form| %>
-    <% form.inputs do %>
-      <%= form.input(:name, :label => "Key Name") %>
-      <%= form.input(:key, :input_html => {:cols => 50, :rows => 15}) %>
-    <% end %>
-
-    <br/>
-
-    <% form.buttons do %>
-        <% if form.object.new_record? %>
-            <%= form.commit_button("Save Deploy Key") %>
-        <% else %>
-            <%= form.commit_button("Update Deploy Key") %>
-        <% end %>
-      <%= link_to_cancel(admin_space_deploy_keys_path(space)) %>
-    <% end %>
+<%= simple_form_for([:admin, space, deploy_key], :url => form_url) do |form| %>
+    <%= form.input(:name, :label => "Key Name") %>
+    <%= form.input(:key, :input_html => { :cols => 50, :rows => 15 }) %>
+    <%= form.button(:submit) %> or
+    <%= link_to_cancel(admin_space_deploy_keys_path(space)) %>
 <% end %>

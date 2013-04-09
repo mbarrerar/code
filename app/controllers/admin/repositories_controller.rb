@@ -1,8 +1,4 @@
 class Admin::RepositoriesController < Admin::BaseController
-  before_filter(:repository, :only => [:edit, :update, :destroy, :create_svn_directory, :confirm_update])
-  before_filter(:spaces, :only => [:new, :create, :edit, :update, :destroy])
-
-  no_minor_tabs :only => [:index, :new, :create]
   current_tab(:major, :repositories)
   current_tab(:minor, :detail, :only => [:edit, :update])
 
@@ -46,8 +42,7 @@ class Admin::RepositoriesController < Admin::BaseController
     repository.update_attributes(repo_params)
 
     if params[:perform_notification]
-      msg = RepositoryUrlChangedMessage.
-        new_from_repository_params(current_user, params[:repo_changed])
+      msg = RepositoryUrlChangedMessage.new_from_repository_params(current_user, params[:repo_changed])
       CollaboratorMailer.deliver_repository_url_changed_notification(msg)
     end
 

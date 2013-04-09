@@ -1,6 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  include(BreadCrumbHelper)
+  include BreadCrumbHelper
+  include IconHelper
+  include CssHelper
 
   def logged_in_content(&block)
     yield if logged_in?
@@ -44,10 +46,8 @@ module ApplicationHelper
                   :action     => "calc_disk_usage",
                   :space_name => space_name,
                   :repo_name  => repo_name)
-
-    html_options = { :class => "btn btn-mini" }
-    name         = "<i class='icon-refresh'></i> Reload".html_safe
-    link_to(name, url, html_options)
+    name = "<i class='icon-refresh'></i> ".html_safe
+    link_to(name, url)
   end
 
   def link_to_admin(options = { }, html_options = { })

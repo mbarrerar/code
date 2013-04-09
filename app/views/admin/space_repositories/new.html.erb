@@ -1,13 +1,16 @@
-<%= title(space_title(@space)) %>
+<%= title(space_title(space)) %>
 
 <div class="row-fluid">
-    <div class="span4">
-        <%= minor_tabs(@space).html %>
+    <div class="span3">
+        <%= minor_tabs(space).html %>
     </div>
 
-    <div class="span8">
-        <div class="bs-docs-example">
-            <%= render('form', :space => @space, :repository => @repo) %>
+    <div class="span9">
+        <div class="boxed-group">
+            <h3>New Repository</h3>
+            <div class="boxed-group-inner">
+                <%= render('form', :space => space, :repository => repository) %>
+            </div>
         </div>
     </div>
 </div>

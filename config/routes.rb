@@ -71,20 +71,8 @@ CodeRails3::Application.routes.draw do
       resources :collaborations, :only => [:index], :as => "permissions", :controller => 'user_permissions'
     end
 
-    resources :deploy_keys, :controller => "space_deploy_keys", :except => "show" do
-      resources :collaborations, :only => [:index], :as => "permissions", :controller => 'user_permissions'
-    end
-
     resources :spaces do
       resources :repositories, :controller => 'space_repositories'
-    end
-
-    resources :repositories, :except => :show do
-      member do
-        get :create_svn_directory
-        post :confirm_update
-      end
-
       resources :space_administrations, :except => [:new, :create, :destroy],
                 :as => "administrators", :controller => "space_administrators", :requirements => { :id => /.?/ } do
         collection do
@@ -92,6 +80,16 @@ CodeRails3::Application.routes.draw do
           post :update
           get :index
         end
+      end
+      resources :deploy_keys, :controller => "space_deploy_keys", :except => "show" do
+        resources :collaborations, :only => [:index], :as => "permissions", :controller => 'user_permissions'
+      end
+    end
+
+    resources :repositories, :except => :show do
+      member do
+        get :create_svn_directory
+        post :confirm_update
       end
 
       resources :collaborations, :except => [:new, :create, :destroy],
