@@ -64,20 +64,21 @@ describe 'SpaceAdministration instance methods' do
 end
 
 
-describe "SpaceAdministration life cycle callbacks" do
-  context "before_destroy" do
-    it "should not allow the space owner to be removed as an administrator" do
+describe 'SpaceAdministration life cycle callbacks' do
+  context 'before_destroy' do
+    it 'should not allow the space owner to be removed as an administrator' do
       space = FactoryGirl.create(:space)
-      owner = space.owner()
+      owner = space.owner
 
       space.administrators.should include(owner)
       owner_admin = space.administrations.find_by_user_id(owner.id)
-      owner_admin.destroy.should be_false
+      owner_admin.destroy
+      owner_admin.should_not be_destroyed
       space.administrations.find_by_user_id(owner.id).should == owner_admin
       owner_admin.should have(1).errors
     end
 
-    it "should allow non-space owners to be removed as an administrator" do
+    it 'should allow non-space owners to be removed as an administrator' do
       space = FactoryGirl.create(:space)
       admin = FactoryGirl.create(:user)
 

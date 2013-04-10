@@ -12,6 +12,7 @@ class SpaceAdministration < ActiveRecord::Base
   def ensure_owner_is_administrator
     if space.owner == user
       errors.add(:base, "Space Owner can't be removed from administrators.")
+      false
     end
   end
 
