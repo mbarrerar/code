@@ -5,7 +5,7 @@ class SshKeyAudit
   # @param [Sting] one of :update, :create or :destroy
   #
   def self.log(key, edited_by, action)
-    audit = audit_msg(key.key(), edited_by.full_name(), key.user.full_name(), action)
+    audit = audit_msg(key.key, edited_by.full_name, key.user.full_name, action)
     Rails.logger.info(audit)
   end
 

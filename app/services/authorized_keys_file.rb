@@ -36,7 +36,7 @@ class AuthorizedKeysFile
   # @return [String] a single complete key entry for the authorized_keys file.
   #
   def key_entry(username, key_contents)
-    "command=\"/home/svn/bin/svnserve_wrapper -t --tunnel-user=#{username} #{virtual_root()}\",no-port-forwarding,no-agent-forwarding,no-X11-forwarding,no-pty #{key_contents}"
+    "command=\"/home/svn/bin/svnserve_wrapper -t --tunnel-user=#{username} #{virtual_root}\",no-port-forwarding,no-agent-forwarding,no-X11-forwarding,no-pty #{key_contents}"
   end
 
   def key_entries(ssh_keys)
@@ -55,37 +55,37 @@ class AuthorizedKeysFile
   # @return [nil]
   #
   def create(ssh_keys=[])
-    Rails.logger.debug("Initializing authorized_keys file: #{file_path()}")
+    Rails.logger.debug("Initializing authorized_keys file: #{file_path}")
 
     FileUtils.mkdir_p(@ssh_dir) unless File.exists?(@ssh_dir)
     FileUtils.chmod(0770, @ssh_dir)
 
-    FileUtils.touch(file_path()) unless File.exists?(file_path())
-    App.call_os_cmd("chmod 0660 #{file_path()}")
+    FileUtils.touch(file_path) unless File.exists?(file_path)
+    App.call_os_cmd("chmod 0660 #{file_path}")
 
     # TODO
     # FileUtils.chmod doesn't set correct permissions
     # FileUtils.chmod(0660, authorized_keys_file())
-    App.call_os_cmd("chgrp #{@app_group} #{file_path()}")
+    App.call_os_cmd("chgrp #{@app_group} #{file_path}")
 
     self.write(ssh_keys)
 
-    if File.exists?(file_path())
-      Rails.logger.debug("authorized_keys file initialization: [   OK   ]")
+    if File.exists?(file_path)
+      Rails.logger.debug('authorized_keys file initialization: [   OK   ]')
     else
-      Rails.logger.debug("authorized_keys file initialization: [ FAILED ]")
+      Rails.logger.debug('authorized_keys file initialization: [ FAILED ]')
     end
   end
 
   def write(ssh_keys)
-    unless File.exists?(file_path())
-      Rails.logger.warn("Required file does not exist: #{file_path()}")
-      create()
+    unless File.exists?(file_path)
+      Rails.logger.warn("Required file does not exist: #{file_path}")
+      create
     end
 
-    Rails.logger.debug("Writing authorized_keys file: #{file_path()}")
+    Rails.logger.debug("Writing authorized_keys file: #{file_path}")
 
-    File.open(file_path(), "w") do |f|
+    File.open(file_path, "w") do |f|
       f.flock(File::LOCK_EX)
       f.puts(key_entries(ssh_keys))
       f.flock(File::LOCK_UN)
