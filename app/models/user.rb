@@ -42,21 +42,21 @@ class User < ActiveRecord::Base
   
   def ensure_not_space_owner
     if !spaces_owned(true).empty?
-      errors.add_to_base("Can't delete; user owns spaces: [#{spaces_owned.map(&:name)}]")
+      errors.add(:base, "Can't delete; user owns spaces: [#{spaces_owned.map(&:name)}]")
       false
     end
   end
 
   def ensure_not_space_administrator
     if !self.spaces_administered(true).empty?
-      errors.add_to_base("Can't delete; user administers spaces: [#{spaces_administered.map(&:name)}]")
+      errors.add(:base, "Can't delete; user administers spaces: [#{spaces_administered.map(&:name)}]")
       false
     end
   end
 
   def ensure_not_collaborator
     if !collaborations(true).empty?
-      errors.add_to_base("Can't delete; user collaborates on: #{repositories(true).map(&:name)}")
+      errors.add(:base, "Can't delete; user collaborates on: #{repositories(true).map(&:name)}")
       false
     end    
   end

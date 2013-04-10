@@ -110,7 +110,7 @@ class Space < ActiveRecord::Base
   #
   def ensure_has_no_repositories
     if !repositories(true).empty?
-      errors.add_to_base("Error: must delete all repositories before space can be deleted.")
+      errors.add(:base, "Error: must delete all repositories before space can be deleted.")
       false
     end
   end

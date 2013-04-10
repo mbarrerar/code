@@ -11,13 +11,22 @@
 
     <body>
         <%= render('layouts/site_banner') %>
-        <%= flash_messages %>
-        <%= bread_crumbs %>
 
-        <div class='container-fluid'>
-            <%= yield %>
-            <footer><%= App::VERSION %></footer>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <%= flash_messages %>
+                    <%= bread_crumbs %>
+                </div>
+
+                <div class="span12">
+                    <%= yield %>
+                    <footer><%= App::VERSION %></footer>
+                </div>
+            </div>
         </div>
+
+
 
         <%= javascript_include_tag("application") %>
         <%= yield(:page_javascript) %>

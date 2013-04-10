@@ -59,6 +59,9 @@ GEM
       multi_json (~> 1.0)
     factory_girl (4.1.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
     ffi (1.3.1)
     fuubar (1.1.0)
       rspec (~> 2.0)
@@ -212,11 +215,11 @@ DEPENDENCIES
   database_cleaner
   exception_notification (~> 2.6.1)
   execjs
-  factory_girl (~> 4.1.0)
+  factory_girl_rails (~> 4.1.0)
   fuubar (~> 1.1.0)
   jquery-datatables-rails
   jquery-rails (~> 2.1.3)
-  jruby-jars", "~> 1.7.2
+  jruby-jars (~> 1.7.2)
   launchy
   omniauth (~> 1.0.3)
   omniauth-cas (~> 0.0.6)

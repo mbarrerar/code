@@ -13,11 +13,12 @@ gem 'fuubar', '~> 1.1.0'
 gem 'active_attr'
 gem 'strong_parameters'
 gem 'warbler'
+gem 'jquery-datatables-rails'
 gem 'exception_notification', '~> 2.6.1', :require => 'exception_notifier'
 
 
 platforms :jruby do
-  gem 'jruby-jars", "~> 1.7.2'
+  gem 'jruby-jars', '~> 1.7.2'
   gem 'activerecord-jdbc-adapter'
   gem 'activerecord-jdbcpostgresql-adapter'
 end
@@ -28,26 +29,32 @@ platforms :ruby do
 end
 
 
-group :test, :development do
-  gem 'capybara', '~> 1.1.2'
-  gem 'factory_girl', '~> 4.1.0'
-  gem 'launchy'
-  gem 'simplecov'
-  gem 'simplecov-rcov'
-  gem 'database_cleaner'
-  gem 'capybara-webkit' if ENV['WEBKIT']
-
-  gem 'rspec_junit_formatter'
-  gem 'rspec-rails', '~> 2.11.4'
+group :development do
   gem 'thin', :platforms => :ruby
   gem 'quiet_assets'
+end
+
+
+group :test, :development do
+  gem 'rspec-rails', '~> 2.11.4'
+end
+
+
+group :test do
+  gem 'capybara', '~> 1.1.2'
+  gem 'factory_girl_rails', '~> 4.1.0'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'capybara-webkit' if ENV['WEBKIT']
+  gem 'rspec_junit_formatter'
+  gem 'simplecov'
+  gem 'simplecov-rcov'
 end
 
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'jquery-datatables-rails'
   gem 'uglifier', '1.0.3'
   gem 'bootstrap-sass', '~> 2.3'
   gem 'sass-rails', '~> 3.2'

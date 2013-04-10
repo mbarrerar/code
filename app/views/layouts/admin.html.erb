@@ -24,9 +24,9 @@
             </div>
 
             <%= yield %>
-        </div>
 
-        <footer><%= App::VERSION %></footer>
+            <footer class='pull-right'><%= App::VERSION %></footer>
+        </div>
 
         <%= javascript_include_tag("application") %>
         <%= yield(:page_javascript) %>

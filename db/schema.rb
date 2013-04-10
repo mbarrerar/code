@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110717231223) do
+ActiveRecord::Schema.define(:version => 20130409213558) do
 
   create_table "collaborations", :force => true do |t|
     t.integer  "repository_id",                     :null => false
@@ -28,12 +28,13 @@ ActiveRecord::Schema.define(:version => 20110717231223) do
 
   create_table "repositories", :force => true do |t|
     t.integer  "space_id"
-    t.string   "name",                                     :null => false
+    t.string   "name",                                           :null => false
     t.text     "description"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
-    t.integer  "actual_size",  :limit => 8, :default => 0
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.integer  "actual_size",    :limit => 8, :default => 0
     t.datetime "committed_at"
+    t.boolean  "uses_hudson_ci",              :default => false, :null => false
   end
 
   add_index "repositories", ["space_id"], :name => "index_repos_on_space_id"

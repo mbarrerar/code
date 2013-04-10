@@ -170,8 +170,8 @@ class UcbSvn
   # @return [nil]
   #    
   def self.rename_repository(space_name, old_repo_name, new_repo_name)
-    old_repo_dir = repository_dir(space_name, old_repo_name)
-    new_repo_dir = repository_dir(space_name, new_repo_name)
+    old_repo_dir = repository_dir(space_name, old_repo_name).to_s
+    new_repo_dir = repository_dir(space_name, new_repo_name).to_s
     FileUtils.mv(old_repo_dir, new_repo_dir)
   end
   
@@ -184,8 +184,8 @@ class UcbSvn
   # @return [nil]
   #    
   def self.move_repository(repo_name, old_space_name, new_space_name)
-    old_repo_dir = repository_dir(old_space_name, repo_name)
-    new_repo_dir = repository_dir(new_space_name, repo_name)
+    old_repo_dir = repository_dir(old_space_name, repo_name).to_s
+    new_repo_dir = repository_dir(new_space_name, repo_name).to_s
     FileUtils.mv(old_repo_dir, new_repo_dir)
   end
 
