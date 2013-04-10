@@ -2,9 +2,7 @@ require 'spec_helper'
 
 
 describe 'HudsonSshKey class methods' do
-  after(:all) do
-    FileUtils.rm(AuthorizedKeysFile.new.file_path)
-  end
+  after(:all) { FileUtils.rm(AuthorizedKeysFile.new.file_path) }
 
   context 'new' do
     it 'should be of type HudsonSshKey' do

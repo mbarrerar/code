@@ -1,9 +1,9 @@
 class AuthorizedKeysFile
 
-  def initialize(config=APP_CONFIG)
-    @svn_root = Pathname.new(config["svn_root"])
-    @ssh_dir = Pathname.new(config["ssh_dir"])
-    @app_group = config["app_group"]
+  def initialize(config=AppConfig)
+    @svn_root = Pathname.new(config.svn_root)
+    @ssh_dir = Pathname.new(config.ssh_dir)
+    @app_group = config.app_group
   end
 
   def ssh_dir

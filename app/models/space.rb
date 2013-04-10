@@ -7,19 +7,19 @@ class Space < ActiveRecord::Base
   has_many :deploy_keys, :as => :ssh_key_authenticatable, :class_name => "SshKey", :dependent => :delete_all
   has_many :repositories, :order => :name
   has_many :administrations, :dependent => :delete_all, :class_name => 'SpaceAdministration'
-  has_many :administrators, :through => :administrations, :source => :user, :order => "users.full_name"
+  has_many :administrators, :through => :administrations, :source => :user, :order => "full_name"
   belongs_to :owner, :class_name => "User", :foreign_key => :owner_id
-  
+
   after_create :create_svn_space
   after_update :update_svn_space
   before_destroy :ensure_has_no_repositories
   after_destroy :delete_svn_space
-  
+
   validates_presence_of :name, :owner_id
   validates_format_of :name, :with => App::ENTITY_NAME_REGEXP, :allow_blank => true,
       :message => App::ENTITY_NAME_REGEXP_ERROR_MESSAGE
   validates_uniqueness_of :name, :allow_blank => true
-  
+
 
   def <=>(other_space)
     self.name.downcase <=> other_space.name.downcase
@@ -32,11 +32,11 @@ class Space < ActiveRecord::Base
   def owner_email
     owner.email
   end
-  
+
   def owned_by?(user)
     user == owner
   end
-  
+
   def actual_size
     repositories.inject(0) { |sum, r| sum += r.actual_size }
   end
@@ -49,7 +49,11 @@ class Space < ActiveRecord::Base
   def non_admins
     User.all - administrators
   end
-  
+
+  def authorized_keys_file
+    @authz_keys_file ||= AuthorizedKeysFile.new
+  end
+
   ##
   # Each space has its owner deploy user which gets its own
   # key entries in authorized_keys, this is the name of the
@@ -63,7 +67,7 @@ class Space < ActiveRecord::Base
 
   def delete_svn_space
     UcbSvn.delete_space(name)
-    SshKey.write_authorized_keys_file(true)
+    authorized_keys_file.write(SshKey.all)
   end
 
   def create_svn_space
@@ -71,14 +75,14 @@ class Space < ActiveRecord::Base
     # Space owner automatically gets added as an administrator
     administrations.create(:user => owner)
   end
-  
+
   def update_svn_space
     return if !name_changed? && !owner_id_changed?
 
     if name_changed?
       UcbSvn.rename_space(name_was, name)
       update_post_commit_hook_files
-      SshKey.write_authorized_keys_file(true)
+      authorized_keys_file.write(SshKey.all)
     end
 
     if owner_id_changed?
@@ -110,7 +114,7 @@ class Space < ActiveRecord::Base
   #
   def ensure_has_no_repositories
     if !repositories(true).empty?
-      errors.add(:base, "Error: must delete all repositories before space can be deleted.")
+      errors.add(:base, 'Error: must delete all repositories before space can be deleted.')
       false
     end
   end
@@ -123,7 +127,7 @@ class Space < ActiveRecord::Base
   # @param [Hash]
   #
   def update_administrators_from_params(creator, params = {})
-    raise(ArgumentError, "creator cannot be nil") unless creator
+    raise(ArgumentError, 'creator cannot be nil') unless creator
 
     ids_to_delete = params.inject([]) do |ids, (id,admin)|
       if id.match(/^\d+$/) && admin.blank? && (id.to_i != owner.id)
@@ -166,7 +170,7 @@ class Space < ActiveRecord::Base
   # Predicate that determines if the user is an administrator of the space.
   #
   # @param [Space]
-  # @param [User]    
+  # @param [User]
   # @return [Boolean]
   #
   def self.administrator?(space, user)
@@ -182,4 +186,5 @@ class Space < ActiveRecord::Base
   def self.confirmation_required?(space)
     (space.name_was != space.name) ? true : false
   end
+
 end

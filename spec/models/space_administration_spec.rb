@@ -2,41 +2,38 @@ require 'spec_helper'
 
 
 describe SpaceAdministration do
-  before(:each) do
-    @admin = FactoryGirl.build(:space_administration)
+  let(:admin) { FactoryGirl.build(:space_administration) }
+
+  it 'should be valid' do
+    admin.should be_valid
   end
 
-
-  it "should be valid" do
-    @admin.should be_valid
+  it 'should require a space' do
+    admin.space = nil
+    admin.should have_at_least(1).error_on(:space_id)
   end
 
-  it "should require a space" do
-    @admin.space = nil
-    @admin.should have_at_least(1).error_on(:space_id)
+  it 'should require a user' do
+    admin.user = nil
+    admin.should have_at_least(1).error_on(:user_id)
   end
 
-  it "should require a user" do
-    @admin.user = nil
-    @admin.should have_at_least(1).error_on(:user_id)
-  end
-
-  it "should require an active user" do
-    @admin.user.update_attribute(:active, false)
-    @admin.should have_at_least(1).error_on(:user_id)
+  it 'should require an active user' do
+    admin.user.update_attribute(:active, false)
+    admin.should have_at_least(1).error_on(:user_id)
   end
 end
 
 
-describe "SpaceAdministration instance methods" do
-  def svn_service()
+describe 'SpaceAdministration instance methods' do
+  def svn_service
     UcbSvn
   end
 
 
-  context "write_repositories_authz_files" do
-    it "should update the authz file for all repos in the space" do
-      steven = FactoryGirl.create(:user, :username => "runner")
+  context 'write_repositories_authz_files' do
+    it 'should update the authz file for all repos in the space' do
+      steven = FactoryGirl.create(:user, :username => 'runner')
       space = FactoryGirl.create(:space)
 
       repo1 = FactoryGirl.create(:repository, :space => space)
@@ -44,7 +41,7 @@ describe "SpaceAdministration instance methods" do
 
       space.administrators.should_not include(steven)
       admin = space.administrations.build(:user => steven)
-      admin.save()
+      admin.save
       space.administrators(true).should include(steven)
 
       repo1_authz = svn_service.repository_authz_file(space.name(), repo1.name())

@@ -1,6 +1,7 @@
 class HudsonSshKey < SshKey
+  after_initialize :init_authenticable_type
 
-  def after_initialize
+  def init_authenticable_type
     self.ssh_key_authenticatable_type = self.class.name
     self.ssh_key_authenticatable_id = self.class.hudson_id
   end
@@ -10,11 +11,12 @@ class HudsonSshKey < SshKey
   end
 
   def self.all
-    self.where(:ssh_key_authenticatable_type => self.name, :ssh_key_authenticatable_id => self.hudson_id)
+    self.where(:ssh_key_authenticatable_type => self.name,
+               :ssh_key_authenticatable_id => self.hudson_id)
   end
 
   def self.username
-    "app_hudson"
+    'app_hudson'
   end
 
   def self.hudson_id
@@ -22,6 +24,8 @@ class HudsonSshKey < SshKey
   end
 
   def self.find_hudson_key(id)
-    where(:id => id, :ssh_key_authenticatable_type => self.name, :ssh_key_authenticatable_id => self.hudson_id).first
+    where(:id => id,
+          :ssh_key_authenticatable_type => self.name,
+          :ssh_key_authenticatable_id => self.hudson_id).first
   end
 end

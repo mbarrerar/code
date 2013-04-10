@@ -2,63 +2,52 @@ require 'spec_helper'
 
 
 describe 'Collaboration validation' do
-  before(:each) do
-    @collab = FactoryGirl.create(:collaboration)
-  end
-  
-  
+  let(:collaboration) { FactoryGirl.create(:collaboration) }
+
   it 'should be valid' do
-    @collab.should be_valid
+    collaboration.should be_valid
   end
   
   it 'should require a repository' do
-    @collab.repository_id = nil
-    @collab.should have_at_least(1).error_on(:repository_id)
+    collaboration.repository_id = nil
+    collaboration.should have_at_least(1).error_on(:repository_id)
   end
   
   it 'should require a user' do
-    @collab.user = nil
-    @collab.should have_at_least(1).error_on(:user_id)
+    collaboration.user = nil
+    collaboration.should have_at_least(1).error_on(:user_id)
   end
   
   it 'should require a permission' do
-    @collab.permission = nil
-    @collab.should have_at_least(1).error_on(:permission)
+    collaboration.permission = nil
+    collaboration.should have_at_least(1).error_on(:permission)
   end
 
   it 'should require the permission to be \'commit\' or \'read\'' do
-    @collab.permission = 'hat'
-    @collab.should have_at_least(1).error_on(:permission)
+    collaboration.permission = 'hat'
+    collaboration.should have_at_least(1).error_on(:permission)
 
-    @collab.permission = Permission::COMMIT
-    @collab.should have_at_least(0).error_on(:permission)
+    collaboration.permission = Permission::COMMIT
+    collaboration.should have_at_least(0).error_on(:permission)
 
-    @collab.permission = Permission::READ
-    @collab.should have_at_least(0).error_on(:permission)
+    collaboration.permission = Permission::READ
+    collaboration.should have_at_least(0).error_on(:permission)
   end
 
   it 'should require a created_by user' do
-    @collab.created_by_id = nil
-    @collab.should have_at_least(1).error_on(:created_by_id)
-  end
-
-  it 'should not allow space administrators to be added as collaborators' do
-    collab = FactoryGirl.build(:collaboration)
-    space = collab.repository.space()
-
-    collab.user_id = space.owner.id
-    collab.should have_at_least(1).error_on(:user_id)
+    collaboration.created_by_id = nil
+    collaboration.should have_at_least(1).error_on(:created_by_id)
   end
 
   it 'should require an active user' do
-    @collab.user.update_attribute(:active, false)
-    @collab.should have_at_least(1).error_on(:user_id)
+    collaboration.user.update_attribute(:active, false)
+    collaboration.should have_at_least(1).error_on(:user_id)
   end
 end
 
 
 describe 'Collaboration instance methods' do
-  context 'repository_authz_entry()' do
+  context 'repository_authz_entry' do
     it 'should return the contents for the repository authz file' do
       steven = FactoryGirl.create(:user, :username => 'steven')
       collaboration = Collaboration.new(:permission => Permission::COMMIT, :user => steven)
@@ -75,13 +64,13 @@ describe 'Collaboration instance methods' do
   end
 
   it 'should know if it is a commit permission' do
-    collab = FactoryGirl.create(:collaboration, :permission => Permission::COMMIT)
-    collab.commit?.should be_true
+    collaboration = FactoryGirl.create(:collaboration, :permission => Permission::COMMIT)
+    collaboration.commit?.should be_true
   end
 
   it 'should know if it is a read permission' do
-    collab = FactoryGirl.create(:collaboration, :permission => Permission::READ)
-    collab.read?.should be_true
+    collaboration = FactoryGirl.create(:collaboration, :permission => Permission::READ)
+    collaboration.read?.should be_true
   end
 end
 

@@ -2,7 +2,6 @@ class AppConfig
   VERSION = "1.10"
 
   @conf = YAML::load(ERB.new(IO.read("#{Rails.root}/config/config.yml")).result)[Rails.env].symbolize_keys!
-  #@conf = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys!
   @conf[:version] = VERSION
 
   def self.[](key)
@@ -23,6 +22,10 @@ class AppConfig
 
   def self.svn_root
     @conf.fetch(:svn_root)
+  end
+
+  def self.ssh_dir
+    @conf.fetch(:ssh_dir)
   end
 
   def self.app_user

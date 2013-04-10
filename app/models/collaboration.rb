@@ -12,16 +12,11 @@ class Collaboration < ActiveRecord::Base
   delegate :name, :to => :repository, :prefix => true
   delegate :username, :full_name, :admin, :active, :to => :user
 
+  before_validation :ensure_active_user
 
-  def validate
-    if repository.space.administrations(true).map(&:user_id).include?(user_id)
-      errors.add(:user_id, 'Administrators cannot be added as collaborators')
-      false
-    end
-
+  def ensure_active_user
     unless user.try(:active?)
-      errors.add(:user_id, 'Invalid Administrator: user is not active')
-      false
+      errors.add(:user_id, 'User is not active')
     end
   end
 
