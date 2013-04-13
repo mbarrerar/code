@@ -1,19 +1,18 @@
 module UcbAuthentication
   extend ActiveSupport::Concern
 
-  def ensure_authenticated
+  def ensure_authenticated_user
     unless authenticator.authenticated?
       session[:original_url] = request.env['REQUEST_URI']
       redirect_to(login_url)
     end
   end
 
-  def ensure_authorized
+  def ensure_authorized_user
     if authorizer.authorized?
       @current_user = authorizer.user
     else
-      # render("/application/not_authorized", :status => 403)
-      render(:text => "Not Authorized", :status => 403)
+      render(:text => 'Not Authorized', :status => 403)
     end
   end
 

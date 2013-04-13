@@ -1,14 +1,14 @@
-.simple_form label {
-    font-weight: bold;
-}
+/*.simple_form label {*/
+    /*font-weight: bold;*/
+/*}*/
 
-.simple_form .controls label {
-    font-weight: normal;
-}
+/*.simple_form .controls label {*/
+    /*font-weight: normal;*/
+/*}*/
 
-.simple_form span[class="radio inline"] > label {
-    margin-right: 10px;
-}
+/*.simple_form span[class="radio inline"] > label {*/
+    /*margin-right: 10px;*/
+/*}*/
 
 abbr[title='required'] {
     color: red;

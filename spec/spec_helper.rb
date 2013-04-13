@@ -25,6 +25,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.include FactoryGirl::Syntax::Methods
+  config.include LoginHelper
 
   # config.filter_run :focus => true
   # config.run_all_when_everything_filtered = true
@@ -43,3 +44,5 @@ RSpec.configure do |config|
     UcbSvnCleanupHelper.remove_all
   end
 end
+
+

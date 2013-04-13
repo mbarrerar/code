@@ -9,7 +9,7 @@ CodeRails3::Application.routes.draw do
   match '/force_login' => 'sessions#create', :as => 'force_login'
   match '/logout' => 'sessions#destroy', :as => 'logout'
   match '/auth/cas/callback' => 'sessions#create'
-  match '/auth/failure' => "sessions#failure"
+  match '/auth/failure' => 'sessions#failure'
 
   match '/repository_directory' => 'repository_directory#index', :as => 'repository_directory'
   match '/repository_directory/:id' => 'repository_directory#show/:id', :as => 'repository_info'
@@ -25,7 +25,7 @@ CodeRails3::Application.routes.draw do
     end
 
     resources :collaborations, :except => [:new, :create, :destroy],
-              :as => "collaborators", :controller => "repository_collaborators", :requirements => { :id => /.?/ } do
+              :as => 'collaborators', :controller => 'repository_collaborators', :requirements => { :id => /.?/ } do
       collection do
         get :edit
         post :update
@@ -41,14 +41,14 @@ CodeRails3::Application.routes.draw do
 
     resources :repositories, :controller => 'space_repositories'
     resources :space_administrations, :except => [:new, :create, :destroy],
-              :as => "administrators", :controller => "space_administrators", :requirements => { :id => /.?/ } do
+              :as => 'administrators', :controller => 'space_administrators', :requirements => { :id => /.?/ } do
       collection do
         get :edit
         post :update
         get :index
       end
 
-      resources :deploy_keys, :except => "show", :as => "deploy_keys", :controller => "space_deploy_keys"
+      resources :deploy_keys, :except => 'show', :as => 'deploy_keys', :controller => 'space_deploy_keys'
     end
   end
 
@@ -68,21 +68,21 @@ CodeRails3::Application.routes.draw do
         get :login
       end
       resources :ssh_keys, :except => :show
-      resources :collaborations, :only => [:index], :as => "permissions", :controller => 'user_permissions'
+      resources :collaborations, :only => [:index], :as => 'permissions', :controller => 'user_permissions'
     end
 
     resources :spaces do
       resources :repositories, :controller => 'space_repositories'
       resources :space_administrations, :except => [:new, :create, :destroy],
-                :as => "administrators", :controller => "space_administrators", :requirements => { :id => /.?/ } do
+                :as => 'administrators', :controller => 'space_administrators', :requirements => { :id => /.?/ } do
         collection do
           get :edit
           post :update
           get :index
         end
       end
-      resources :deploy_keys, :controller => "space_deploy_keys", :except => "show" do
-        resources :collaborations, :only => [:index], :as => "permissions", :controller => 'user_permissions'
+      resources :deploy_keys, :controller => 'space_deploy_keys', :except => 'show' do
+        resources :collaborations, :only => [:index], :as => 'permissions', :controller => 'user_permissions'
       end
     end
 
@@ -93,7 +93,7 @@ CodeRails3::Application.routes.draw do
       end
 
       resources :collaborations, :except => [:new, :create, :destroy],
-                :controller => "repository_collaborators", :requirements => { :id => /.?/ } do
+                :controller => 'repository_collaborators', :requirements => { :id => /.?/ } do
         collection do
           get :edit
           post :update
@@ -110,7 +110,7 @@ CodeRails3::Application.routes.draw do
     match '/web_data_loader/:action' => 'api/web_data_loader#:action'
     #match '/user_stats/:action/:username' => "api/user_stats#:action",
     #              :requirements => { :username => %r([^/;,?]+) }
-    match '/repository_stats/:action/:space_name/:repo_name' => "api/repository_stats#:action"
+    match '/repository_stats/:action/:space_name/:repo_name' => 'api/repository_stats#:action'
   end
 
   match '/cron_jobs/send_email' => 'cron_jobs#send_email'

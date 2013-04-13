@@ -4,7 +4,19 @@ h1 {
 }
 
 h2 {
+  font-size: 1.4em;
+}
+
+h3 {
   font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: .8em;
 }
 
 body .container {
@@ -18,13 +30,13 @@ textarea,
   width: 400px;
 }
 
-.navbar .nav {
-  position: relative;
-  left: 0;
-  display: block;
-  float: right;
-  margin: 0 10px 0 0;
-}
+//.navbar .nav {
+//  position: relative;
+//  left: 0;
+//  display: block;
+//  float: right;
+//  margin: 0 10px 0 0;
+//}
 
 fieldset {
   margin-bottom: 3em;
@@ -42,9 +54,9 @@ hr {
   color: black;
 }
 
-.brand-wrapper {
-  margin-left: 1.5em;
-}
+//.brand-wrapper {
+//  margin-left: 1.5em;
+//}
 
 #app-version {
   margin: 1em;

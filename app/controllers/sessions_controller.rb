@@ -1,6 +1,10 @@
+require 'ostruct'
+
 class SessionsController < ApplicationController
-  skip_before_filter :ensure_authenticated
-  skip_before_filter :ensure_authorized
+  skip_before_filter :ensure_authenticated_user
+  skip_before_filter :ensure_authorized_user
+  before_filter :ensure_omniauth_attributes, :only => :create
+  # skip_before_filter :check_browser
   # skip_before_filter :record_last_access
 
   def new
@@ -8,28 +12,37 @@ class SessionsController < ApplicationController
   end
 
   def create
-    session[:ldap_uid] = auth_attributes.uid
-    redirect_to(session[:original_url] || root_path)
-  end
-
-  def force_create
-    session[:ldap_uid] = params[:ldap_uid] if Rails.env.test?
+    session[:ldap_uid] = omniauth_attributes.uid
     redirect_to(session[:original_url] || root_path)
   end
 
   def destroy
     reset_session
-    redirect_to('%s?url=%s' % [AppConfig.cas_logout, root_path])
+    # must be root_url for CAS re-login to work
+    redirect_to('%s?url=%s' % [AppConfig.cas_logout, root_url])
   end
 
   def failure
-    Rails.logger.debug("Authentication Failed for: #{auth_attributes}")
+    Rails.logger.debug("Authentication Failed for: #{omniauth_attributes}")
     render(:text => 'Not Authorized', :status => 401)
   end
 
   protected
 
-  def auth_attributes
-    request.env['omniauth.auth']
+  def ensure_omniauth_attributes
+    unless request.env['omniauth.auth'].nil?
+      redirect_to(root_path)
+    end
+  end
+
+  def omniauth_attributes
+    unless @omniauth_attributes
+      @omniauth_attributes = if Rails.env.test?
+                               OpenStruct.new(:uid => params[:ldap_uid])
+                             else
+                               request.env['omniauth.auth']
+                             end
+    end
+    @omniauth_attributes
   end
 end

@@ -12,6 +12,16 @@ module ApplicationHelper
     yield unless logged_in?
   end
 
+  def form_actions(&block)
+    content_tag(:div, :class => 'form-actions') do
+      yield
+    end
+  end
+
+  def save_button(f)
+    f.button(:submit, 'Save', :class => 'btn-primary', :disable_with => 'Saving ...')
+  end
+
   def create_or_update(form, entity_name = nil)
     if !entity_name
       entity_name = form.object.class.name.titleize
@@ -20,43 +30,43 @@ module ApplicationHelper
     form.object.new_record? ? "Create #{entity_name}" : "Update #{entity_name}"
   end
 
-  def link_to_delete(ar_instance, html_options = { })
+  def link_to_delete(ar_instance, html_options = {})
     default_options = { :confirm => 'Are you sure?', :method => :delete, :class => "mini_button_widget" }
     link_to("Delete", ar_instance, default_options.merge!(html_options))
   end
 
-  def link_to_new(name, options = { }, html_options = { })
+  def link_to_new(name, options = {}, html_options = {})
     html_options.merge!(:class => "btn btn-primary btn-small")
     link_to(name, options, html_options) + content_tag(:br)
   end
 
-  def link_to_cancel(options = { }, html_options = { })
+  def link_to_cancel(options = {}, html_options = {})
     html_options.merge!(:class => "cancel_button")
     link_to("Cancel", options, html_options)
   end
 
-  def link_to_edit(options = { }, html_options = { })
+  def link_to_edit(options = {}, html_options = {})
     default_options = { :class => "btn btn-mini" }
-    name            = "<i class='icon-edit'></i> edit".html_safe
+    name = "<i class='icon-edit'></i> edit".html_safe
     link_to(name, options, default_options.merge!(html_options))
   end
 
   def link_to_disk_reload(space_name, repo_name)
     url = url_for(:controller => "api/repository_stats",
-                  :action     => "calc_disk_usage",
+                  :action => "calc_disk_usage",
                   :space_name => space_name,
-                  :repo_name  => repo_name)
+                  :repo_name => repo_name)
     name = "<i class='icon-refresh'></i> ".html_safe
     link_to(name, url)
   end
 
-  def link_to_admin(options = { }, html_options = { })
+  def link_to_admin(options = {}, html_options = {})
     default_options = { :class => "mini_button_widget" }
     link_to("Admin", options, default_options.merge!(html_options))
   end
 
-  def delete_button_to(ar_instance, options = { }, html_options = { })
-    label           = options.delete(:label) || "Delete #{ar_instance.class.name.humanize}"
+  def delete_button_to(ar_instance, options = {}, html_options = {})
+    label = options.delete(:label) || "Delete #{ar_instance.class.name.humanize}"
     default_options = { :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger" }
     link_to(label, ar_instance, default_options.merge!(html_options))
   end
@@ -80,11 +90,7 @@ module ApplicationHelper
   # @return [String] the checkbox
   #
   def boolean_check_mark(boolean)
-    if boolean
-      content_tag(:span, image_tag("check.png", :alt => "true", :size => "20x20"))
-    else
-      ""
-    end
+    boolean ? content_tag(:span, image_tag('check.png', :alt => 'true', :size => '20x20')) : ''
   end
 
   def flash_messages
@@ -93,17 +99,17 @@ module ApplicationHelper
     flash.each do |name, msg|
       result << build_message(name, msg)
     end
-    result.join("").html_safe
+    result.join.html_safe
   end
 
   def build_message(msg_type, msg)
     content_tag(:div, :class => "alert alert-#{msg_type.to_s}") do
-      content_tag(:a, 'x', :class => "close", "data-dismiss" => "alert") + msg.html_safe
+      content_tag(:a, 'x', :class => 'close', 'data-dismiss' => 'alert') + msg.html_safe
     end
   end
 
   def nav_li(item, current)
-    link  = link_to(item[:label], item[:url], :id => item[:dom_id])
+    link = link_to(item[:label], item[:url], :id => item[:dom_id])
     klass = current.to_s == item[:id].to_s ? 'current' : ''
     content_tag(:li, link, :class => klass)
   end
@@ -149,7 +155,7 @@ module ApplicationHelper
 
   def ssh_banner
     if current_user.try(:has_no_ssh_keys?)
-      link    = link_to("upload an SSH key", ssh_keys_url)
+      link = link_to("upload an SSH key", ssh_keys_url)
       message = "To use any EZ SVN repositories you need to #{link}."
       content_tag(:div, message, :id => 'ssh_banner')
     end

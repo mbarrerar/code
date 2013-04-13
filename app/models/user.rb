@@ -8,13 +8,11 @@ class User < ActiveRecord::Base
   scope(:admin, :conditions => {:admin => true})
   scope(:administrators, :conditions => {:admin => true})
 
-  attr_accessible :email
-
   has_many :ssh_keys, :as => :ssh_key_authenticatable, :dependent => :delete_all
   has_many :collaborations
   has_many :repositories, :through => :collaborations
   has_many :space_administrations
-  has_many :spaces_owned, :class_name => "Space", :foreign_key => :owner_id
+  has_many :spaces_owned, :class_name => 'Space', :foreign_key => :owner_id
 
   # The owner of a space, is by default always an administrator as well,
   # so this gives us all spaces owned & administered by a given user.

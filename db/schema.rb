@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409213558) do
+ActiveRecord::Schema.define(:version => 20130412221040) do
 
   create_table "collaborations", :force => true do |t|
     t.integer  "repository_id",                     :null => false
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20130409213558) do
     t.boolean  "terms_and_conditions", :default => false, :null => false
     t.datetime "last_svn_access"
     t.datetime "last_login"
+    t.text     "bio"
   end
 
 end

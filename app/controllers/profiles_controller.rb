@@ -4,17 +4,19 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    user.email = params[:user][:email]
-    
-    if user.save
-      flash[:notice] = msg_updated("Profile")
-      redirect_to(edit_profile_url)
+    if user.update_attributes(user_params)
+      redirect_to(edit_profile_url, :flash => { success: msg_updated('Profile') })
     else
       render('edit')
     end
   end
 
+
   protected
+
+  def user_params
+    params.require(:user).permit(:email, :bio)
+  end
 
   def user
     @user ||= current_user

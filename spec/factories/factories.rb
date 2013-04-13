@@ -1,15 +1,5 @@
 
 FactoryGirl.define do
-
-  factory(:user) do
-    sequence(:ldap_uid) { |n| n }
-    sequence(:username) { |n| "username-#{n}" }
-    sequence(:email) { |n| "email-#{n}@email.com" }
-    full_name { "full_name" }
-    active(true)
-    terms_and_conditions(true)
-  end
-
   factory(:repository) do
     association(:space)
     sequence(:name) { |n| "name-#{n}" }

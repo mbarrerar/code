@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   include UcbAuthentication
   include CrudMessage
 
-  before_filter :ensure_authenticated, :except => [:logout, :force_exception]
-  before_filter :ensure_authorized, :except => [:logout, :force_exception]
+  before_filter :ensure_authenticated_user, :except => [:logout, :force_exception]
+  before_filter :ensure_authorized_user, :except => [:logout, :force_exception]
   # before_filter :record_last_access, :except => [:logout, :force_exception, :unknown_route]
 
   helper :layout
