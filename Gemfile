@@ -15,6 +15,7 @@ gem 'strong_parameters'
 gem 'warbler'
 gem 'jquery-datatables-rails'
 gem 'exception_notification', '~> 2.6.1', :require => 'exception_notifier'
+gem 'haml'
 
 
 platforms :jruby do

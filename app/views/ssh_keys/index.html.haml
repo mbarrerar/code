@@ -1,0 +1,22 @@
+= title('SSH Public Keys')
+- set_bread_crumbs('SSH Keys')
+
+= link_to_new('New SSH Key', new_ssh_key_path)
+
+%table#ssh_keys{:class => table_style}
+  %thead
+    %tr
+      %th{:width => '1%'} Actions
+      %th Key Name
+      %th Key Content
+      %th Created At
+  %tbody
+    - if ssh_keys.empty?
+      = render('no_ssh_keys')
+    - else
+      - ssh_keys.each do |key|
+        %tr{:id => dom_id(key)}
+          %td= delete_button(key)
+          %td= key.name
+          %td= text_area_tag('key', key.key, :disabled => true, :cols => 50, :rows => 5)
+          %td= key.created_at.to_s(:mdy)

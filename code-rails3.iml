@@ -46,6 +46,7 @@
     <orderEntry type="library" scope="PROVIDED" name="factory_girl_rails (v4.1.0, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.3.1, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fuubar (v1.1.0, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="haml (v4.0.2, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashie (v1.2.0, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.2, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.1, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />

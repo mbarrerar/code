@@ -1,0 +1,18 @@
+= title('Edit Profile')
+- set_bread_crumbs('Profile')
+
+%blockquote
+  %p= user.full_name
+  %p= user.username
+%hr
+
+= simple_form_for(user, :url => profile_path, :html => { class: 'form-horizontal' }) do |f|
+  = f.input(:email)
+  = f.input(:bio, :input_html => { rows: 7 })
+
+  = form_actions do
+    = save_button(f)
+    %span or
+    = link_to_cancel(dashboard_url)
+
+

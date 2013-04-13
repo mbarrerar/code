@@ -12,21 +12,18 @@
     <body>
         <%= render('layouts/site_banner') %>
 
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span10 offset1">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
                     <%= flash_messages %>
                     <%= bread_crumbs %>
                 </div>
-
-                <div class="span10 offset1">
-                    <%= yield %>
-                    <footer><%= App::VERSION %></footer>
-                </div>
             </div>
+
+            <%= yield %>
+
+            <footer class='pull-right'><%= App::VERSION %></footer>
         </div>
-
-
 
         <%= javascript_include_tag('application') %>
         <%= yield(:page_javascript) %>

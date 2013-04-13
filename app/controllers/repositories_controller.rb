@@ -8,11 +8,11 @@ class RepositoriesController < ApplicationController
 
 
   def index
-    params[:viewing] = "own_or_admin" unless params[:viewing]
+    params[:viewing] = 'own_or_admin' unless params[:viewing]
     @repos = RepositoryLookupService.find_by_viewing(@user, params[:viewing])
-    @search_options = [["You Own or Administer", "own_or_admin"],
-                       ["You Own", "own"],
-                       ["You Administer", "administer"]]
+    @search_options = [['You Own or Administer', 'own_or_admin'],
+                       ['You Own', 'own'],
+                       ['You Administer', 'administer']]
   end
   
   def new

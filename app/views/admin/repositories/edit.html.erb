@@ -1,6 +1,6 @@
 <%= title(repository_title(repository)) %>
 
-<%= render("repository_detail", :repository => repository) %>
+<%= render('repository_detail', :repository => repository) %>
 
 <div class="row-fluid">
     <div class="span3">
@@ -13,7 +13,7 @@
 
             <div class="boxed-group-inner">
                 <%= render('form', :repository => repository, :spaces => spaces) %>
-                <%= delete_button_to([:admin, repository], :label => "Delete this Repository") %>
+                <%= delete_button_to([:admin, repository], :label => 'Delete this Repository') %>
             </div>
         </div>
     </div>

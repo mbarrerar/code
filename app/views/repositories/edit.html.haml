@@ -1,0 +1,18 @@
+= title(repository_title(@repo))
+
+- set_bread_crumbs(:repositories_crumb, edit_repository_crumb(@repo), 'Detail')
+
+= render(:partial => 'repository_detail', :locals => {:repository => @repo})
+
+%div.row-fluid
+  %div.span3
+    = minor_tabs(@repo).html
+  %div.span9
+  %div.boxed-group
+    %h3 Repository Detail
+    %div.boxed-group-inner
+      = render('form', :repository => @repo, :spaces => @spaces)
+      = delete_button_to(@repo, :label => 'Delete this Repository')
+
+
+

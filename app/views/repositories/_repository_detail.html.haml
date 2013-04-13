@@ -1,0 +1,16 @@
+%table#repository_detail{:style => 'text: align-left;', :class => 'table table-bordered table-condensed'}
+  %thead
+    %tr
+      %th Space
+      %th Owner
+  %tbody
+    %tr
+      %td= repository.space.name
+      %td= repository.owner.full_name
+
+
+%div.row-fluid
+  %form.form-horizontal.repository-clone
+    %div.input-prepend
+      %span.add-on SVN URL
+      %input#prependedInput{:type => 'text', :value => repository.url }
