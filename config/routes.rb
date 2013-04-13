@@ -24,8 +24,7 @@ CodeRails3::Application.routes.draw do
       post :confirm_update
     end
 
-    resources :collaborations, :except => [:new, :create, :destroy],
-              :as => 'collaborators', :controller => 'repository_collaborators', :requirements => { :id => /.?/ } do
+    resources :collaborators, :except => [:new, :create, :destroy], :requirements => { :id => /.?/ } do
       collection do
         get :edit
         post :update
@@ -40,16 +39,14 @@ CodeRails3::Application.routes.draw do
     end
 
     resources :repositories, :controller => 'space_repositories'
-    resources :space_administrations, :except => [:new, :create, :destroy],
-              :as => 'administrators', :controller => 'space_administrators', :requirements => { :id => /.?/ } do
+    resources :administrators, :except => [:new, :create, :destroy], :controller => 'space_administrators', :requirements => { :id => /.?/ } do
       collection do
         get :edit
         post :update
         get :index
       end
-
-      resources :deploy_keys, :except => 'show', :as => 'deploy_keys', :controller => 'space_deploy_keys'
     end
+    resources :deploy_keys, :except => 'show', :controller => 'space_deploy_keys'
   end
 
 
@@ -93,7 +90,7 @@ CodeRails3::Application.routes.draw do
       end
 
       resources :collaborations, :except => [:new, :create, :destroy],
-                :controller => 'repository_collaborators', :requirements => { :id => /.?/ } do
+                :controller => 'collaborators', :requirements => { :id => /.?/ } do
         collection do
           get :edit
           post :update

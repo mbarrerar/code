@@ -6,7 +6,6 @@
 %table#repositories{:class => table_style }
   %thead
     %tr
-      %th{:width => '1%'} Actions
       %th Repository
       %th Space
       %th Owner
@@ -14,8 +13,7 @@
   %tbody
     - @repos.each do |repo|
       %tr{:id => dom_id(repo) }
-        %td= link_to_admin(edit_repository_path(repo))
-        %td= repo.name
+        %td= link_to(repo.name, edit_repository_path(repo))
         %td= repo.space.name
         %td= repo.owner.full_name
         %td= repo.committed_at.try(:to_s, :mdy)

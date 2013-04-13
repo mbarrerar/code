@@ -1,13 +1,13 @@
 /*.simple_form label {*/
-    /*font-weight: bold;*/
+/*font-weight: bold;*/
 /*}*/
 
 /*.simple_form .controls label {*/
-    /*font-weight: normal;*/
+/*font-weight: normal;*/
 /*}*/
 
 /*.simple_form span[class="radio inline"] > label {*/
-    /*margin-right: 10px;*/
+/*margin-right: 10px;*/
 /*}*/
 
 abbr[title='required'] {
@@ -32,9 +32,10 @@ abbr[title='required'] {
 
 .boxed-group h3 {
     padding-left: 10px;
-    background-color: #ddd;
+    background-color: #eee;
     margin-top: 0;
     font-size: 15px;
+    border-bottom: 1px solid #ddd;
 }
 
 .invitation {

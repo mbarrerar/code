@@ -1,0 +1,9 @@
+= simple_form_for(@space) do |f|
+  = f.input(:name)
+  = f.input(:description, :input_html => { :rows => 3, :columns => 10 })
+  = size_display(f)
+
+  = form_actions do
+    = save_button(f)
+    %span or
+    = link_to_cancel(spaces_url)

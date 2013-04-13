@@ -1,0 +1,11 @@
+= simple_form_for([:admin, repository]) do |f|
+  = f.input(:owner_name, :disabled => true, :label => 'Owner')
+  = f.input(:space_id, :required => true, :as => :select, :collection => spaces, :prompt => 'Select One')
+  = f.input(:name)
+  = f.input(:description, :input_html => { :rows => 4, :columns => 10 })
+
+  = form_actions do
+    = save_button(f)
+    %span or
+    = link_to_cancel(admin_repositories_path)
+

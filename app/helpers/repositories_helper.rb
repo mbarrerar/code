@@ -1,7 +1,7 @@
 module RepositoriesHelper
 
   def repository_title(repo)
-    "Repository: #{repo.name}"
+    "#{link_to(repo.space.name, space_path(repo.space))} / #{link_to(repo.name, edit_repository_path(repo))}"
   end
 
   # Returns the select options for the 'edit' action
@@ -9,7 +9,7 @@ module RepositoriesHelper
     options = user.spaces.
         all(:order => 'name').
         map { |space| [space.name, space.id] }
-    options << ["Create in NEW Space", 0]
+    options << ['Create in NEW Space', 0]
   end
   
   # Returns repo's current space to populate r/o select for "Old Space"

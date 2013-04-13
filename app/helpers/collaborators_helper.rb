@@ -1,4 +1,4 @@
-module RepositoryCollaboratorsHelper
+module CollaboratorsHelper
   ##
   # Predicate that determines if the user has any permission for the
   # repository.

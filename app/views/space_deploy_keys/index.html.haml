@@ -1,0 +1,27 @@
+= title h("Space: #{@space.name}")
+- set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), "Deploy Keys")
+
+
+
+
+%div.row-fluid
+  %div.span3
+    = minor_tabs(@space).html
+  %div.span9
+    %div.boxed-group
+      %h3 Deploy Keys
+      %div.boxed-group-inner
+        = link_to_new('New Deploy Key', new_space_deploy_key_url(@space))
+        - unless @keys.empty?
+          %table#deploy_keys{ :class => table_style }
+            %thead
+              %tr
+                %th{ :width => '1%'} Actions
+                %th Key Name
+                %th Created At
+            %tbody
+              - @keys.each do |key|
+                %tr{ :id => dom_id(key) }
+                  %td= link_to('Delete', {:action => :destroy, :space_id => @space, :id => key}, :method => :destroy, :remote => true, :class => 'btn btn-mini btn-danger')
+                  %td= key.name
+                  %td= key.created_at.to_s(:mdy)

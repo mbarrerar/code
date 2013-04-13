@@ -65,14 +65,16 @@ module ApplicationHelper
   end
 
   def link_to_admin(options = {}, html_options = {})
-    default_options = { :class => "mini_button_widget" }
-    link_to("Admin", options, default_options.merge!(html_options))
+    default_options = { :class => 'mini_button_widget' }
+    link_to('Admin', options, default_options.merge!(html_options))
   end
 
   def delete_button_to(ar_instance, options = {}, html_options = {})
     label = options.delete(:label) || "Delete #{ar_instance.class.name.humanize}"
-    default_options = { :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger" }
-    link_to(label, ar_instance, default_options.merge!(html_options))
+    default_options = { :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger' }
+    content_tag(:div, :class => 'pull-right', :style => 'margin-top: 4em;') do
+      link_to(label, ar_instance, default_options.merge!(html_options))
+    end
   end
 
   def new_or_create?

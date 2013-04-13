@@ -1,0 +1,14 @@
+= title(space_title(@space))
+
+- set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space))
+
+%div.row-fluid
+  %div.span3
+    = minor_tabs(@space).html
+  %div.span9
+    %div.boxed-group
+      %h3 Space Detail
+      %div.boxed-group-inner
+        = render('form')
+
+    = delete_button_to(@space, :label => 'Delete this Space')

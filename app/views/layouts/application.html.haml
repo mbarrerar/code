@@ -1,0 +1,20 @@
+!!! 5
+%html{ :lang => 'en' }
+  %head
+    = stylesheet_link_tag('application', :media => 'all')
+    = csrf_meta_tag
+    %title= "#{@page_title} - Code@Berkeley"
+
+  %body
+    = render('layouts/site_banner')
+    %div.container
+      %div.row
+        %div.span12
+          = flash_messages
+          = bread_crumbs
+      = yield
+
+      %footer.pull-right= App::VERSION
+
+    = javascript_include_tag('application')
+    = yield(:page_javascript)

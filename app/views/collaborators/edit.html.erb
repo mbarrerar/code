@@ -13,7 +13,7 @@
 </div>
 
 <div class="page_content">
-  <% form_tag(:method => "post", :controller => "repository_collaborators", :action => "update", :id => "") do %>
+  <% form_tag(:method => "post", :controller => "collaborators", :action => "update", :id => "") do %>
       <%= submit_tag("Update Collaborators", :class => "button_widget")  %>
       &nbsp;&nbsp;<%= link_to("&larr; Back", repository_collaborations_url(@repo)) %>
 

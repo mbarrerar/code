@@ -1,0 +1,40 @@
+= title(repository_title(@repo))
+
+- set_bread_crumbs(:repositories_crumb, edit_repository_crumb(@repo), 'Collaborators')
+
+= render(:partial => '/repositories/repository_detail', :locals => {:repository => @repo})
+
+%div.row-fluid
+  %div.span3
+    = minor_tabs(@repo).html
+  %div.span9
+    %div.boxed-group
+      %h3 Collaborators
+      %div.boxed-group-inner
+        = link_to('Edit Collaborators', edit_repository_collaborators_url(@repo, :id => ''), :class => 'btn btn-small btn-primary')
+        %br
+        %br
+        %table#collaborators{ :class => table_style }
+          %thead
+            %tr
+              %th Full Name
+              %th Username
+              %th Email
+              %th Admin?
+              %th Permission
+          %tbody
+            - @administrators.each do |admin|
+              %tr{ :id => dom_id(admin) }
+                %td= admin.full_name
+                %td= admin.username
+                %td= admin.email
+                %td= boolean_check_mark(true)
+                %td= Permission::COMMIT
+
+            - @collaborations.each do |collab|
+              %tr{ :id => dom_id(collab) }
+                %td= collab.user.full_name
+                %td= collab.user.username
+                %td= collab.user.email
+                %td &nbsp;
+                %td= collab.permission
