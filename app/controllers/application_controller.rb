@@ -54,12 +54,4 @@ class ApplicationController < ActionController::Base
   def no_minor_tabs
     @no_minor_tabs = true
   end
-
-  def destroy_notification(record, name = nil)
-    if record.frozen?
-      flash[:notice] = msg_destroyed(name || record)
-    else
-      flash[:error] = record.errors.full_messages
-    end
-  end
 end

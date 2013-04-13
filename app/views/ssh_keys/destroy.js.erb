@@ -1,0 +1,7 @@
+$("tr#<%= dom_id(ssh_key) %>").fadeOut("slow", function() {
+    $(this).remove();
+});
+
+<% if ssh_keys.empty? %>
+  $("<%= j(render('no_ssh_keys')) %>").appendTo("table#ssh_keys tbody");
+<% end %>

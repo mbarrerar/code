@@ -18,6 +18,10 @@ module ApplicationHelper
     end
   end
 
+  def delete_button(object)
+    link_to('Delete', object, :method => :delete, :remote => true, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger')
+  end
+
   def save_button(f)
     f.button(:submit, 'Save', :class => 'btn-primary', :disable_with => 'Saving ...')
   end

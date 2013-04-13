@@ -23,7 +23,7 @@ describe 'User Profile', :type => :request do
       click_on('Save')
 
       page.should have_selector('h1', :text => 'Edit Profile')
-      page.should have_selector('div.control-group.email.error')
+      page.should have_selector('div.control-group.error')
     end
   end
 end

@@ -1,9 +1,0 @@
-<%= simple_form_for(ssh_key, :html => {class: 'form-horizontal'}) do |f| %>
-    <%= f.input(:name) %>
-    <%= f.input(:key, :input_html => { :cols => 60, :rows => 15 }) %>
-
-    <%= f.button(:submit) %>
-    or
-    <%= link_to_cancel(ssh_keys_path) %>
-<% end %>
-

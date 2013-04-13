@@ -1,5 +1,5 @@
-<%= title("Manage Your SSH Public Keys") %>
-<% set_bread_crumbs("SSH Keys") %>
+<%= title('SSH Public Keys') %>
+<% set_bread_crumbs('SSH Keys') %>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -8,32 +8,34 @@
 </script>
 
 
-<%= link_to_new("New SSH Public Key", new_ssh_key_path) %>
-<br/>
-<br/>
+<%= link_to_new('New SSH Key', new_ssh_key_path) %>
 
-<% unless ssh_keys.empty? %>
-    <table id="ssh_keys" class="<%= table_class %>">
-        <thead>
-            <tr>
-                <th width="1%" colspan="2">Actions</th>
-                <th>Key Name</th>
-                <th>Key</th>
-                <th>Created At</th>
+<table id="ssh_keys" class="<%= table_class %>">
+    <thead>
+        <tr>
+            <th width="1%">Actions</th>
+            <th>Key Name</th>
+            <th>Key</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% if ssh_keys.empty? %>
+            <%= render('no_ssh_keys') %>
+        <% end %>
+
+        <% ssh_keys.each do |key| %>
+            <tr id="<%= dom_id(key) %>">
+                <td>
+                    <%= delete_button(key) %>
+                </td>
+                <td><%= h(key.name) %></td>
+                <td><%= text_area_tag('key', key.key, :disabled => true, :cols => 50, :rows => 5) %></td>
+                <td><%= h(key.created_at.to_s(:mdy)) %></td>
             </tr>
-        </thead>
+        <% end %>
+    </tbody>
+</table>
 
-        <tbody>
-            <% ssh_keys.each do |key| %>
-                <tr id="<%= dom_id(key) %>">
-                    <td class='edit'><%= link_to(icon_edit(:text => 'Edit'), edit_ssh_key_url(key)) %></td>
-                    <td class='delete'><%= link_to(icon_delete(:text => 'Delete'), key, :class => 'remote-delete') %></td>
-                    <td><%= h(key.name) %></td>
-                    <td><%= text_area_tag('key', key.key, :disabled => true, :cols => 50, :rows => 5) %></td>
-                    <td><%= h(key.created_at.to_s(:mdy)) %></td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-<% end %>
 

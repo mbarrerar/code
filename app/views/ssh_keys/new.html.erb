@@ -1,4 +1,13 @@
-<%= title("New SSH Public Key") %>
-<% set_bread_crumbs(:ssh_keys_crumb, "New") %>
+<%= title('New SSH Key') %>
+<% set_bread_crumbs(:ssh_keys_crumb, 'New') %>
 
-<%= render('form', :locals => {:ssh_key => ssh_key}) %>
+<%= simple_form_for(ssh_key, :html => {class: 'form-horizontal'}) do |f| %>
+    <%= f.input(:name) %>
+    <%= f.input(:key, :input_html => { :cols => 60, :rows => 15 }) %>
+
+    <%= form_actions do %>
+        <%= save_button(f) %> or
+        <%= link_to_cancel(ssh_keys_path) %>
+    <% end %>
+<% end %>
+
