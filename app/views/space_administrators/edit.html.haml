@@ -3,7 +3,7 @@
 
 - set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), space_administrators_crumb(@space), 'Edit')
 
-%div{ :style => 'text-align: center;' }
+%div
 = render(:partial => '/layouts/invitation')
 
 = form_tag(:method => 'post', :controller => 'space_administrators', :action => 'update', :id => '') do

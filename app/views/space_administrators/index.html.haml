@@ -1,6 +1,6 @@
 = title(space_title(@space))
-
 - set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), 'Administrators')
+= render('spaces/space_owner', :space => @space)
 
 %div.row-fluid
   %div.span3

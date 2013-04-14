@@ -2,6 +2,8 @@
 
 - set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space))
 
+= render('space_owner', :space => @space)
+
 %div.row-fluid
   %div.span3
     = minor_tabs(@space).html
