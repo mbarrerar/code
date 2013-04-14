@@ -9,11 +9,13 @@
       %th Name
       %th Description
       %th Owner
+      %th Created At
   %tbody
     - @spaces.each do |space|
       %tr{ :id => dom_id(space) }
-        %td= link_to(space.name, edit_space_path(space))
+        %td
+          %i.icon-pencil
+          = link_to(space.name, edit_space_path(space))
         %td= truncate(space.description)
         %td= space.owner.try(:full_name)
-
-
+        %td= space.created_at.to_s(:ymd)

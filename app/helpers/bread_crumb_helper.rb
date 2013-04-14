@@ -41,7 +41,7 @@ module BreadCrumbHelper
   end
 
   def space_administrators_crumb(space)
-    link_to('Administrators', space_space_administrations_url(space))
+    link_to('Administrators', space_administrators_url(space))
   end
 
   ###########################################################################

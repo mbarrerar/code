@@ -1,0 +1,23 @@
+= title('Repositories')
+
+= link_to_new('New Repository', new_admin_repository_path)
+
+%table#repositories{ :class => table_style }
+  %thead
+    %tr
+      %th Repo
+      %th Space
+      %th Owner
+      %th Size
+  %tbody
+    - repositories.each do |repo|
+      %tr{ :id => dom_id(repo) }
+        %td
+          %i.icon-pencil
+          = link_to(repo.name, edit_admin_repository_path(repo))
+        %td= link_to(repo.space.name, edit_admin_space_path(repo.space))
+        %td repo.owner.full_name
+        %td.disk_usage
+          = link_to_disk_reload(repo.space_name, repo.name)
+          = image_tag('loading.gif', :size => '17x17', :style => 'vertical-align: bottom;')
+          %span{ :id => "disk_usage_#{repo.id}"}= repo.size_display

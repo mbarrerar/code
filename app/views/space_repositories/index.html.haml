@@ -1,0 +1,27 @@
+= title("Space: #{@space.name}")
+
+- set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), 'Repositories')
+
+%div.row-fluid
+  %div.span3
+    = minor_tabs(@space).html
+  %div.span9
+    %div.boxed-group
+      %h3 Repositories
+      %div.boxed-group-inner
+        = link_to_new('New Repository', new_repository_url(:space_id => @space.id))
+        - unless @repos.empty?
+          %table#spaces{ :class => table_style }
+            %thead
+              %tr
+                %th Repository Name
+                %th Description
+                %th Created At
+            %tbody
+              - @repos.each do |repo|
+                %tr{ :id => dom_id(repo) }
+                  %td
+                    %i.icon-pencil
+                    = link_to(repo.name, edit_repository_path(repo))
+                  %td= truncate(repo.description)
+                  %td= repo.created_at.to_s(:mdy)

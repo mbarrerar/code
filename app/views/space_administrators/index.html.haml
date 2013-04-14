@@ -1,0 +1,28 @@
+= title(space_title(@space))
+
+- set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), 'Administrators')
+
+%div.row-fluid
+  %div.span3
+    = minor_tabs(@space).html
+  %div.span9
+    %div.boxed-group
+      %h3 Space Administrators
+      %div.boxed-group-inner
+        = link_to_new('Edit Administrators', edit_space_administrators_url(@space, :id => ''))
+        - unless @administrations.empty?
+          %table#space_administrations{ :class => table_style }
+            %thead
+              %tr
+                %th Username
+                %th Full Name
+                %th Email
+                %th Owner?
+            %tbody
+              - @administrations.each do |administration|
+                - admin = administration.user
+                %tr{ :id => dom_id(admin) }
+                  %td= admin.username
+                  %td= admin.full_name
+                  %td= admin.email
+                  %td= boolean_check_mark(administration.owner?)

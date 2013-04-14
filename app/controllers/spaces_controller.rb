@@ -1,6 +1,4 @@
 class SpacesController < ApplicationController
-  before_filter(:user)
-
   current_tab :minor, :detail, :only => [:edit, :update, :show]
   current_tab :minor, :change_name, :only => [:edit_name, :update_name]
 
@@ -8,49 +6,45 @@ class SpacesController < ApplicationController
 
 
   def index
-    params[:viewing] = "own_or_admin" unless params[:viewing]
-    @spaces = SpaceLookupService.find_by_viewing(@user, params[:viewing])
-    @search_options = [["You Own or Administer", "own_or_admin"], ["You Own", "own"], ["You Administer", "administer"]]
+    @spaces = SpaceLookupService.find_by_viewing(current_user, params[:viewing])
   end
-  
+
   def new
-    @space = @user.spaces_owned.build()
+    @space = current_user.spaces_owned.build
   end
-  
+
   def create
-    @space = @user.spaces_owned.build()
-    if @space.update_attributes(params[:space])
-      flash[:notice] = msg_created(@space)
-      redirect_to(spaces_url)
+    @space = current_user.spaces_owned.build
+    if @space.update_attributes(space_params)
+      redirect_to(spaces_url, :flash => { success: msg_created(@space)})
     else
       render('new')
     end
   end
 
   def show
-    @space = @user.spaces_administered.find(params[:id])
+    @space = current_user.spaces_administered.find(params[:id])
   end
-  
+
   def edit
-    @space = @user.spaces_owned.find(params[:id])
+    @space = current_user.spaces_owned.find(params[:id])
   end
-  
+
   def update
-    @space = @user.spaces_owned.find(params[:id])
-    @space.attributes = params[:space]
+    @space = current_user.spaces_owned.find(params[:id])
+    @space.attributes = space_params
 
     if @space.valid? && Space.confirmation_required?(@space)
       render('confirm_update')
-    elsif @space.save()
-      flash[:notice] = msg_updated(@space)
-      redirect_to(edit_space_path(@space))
+    elsif @space.save
+      redirect_to(edit_space_path(@space), :flash => { success: msg_updated(@space) })
     else
-      render("edit")
+      render('edit')
     end
   end
 
-  def confirm_update()
-    @space = @user.spaces_administered.find(params[:id])
+  def confirm_update
+    @space = current_user.spaces_administered.find(params[:id])
     @space.update_attributes(params[:space])
 
     if params[:perform_notification]
@@ -58,26 +52,23 @@ class SpacesController < ApplicationController
       messages.each { |msg| CollaboratorMailer.deliver_repository_url_changed_notification(msg) }
     end
 
-    flash[:notice] = msg_updated(@space)
-    redirect_to(edit_space_path(@space))
+    redirect_to(edit_space_path(@space), :flash => { success: msg_updated(@space)})
   end
 
   def destroy
-    @space = @user.spaces_owned.find(params[:id])
+    @space = current_user.spaces_owned.find(params[:id])
     if @space.destroy
-      flash[:notice] = msg_destroyed(@space)
-      redirect_to(spaces_url)
+      redirect_to(spaces_url, :flash => { success: msg_destroyed(@space)})
     else
-      flash[:error] = @space.errors.full_messages
-      redirect_to(edit_space_url(@space))
+      redirect_to(edit_space_url(@space), :flash => { error: @space.errors.full_messages})
     end
   end
 
 
-private
+  private
 
-  def user()
-    @user = current_user()
+  def space_params
+    params.require(:space).permit(:name, :description)
   end
 
 end

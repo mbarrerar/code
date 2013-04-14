@@ -1,4 +1,4 @@
-= simple_form_for(@space) do |f|
+= simple_form_for(@space, :html => { class: 'form-horizontal' }) do |f|
   = f.input(:name)
   = f.input(:description, :input_html => { :rows => 3, :columns => 10 })
   = size_display(f)

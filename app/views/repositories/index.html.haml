@@ -10,10 +10,14 @@
       %th Space
       %th Owner
       %th Last Commit
+      %th Created At
   %tbody
     - @repos.each do |repo|
       %tr{:id => dom_id(repo) }
-        %td= link_to(repo.name, edit_repository_path(repo))
-        %td= repo.space.name
+        %td
+          %i.icon-pencil
+          = link_to(repo.name, edit_repository_path(repo))
+        %td= link_to(repo.space.name, edit_space_path(repo.space))
         %td= repo.owner.full_name
         %td= repo.committed_at.try(:to_s, :mdy)
+        %td= repo.created_at.try(:to_s, :mdy)

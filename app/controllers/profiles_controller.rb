@@ -18,9 +18,4 @@ class ProfilesController < ApplicationController
     params.require(:user).permit(:email, :bio)
   end
 
-  def user
-    @user ||= current_user
-  end
-
-  helper_method :user
 end

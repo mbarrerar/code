@@ -26,27 +26,19 @@ module ApplicationHelper
     f.button(:submit, 'Save', :class => 'btn-primary', :disable_with => 'Saving ...')
   end
 
-  def create_or_update(form, entity_name = nil)
-    if !entity_name
-      entity_name = form.object.class.name.titleize
-    end
-
-    form.object.new_record? ? "Create #{entity_name}" : "Update #{entity_name}"
-  end
-
   def link_to_delete(ar_instance, html_options = {})
-    default_options = { :confirm => 'Are you sure?', :method => :delete, :class => "mini_button_widget" }
-    link_to("Delete", ar_instance, default_options.merge!(html_options))
+    default_options = { :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger' }
+    link_to('Delete', ar_instance, default_options.merge!(html_options))
   end
 
   def link_to_new(name, options = {}, html_options = {})
-    html_options.merge!(:class => "btn btn-primary btn-small")
+    html_options.merge!(:class => 'btn btn-primary btn-small')
     link_to(name, options, html_options) + content_tag(:br)
   end
 
   def link_to_cancel(options = {}, html_options = {})
-    html_options.merge!(:class => "cancel_button")
-    link_to("Cancel", options, html_options)
+    html_options.merge!(:class => 'cancel_button')
+    link_to('Cancel', options, html_options)
   end
 
   def link_to_edit(options = {}, html_options = {})
@@ -75,14 +67,6 @@ module ApplicationHelper
     content_tag(:div, :class => 'pull-right', :style => 'margin-top: 4em;') do
       link_to(label, ar_instance, default_options.merge!(html_options))
     end
-  end
-
-  def new_or_create?
-    %w(edit create).include?(action_name)
-  end
-
-  def edit_or_update?
-    %w(edit update).include?(action_name)
   end
 
   def space_repo_text(repo)
@@ -155,13 +139,13 @@ module ApplicationHelper
   #
   def size_display(form_helper)
     unless form_helper.object.new_record?
-      form_helper.input :size_display, :label => "Size", :input_html => { :disabled => true }
+      form_helper.input :size_display, :label => 'Size', :input_html => { :disabled => true }
     end
   end
 
   def ssh_banner
     if current_user.try(:has_no_ssh_keys?)
-      link = link_to("upload an SSH key", ssh_keys_url)
+      link = link_to('upload an SSH key', ssh_keys_url)
       message = "To use any EZ SVN repositories you need to #{link}."
       content_tag(:div, message, :id => 'ssh_banner')
     end

@@ -2,11 +2,11 @@
 - set_bread_crumbs('Profile')
 
 %blockquote
-  %p= user.full_name
-  %p= user.username
+  %p= current_user.full_name
+  %p= current_user.username
 %hr
 
-= simple_form_for(user, :url => profile_path, :html => { class: 'form-horizontal' }) do |f|
+= simple_form_for(current_user, :url => profile_path, :html => { class: 'form-horizontal' }) do |f|
   = f.input(:email)
   = f.input(:bio, :input_html => { rows: 7 })
 
