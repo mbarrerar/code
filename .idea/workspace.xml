@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="$WEBKIT$" id="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/spaces/_space_owner.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/space_administrators/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/space_administrators/edit.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/spaces/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/spaces/edit.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/space_administrators/index.html.haml" afterPath="$PROJECT_DIR$/app/views/space_administrators/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/space_deploy_keys/index.html.haml" afterPath="$PROJECT_DIR$/app/views/space_deploy_keys/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/space_repositories/index.html.haml" afterPath="$PROJECT_DIR$/app/views/space_repositories/index.html.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/collaborators/TODO.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/collaborators/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/collaborators/edit.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap_and_overrides.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap_and_overrides.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/repositories/new.html.haml" afterPath="$PROJECT_DIR$/app/views/repositories/new.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/repositories_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/repositories_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="code-rails3.iws" />
@@ -17,7 +18,7 @@
     <file path="/user_login_service.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359744796063" ignored="false" />
     <file path="/database.yml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365544383052" ignored="false" />
     <file path="/.rvmrc" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359745896104" ignored="false" />
-    <file path="/Dummy.txt" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365901137903" ignored="false" />
+    <file path="/Dummy.txt" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365901924784" ignored="false" />
     <file path="/.gitignore" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365542290597" ignored="false" />
     <file path="/*.regexp" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359767754636" ignored="false" />
     <file path="/routes.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365895427589" ignored="false" />
@@ -39,7 +40,7 @@
     <file path="/profiles_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365808504844" ignored="false" />
     <file path="/simple_form.en.yml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359856250379" ignored="false" />
     <file path="/_form.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365830524143" ignored="false" />
-    <file path="/bread_crumb_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365900415942" ignored="false" />
+    <file path="/bread_crumb_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365958683786" ignored="false" />
     <file path="/ssh_keys_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365828027334" ignored="false" />
     <file path="/index.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365897632526" ignored="false" />
     <file path="/new.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365898709889" ignored="false" />
@@ -54,8 +55,8 @@
     <file path="/_admin_site_banner.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365529093162" ignored="false" />
     <file path="/repository.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365613320253" ignored="false" />
     <file path="/admin.repositories.js" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359863917823" ignored="false" />
-    <file path="/repositories_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359836019373" ignored="false" />
-    <file path="/application_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365898036981" ignored="false" />
+    <file path="/repositories_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365958312464" ignored="false" />
+    <file path="/application_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365957409319" ignored="false" />
     <file path="/simple_form.css" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365891853081" ignored="false" />
     <file path="$PROJECT_DIR$/../../ucb_ruby_apps/apsearch/app/assets/javascripts/admin.user.js" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359830363963" ignored="false" />
     <file path="/_repository_detail.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359866128148" ignored="false" />
@@ -67,7 +68,7 @@
     <file path="/base_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359840324552" ignored="false" />
     <file path="/tab.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359864882793" ignored="false" />
     <file path="/spaces_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365899179473" ignored="false" />
-    <file path="/bootstrap_and_overrides.css.scss" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359854699972" ignored="false" />
+    <file path="/bootstrap_and_overrides.css.scss" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365957520543" ignored="false" />
     <file path="/admin.spaces.js" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359863611986" ignored="false" />
     <file path="/users_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359860352164" ignored="false" />
     <file path="/users_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359857085165" ignored="false" />
@@ -128,10 +129,11 @@
     <file path="/_no_ssh_keys.html.haml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365873223905" ignored="false" />
     <file path="/_form.html.haml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365898758557" ignored="false" />
     <file path="/_repository_detail.html.haml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365892555798" ignored="false" />
-    <file path="/edit.html.haml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365901669941" ignored="false" />
+    <file path="/edit.html.haml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365958730750" ignored="false" />
     <file path="/repositories_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365892274366" ignored="false" />
     <file path="/date_and_time_formats.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365899425721" ignored="false" />
     <file path="/_invitation.html.haml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365900970563" ignored="false" />
+    <file path="/TODO.txt" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365959125608" ignored="false" />
     <option name="TRACKING_ENABLED" value="$WEBKIT$" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="$WEBKIT$" />
@@ -224,33 +226,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="space_tabs_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/admin/space_tabs_helper.rb">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="2" column="6" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="space_tabs_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/space_tabs_helper.rb">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helpers.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/support/helpers.rb">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/repositories/edit.html.haml">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
@@ -260,10 +235,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/collaborators/edit.html.erb">
+      <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/collaborators/edit.html.haml">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="25" column="13" selection-start="778" selection-end="778" vertical-scroll-proportion="-16.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TODO.txt" pinned="false" current="$WEBKIT$" current-in-tab="$WEBKIT$">
+        <entry file="file://$PROJECT_DIR$/app/views/collaborators/TODO.txt">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="8" column="42" selection-start="448" selection-end="448" vertical-scroll-proportion="0.121673">
               <folding />
             </state>
           </provider>
@@ -326,7 +310,7 @@
       <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/spaces/edit.html.haml">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="-3.84">
+            <state line="13" column="19" selection-start="297" selection-end="297" vertical-scroll-proportion="-8.32">
               <folding />
             </state>
           </provider>
@@ -344,7 +328,7 @@
       <file leaf-file-name="_form.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/spaces/_form.html.haml">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="0" column="62" selection-start="62" selection-end="62" vertical-scroll-proportion="-0.0">
+            <state line="5" column="12" selection-start="197" selection-end="197" vertical-scroll-proportion="-3.2">
               <folding />
             </state>
           </provider>
@@ -371,7 +355,7 @@
       <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/space_administrators/edit.html.haml">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="204" selection-end="204" vertical-scroll-proportion="-3.2">
+            <state line="29" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="-13.68">
               <folding />
             </state>
           </provider>
@@ -416,7 +400,7 @@
       <file leaf-file-name="application_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="141" column="55" selection-start="4226" selection-end="4226" vertical-scroll-proportion="0.0">
+            <state line="15" column="46" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -470,6 +454,15 @@
       <file leaf-file-name="bootstrap_and_overrides.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/bootstrap_and_overrides.css.scss">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="6" column="15" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="repositories_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/repositories_controller.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
@@ -503,11 +496,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.haml" pinned="false" current="$WEBKIT$" current-in-tab="$WEBKIT$">
+      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/space_deploy_keys/index.html.haml">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="17" column="52" selection-start="543" selection-end="543" vertical-scroll-proportion="0.26484907">
+            <state line="26" column="0" selection-start="954" selection-end="954" vertical-scroll-proportion="-16.64">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/repositories/new.html.haml">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="-5.76">
+              <folding>
+                <marker date="1365957666000" expanded="$WEBKIT$" signature="121:137" placeholder="= render('form')" />
+                <marker date="1365957666000" expanded="$WEBKIT$" signature="138:140" placeholder="%div.page_content.mid_width" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -515,7 +520,7 @@
       <file leaf-file-name="bread_crumb_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="42" column="6" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.0">
+            <state line="52" column="64" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -673,16 +678,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/repositories/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/repositories/_form.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/helpers/css_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/ssh_keys/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/ssh_keys/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/ssh_keys/new.html.haml" />
         <option value="$PROJECT_DIR$/app/views/ssh_keys/_no_ssh_keys.html.haml" />
         <option value="$PROJECT_DIR$/app/views/profiles/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/repositories/new.html.haml" />
         <option value="$PROJECT_DIR$/app/views/repositories/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/views/admin/repositories/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin.html.erb" />
@@ -705,17 +704,14 @@
         <option value="$PROJECT_DIR$/app/controllers/collaborators_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/space_deploy_keys/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/spaces/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/repositories/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/repositories/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/spaces/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/spaces/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/profiles_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/profiles/edit.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/spaces_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/spaces/index.html.haml" />
         <option value="$PROJECT_DIR$/config/initializers/local/date_and_time_formats.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_invitation.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_invitation.html.haml" />
         <option value="$PROJECT_DIR$/app/views/spaces/edit.html.haml" />
@@ -724,6 +720,15 @@
         <option value="$PROJECT_DIR$/app/views/space_administrators/edit.html.haml" />
         <option value="$PROJECT_DIR$/app/views/space_administrators/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/space_deploy_keys/index.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/spaces/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+        <option value="$PROJECT_DIR$/app/views/repositories/new.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/bootstrap_and_overrides.css.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/repositories_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/collaborators/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb" />
+        <option value="$PROJECT_DIR$/app/views/collaborators/edit.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/collaborators/TODO.txt" />
       </list>
     </option>
   </component>
@@ -822,76 +827,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ssh_keys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="space_repositories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="space_deploy_keys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -932,90 +867,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="repositories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profiles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="collaborators" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -1032,6 +883,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1580,7 +1467,11 @@
       <created>1365901140188</created>
       <updated>1365901140188</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="more progress on converting to haml">
+      <created>1365901926528</created>
+      <updated>1365901926528</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1698,48 +1589,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/helpers/admin/space_tabs_helper.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/repositories_controller.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="13" column="33" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/space_tabs_helper.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="26" column="68" selection-start="985" selection-end="985" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="17" column="9" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/collaborators_controller.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="40" column="16" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1789,13 +1638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/repositories/new.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="-5.12">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ssh_keys_controller.rb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="41" column="2" selection-start="974" selection-end="974" vertical-scroll-proportion="0.0">
@@ -1820,13 +1662,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/admin/spaces/index.html.erb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="763" selection-end="763" vertical-scroll-proportion="-17.28">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="141" column="55" selection-start="4226" selection-end="4226" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1862,13 +1697,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/spaces/show.html.haml">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="7" column="12" selection-start="132" selection-end="132" vertical-scroll-proportion="-4.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spaces/_form.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="0" column="62" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1943,13 +1771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="42" column="6" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/repository_tabs_helper.rb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="5" column="53" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
@@ -1974,13 +1795,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/admin/repositories/edit.html.haml">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="8" column="10" selection-start="182" selection-end="182" vertical-scroll-proportion="-5.12">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/collaborators/edit.html.erb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2013,13 +1827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spaces/edit.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="-3.84">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/spaces/_space_owner.html.haml">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="1" column="16" selection-start="28" selection-end="28" vertical-scroll-proportion="-0.64">
@@ -2034,13 +1841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/space_administrators/edit.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="204" selection-end="204" vertical-scroll-proportion="-3.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/space_administrators/index.html.haml">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="-1.28">
@@ -2048,9 +1848,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spaces/edit.html.haml">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="13" column="19" selection-start="297" selection-end="297" vertical-scroll-proportion="-8.32">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spaces/_form.html.haml">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="5" column="12" selection-start="197" selection-end="197" vertical-scroll-proportion="-3.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="15" column="46" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/space_deploy_keys/index.html.haml">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="17" column="52" selection-start="543" selection-end="543" vertical-scroll-proportion="0.26484907">
+        <state line="26" column="0" selection-start="954" selection-end="954" vertical-scroll-proportion="-16.64">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/admin/space_tabs_helper.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="2" column="6" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/bootstrap_and_overrides.css.scss">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="6" column="15" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/support/helpers.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/repositories/new.html.haml">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="-5.76">
+          <folding>
+            <marker date="1365957666000" expanded="$WEBKIT$" signature="121:137" placeholder="= render('form')" />
+            <marker date="1365957666000" expanded="$WEBKIT$" signature="138:140" placeholder="%div.page_content.mid_width" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/repositories_controller.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/space_administrators/edit.html.haml">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="-13.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="52" column="64" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/collaborators/edit.html.haml">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="25" column="13" selection-start="778" selection-end="778" vertical-scroll-proportion="-16.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/space_tabs_helper.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/collaborators/TODO.txt">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="8" column="42" selection-start="448" selection-end="448" vertical-scroll-proportion="0.121673">
           <folding />
         </state>
       </provider>

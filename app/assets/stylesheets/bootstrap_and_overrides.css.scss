@@ -1,3 +1,11 @@
 $baseFontSize: 13px;
 
 @import "bootstrap";
+
+.form-controls {
+  margin: 0;
+  margin-top: 5em;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  padding: 1em 0em 0em 2em;
+}

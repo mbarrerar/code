@@ -56,7 +56,7 @@ module BreadCrumbHelper
   end
 
   def repository_collaborators_crumb(repo)
-    link_to('Collaborators', repository_collaborations_url(repo))
+    link_to('Collaborators', repository_collaborators_url(repo))
   end
 
   ###########################################################################

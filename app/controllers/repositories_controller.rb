@@ -1,6 +1,4 @@
 class RepositoriesController < ApplicationController
-  before_filter(:user)
-
   helper(RepositoryTabsHelper)
 
   no_minor_tabs(:only => [:index, :new, :create])
@@ -9,24 +7,20 @@ class RepositoriesController < ApplicationController
 
   def index
     params[:viewing] = 'own_or_admin' unless params[:viewing]
-    @repos = RepositoryLookupService.find_by_viewing(@user, params[:viewing])
-    @search_options = [['You Own or Administer', 'own_or_admin'],
-                       ['You Own', 'own'],
-                       ['You Administer', 'administer']]
+    @repos = RepositoryLookupService.find_by_viewing(current_user, params[:viewing])
   end
   
   def new
     @spaces = available_spaces
     @repo = Repository.new
-    @repo.set_default_space(@user)
+    @repo.set_default_space(current_user)
   end
 
   def create
     @spaces = available_spaces
-    @repo = Repository.new(params[:repository])
-    if @repo.save()
-      flash[:notice] = msg_created(@repo)
-      redirect_to(edit_repository_path(@repo))
+    @repo = current_user.repositories.build(repository_params)
+    if @repo.save
+      redirect_to(edit_repository_path(@repo), :flash => { success: msg_created(@repo) })
     else
       render('new')
     end
@@ -34,26 +28,25 @@ class RepositoriesController < ApplicationController
   
   def edit
     @spaces = available_spaces
-    @repo = @user.find_repository_administered(params[:id])
+    @repo = current_user.find_repository_administered(params[:id])
   end
   
   def update
     @spaces = available_spaces
-    @repo = @user.find_repository_administered(params[:id])
-    @repo.attributes = params[:repository]
+    @repo = current_user.find_repository_administered(params[:id])
+    @repo.attributes = repository_params
 
     if @repo.valid? && Repository.confirmation_required?(@repo)
       render('confirm_update')
-    elsif @repo.save()
-      flash[:notice] = msg_updated(@repo)
-      redirect_to(edit_repository_path(@repo))
+    elsif @repo.save
+      redirect_to(edit_repository_path(@repo), :flash => { success: msg_updated(@repo) })
     else
-      render("edit")
+      render('edit')
     end
   end
 
   def confirm_update
-    @repo = @user.find_repository_administered(params[:id])
+    @repo = current_user.find_repository_administered(params[:id])
     @repo.update_attributes(params[:repository])
 
     if params[:perform_notification]
@@ -67,24 +60,22 @@ class RepositoriesController < ApplicationController
   end
 
   def destroy
-    @repo = @user.find_repository_administered(params[:id])
+    @repo = current_user.find_repository_administered(params[:id])
     @repo.destroy
-    flash[:notice] = msg_destroyed(@repo)
-    redirect_to(repositories_path)
+    redirect_to(repositories_path, :flash => { success: msg_destroyed(@repo) })
   end
 
 
 private
 
+  def repository_params
+    params.require(:repository).permit(:space_id, :name, :description)
+  end
+
   def available_spaces
-    @user.spaces_administered.inject({}) do |hash, space|
+    current_user.spaces_administered.inject({}) do |hash, space|
       hash[space.name] = space.id
       hash
     end
   end
-
-  def user
-    @user = current_user
-  end
-
 end

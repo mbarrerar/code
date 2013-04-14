@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def form_actions(&block)
-    content_tag(:div, :class => 'form-actions') do
+    content_tag(:div, :class => 'form-controls') do
       yield
     end
   end

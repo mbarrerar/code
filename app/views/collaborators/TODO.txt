@@ -1,0 +1,10 @@
+
+* Space owners / admins should not be given commit access by default.  When the space is created
+  add the owner as a collaborator.  When an admin is created add them as a collaborator.  However,
+  it should be possible to remove them from the collaborators list.
+
+* Rename collaborators to 'team members'
+
+* Add ability to create "team groups' so permissions can be given to a group instead of having to
+  always specify each person individually.
+
