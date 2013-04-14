@@ -7,11 +7,9 @@
 
   %body
     = render('layouts/site_banner')
-    %div.container
-      %div.row
-        %div.span12
-          = flash_messages
-          = bread_crumbs
+    %div.container-fluid
+      %div.row-fluid
+        = flash_messages
       = yield
 
       %footer.pull-right= App::VERSION
