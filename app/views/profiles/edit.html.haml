@@ -1,5 +1,5 @@
-= title('Edit Profile')
-- set_bread_crumbs('Profile')
+- title('Account')
+= account_major_tabs.html
 
 %blockquote
   %p= current_user.full_name
@@ -12,7 +12,3 @@
 
   = form_actions do
     = save_button(f)
-    %span or
-    = link_to_cancel(dashboard_url)
-
-

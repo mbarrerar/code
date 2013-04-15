@@ -1,6 +1,7 @@
-= title(space_title(@space))
+- title('Account')
+= account_major_tabs.html
 
-- set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space))
+%br
 
 = render('space_owner', :space => @space)
 

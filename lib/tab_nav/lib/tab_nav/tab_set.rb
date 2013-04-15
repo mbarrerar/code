@@ -110,7 +110,7 @@ module TabNav #:nodoc:
     def css_class #:nodoc:
       if @layout == :vertical
         "nav nav-tabs nav-stacked nav-pills"
-      elsif @layout == :horizontal
+      elsif @layout.to_sym == :horizontal
         "nav nav-tabs"
       else
         raise(StandardError, "Unrecognized TabNav layout: #{@layout.to_s}")

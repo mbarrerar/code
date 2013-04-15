@@ -1,6 +1,6 @@
 CodeRails3::Application.routes.draw do
 
-  root :to => 'repositories#index'
+  root :to => 'dashboard#index'
   match '' => 'dashboard#index', :as => 'dashboard'
   match '/help' => 'dashboard#help', :as => 'help'
   match '/force_exception' => 'application#force_exception'

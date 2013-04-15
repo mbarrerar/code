@@ -1,6 +1,6 @@
 class RepositoriesController < ApplicationController
   helper(RepositoryTabsHelper)
-
+  current_tab(:major, :repositories)
   no_minor_tabs(:only => [:index, :new, :create])
   current_tab(:minor, :detail, :only => [:edit, :update])
 

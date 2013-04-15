@@ -1,0 +1,20 @@
+%div.navbar.navbar-inverse
+  %div.navbar-inner
+    %div.container-fluid
+      %ul.nav
+        %li= link_to('Code@Berkeley &rarr;'.html_safe, root_url, :class => 'brand')
+        %li.brand= @page_title
+      %div.nav-collapse.collapse.pull-right
+        %ul.nav
+          %li.dropdown
+            %a.dropdown-toggle{ 'data-toggle' => 'dropdown', :href => '#menu1' }
+              = current_user.full_name
+              - if user_is_admin?
+                %span.caret
+                %ul.dropdown-menu
+                  %li= link_to('Code@Berkeley Admin', admin_root_url)
+
+            %li= link_to('Dashboard', dashboard_url)
+            %li= link_to('Account', edit_profile_url)
+            %li= link_to('Help', help_url)
+            %li= link_to('Log Out', logout_url, :confirm => "Click 'OK' to confirm logout")

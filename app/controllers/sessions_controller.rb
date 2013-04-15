@@ -30,9 +30,7 @@ class SessionsController < ApplicationController
   protected
 
   def ensure_omniauth_attributes
-    unless request.env['omniauth.auth'].nil?
-      redirect_to(root_path)
-    end
+    redirect_to(root_path) if request.env['omniauth.auth'].nil?
   end
 
   def omniauth_attributes

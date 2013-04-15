@@ -37,7 +37,6 @@ module ApplicationHelper
   end
 
   def link_to_cancel(options = {}, html_options = {})
-    html_options.merge!(:class => 'cancel_button')
     link_to('Cancel', options, html_options)
   end
 
@@ -104,17 +103,13 @@ module ApplicationHelper
     content_tag(:li, link, :class => klass)
   end
 
-  def major_tabs
-    TabNav::TabSet.new(self, :name => :major) do |ts|
-      # ts.add(:home, root_url)
-      ts.add(:account, edit_account_url, :label => "My Account")
-      ts.add(:repos, repos_url, :label => "Repositories")
+  def account_major_tabs
+    TabNav::TabSet.new(self, :name => :major, :layout => :horizontal) do |ts|
+      ts.add(:profile, edit_profile_url)
+      ts.add(:ssh_keys, ssh_keys_url)
       ts.add(:spaces, spaces_url)
+      ts.add(:repositories, repositories_url)
     end
-  end
-
-  def major_tabs_html
-    major_tabs.html
   end
 
   ##

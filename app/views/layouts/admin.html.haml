@@ -6,11 +6,11 @@
     %title= "#{@page_title} - Code@Berkeley"
 
   %body
-    = render('layouts/site_banner')
+    = render('layouts/admin_site_banner')
     %div.container-fluid
       %div.row-fluid
         = flash_messages
-
+        = major_tabs.html
       = yield
 
       %footer.pull-right= App::VERSION

@@ -1,4 +1,5 @@
 class SpacesController < ApplicationController
+  current_tab :major, :spaces
   current_tab :minor, :detail, :only => [:edit, :update, :show]
   current_tab :minor, :change_name, :only => [:edit_name, :update_name]
 

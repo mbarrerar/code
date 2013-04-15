@@ -1,6 +1,7 @@
-= title(repository_title(@repo))
+- title('Account')
+= account_major_tabs.html
 
-- set_bread_crumbs(:repositories_crumb, edit_repository_crumb(@repo))
+%br
 
 = render(:partial => 'repository_detail', :locals => {:repository => @repo})
 

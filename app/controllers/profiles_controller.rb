@@ -1,10 +1,11 @@
 class ProfilesController < ApplicationController
+  current_tab(:major, :profile)
 
   def edit
   end
 
   def update
-    if user.update_attributes(user_params)
+    if current_user.update_attributes(user_params)
       redirect_to(edit_profile_url, :flash => { success: msg_updated('Profile') })
     else
       render('edit')

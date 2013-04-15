@@ -1,4 +1,6 @@
 class SshKeysController < ApplicationController
+  current_tab(:major, :ssh_keys)
+
   respond_to :html, :js
 
   def index
