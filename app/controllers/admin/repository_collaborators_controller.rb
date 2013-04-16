@@ -6,7 +6,7 @@ class Admin::RepositoryCollaboratorsController < Admin::BaseController
   current_tab(:minor, :collaborators)
 
   helper('admin/repository_tabs')
-  helper('repository_collaborators')
+  # helper('repository_collaborators')
   helper('repositories')
 
 

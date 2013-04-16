@@ -22,7 +22,7 @@ class UcbSvn
   #
   # @return [String] root path of our spaces.
   #
-  def self.space_root()
+  def self.space_root
     root.join(root, 'spaces')
   end
   UcbSvn.instance_eval { alias :space_root_path :space_root }
@@ -157,7 +157,7 @@ class UcbSvn
     end
   end
 
-  def self.archive_timestamp()
+  def self.archive_timestamp
     Time.now.strftime('%Y-%m-%d_%H-%M-%S')
   end
 
@@ -216,7 +216,7 @@ class UcbSvn
   # @return [nil]
   #    
   def self.initialize_authz_file(space_name, repo_name)
-    write_repository_authz_file(space_name, repo_name, Repository.authz_preamble())
+    write_repository_authz_file(space_name, repo_name, Repository.authz_preamble)
   end
   
   ##
@@ -230,10 +230,10 @@ class UcbSvn
   def self.initialize_svnserve_conf_file(space_name, repo_name)
     conf_file = "#{repository_dir(space_name, repo_name)}/conf/svnserve.conf"
     content = File.readlines(conf_file).map { |l|
-      (l =~ /authz-db = authz/) ? "authz-db = authz" : l.strip
+      (l =~ /authz-db = authz/) ? 'authz-db = authz' : l.strip
     }.join("\n")
 
-    File.open(conf_file, "w") { |f| f.puts content }
+    File.open(conf_file, 'w') { |f| f.puts content }
     call_os_cmd("chgrp -R #{AppConfig.app_group} #{conf_file}")
     call_os_cmd("chmod -R 0770 #{conf_file}")
   end
@@ -275,7 +275,7 @@ class UcbSvn
     file = "#{repository_dir(space_name, repo_name)}/conf/authz"
     Rails.logger.debug("Writing authz file : #{file}")
 
-    File.open(file, "w") do |f|
+    File.open(file, 'w') do |f|
       f.flock(File::LOCK_EX)
       f.puts(content)
       f.flock(File::LOCK_UN)
@@ -286,7 +286,7 @@ class UcbSvn
     App.call_os_cmd(cmd)
   end
   
-  def self.logger()
-    Rails.logger()
+  def self.logger
+    Rails.logger
   end
 end

@@ -5,9 +5,7 @@ class Repository < ActiveRecord::Base
 
   belongs_to :space
   has_many :collaborations, :dependent => :delete_all
-  has_many :collaborators,
-           :through => :collaborations,
-           :source => :user, :order => 'full_name'
+  has_many :collaborators, :through => :collaborations, :source => :user, :order => 'full_name'
 
   delegate :name, :to => :space, :prefix => true
   delegate :owner, :to => :space
@@ -17,8 +15,7 @@ class Repository < ActiveRecord::Base
 
   validates_presence_of :name, :space_id
   validates_uniqueness_of :name, :scope => :space_id
-  validates_format_of :name,
-                      :with => App::ENTITY_NAME_REGEXP,
+  validates_format_of :name, :with => App::ENTITY_NAME_REGEXP,
                       :message => App::ENTITY_NAME_REGEXP_ERROR_MESSAGE,
                       :unless => 'name.blank?'
 
@@ -29,6 +26,14 @@ class Repository < ActiveRecord::Base
 
   def disk_usage
     size_display
+  end
+
+  def committers
+    collaborators.keep_if { |collaborator| collaborator.permission == Permission::COMMIT }
+  end
+
+  def readers
+    collaborators.keep_if { |collaborator| collaborator.permission == Permission::READ }
   end
 
   ##
@@ -201,7 +206,7 @@ class Repository < ActiveRecord::Base
   def update_collaborators_from_params(creator, params = {})
     raise(ArgumentError, 'creator cannot be nil') unless creator
 
-    ids_to_delete = params.inject([]) do |ids, (id,perm)|
+    ids_to_delete = params.inject([]) do |ids, (id, perm)|
       ids << id.to_i if id.match(/^\d+$/) && perm.blank?
       ids
     end
@@ -263,7 +268,7 @@ class Repository < ActiveRecord::Base
   end
 
   module Authz
-    PERMISSIONS = {:commit => 'rw', :read => 'r'}.freeze
+    PERMISSIONS = { :commit => 'rw', :read => 'r' }.freeze
 
     def self.[](key)
       self.permission(key)

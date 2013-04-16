@@ -17,7 +17,7 @@ class Space < ActiveRecord::Base
 
   validates_presence_of :name, :owner_id
   validates_format_of :name, :with => App::ENTITY_NAME_REGEXP, :allow_blank => true,
-      :message => App::ENTITY_NAME_REGEXP_ERROR_MESSAGE
+                      :message => App::ENTITY_NAME_REGEXP_ERROR_MESSAGE
   validates_uniqueness_of :name, :allow_blank => true
 
 
@@ -35,6 +35,18 @@ class Space < ActiveRecord::Base
 
   def owned_by?(user)
     user == owner
+  end
+
+  def owner?(user)
+    owned_by?(user)
+  end
+
+  def administrator?(user)
+    administrators(true).include?(user)
+  end
+
+  def owner_or_admin?(user)
+    owner?(user) || administrator?(user)
   end
 
   def actual_size
@@ -129,7 +141,7 @@ class Space < ActiveRecord::Base
   def update_administrators_from_params(creator, params = {})
     raise(ArgumentError, 'creator cannot be nil') unless creator
 
-    ids_to_delete = params.inject([]) do |ids, (id,admin)|
+    ids_to_delete = params.inject([]) do |ids, (id, admin)|
       if id.match(/^\d+$/) && admin.blank? && (id.to_i != owner.id)
         ids << id.to_i
       end
@@ -162,7 +174,7 @@ class Space < ActiveRecord::Base
 
 
   def self.select_options
-    spaces = Space.all.sort.map { |space|  [space.name, space.name] }
+    spaces = Space.all.sort.map { |space| [space.name, space.name] }
     spaces.unshift(["Any Space", ""])
   end
 
