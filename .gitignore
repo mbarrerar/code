@@ -22,6 +22,7 @@ coverage
 
 # Ignore project dirs
 .idea
+.idea/*
 code-rails3.iml
 var
 out
