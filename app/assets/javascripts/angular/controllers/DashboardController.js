@@ -1,17 +1,11 @@
 (function(code) {
-    code.controller('DashboardController',
-        ["$scope",
-            function($scope) {
+    code.controller('DashboardController', ["$scope", "Repository", function($scope, Repository) {
 
+        $scope.repositories = Repository.query();
 
-                $scope.getRepositories = function() {
-                    return [
-                        {name: "One"},
-                        {name: "Two"},
-                        {name: "Three"}
-                    ];
-                };
+        $scope.getRepositories = function() {
+            return $scope.repositories;
+        };
 
-
-            }]);
+    }]);
 })(window.code);

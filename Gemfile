@@ -17,6 +17,8 @@ gem 'jquery-datatables-rails'
 gem 'exception_notification', '~> 2.6.1', :require => 'exception_notifier'
 gem 'haml'
 gem 'angular-gem'
+gem 'active_model_serializers'
+
 
 platforms :jruby do
   gem 'jruby-jars', '~> 1.7.2'

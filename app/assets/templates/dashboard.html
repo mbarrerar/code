@@ -1,3 +1,19 @@
-<ul>
-    <li id="{{repository.id}}" data-ng-repeat="repository in getRepositories()">{{repository.name}}</li>
-</ul>
+<h2>Repositories</h2>
+
+<table id="repositories" class="table table-condensed table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Space</th>
+            <th>Owner</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr id="{{repository.id}}" data-ng-repeat="repository in getRepositories()">
+            <td>{{repository.name}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

@@ -100,6 +100,10 @@ CodeRails3::Application.routes.draw do
     end
   end
 
+  namespace :api do
+    resources :repositories
+  end
+
   scope "api" do
     match '/ldap_search' => 'api/ldap_search#find'
     match '/person_search' => 'api/ldap_search#person_search', :as => :ldap_person_search

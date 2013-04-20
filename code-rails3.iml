@@ -23,6 +23,7 @@
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v3.2.13, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v3.2.13, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="active_attr (v0.7.0, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="active_model_serializers (v0.7.0, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v3.2.13, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.2.13, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activeresource (v3.2.13, RVM: ruby-2.0.0-p0 [code-rails3]) [gem]" level="application" />
