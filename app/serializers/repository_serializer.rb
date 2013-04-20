@@ -1,3 +1,5 @@
 class RepositorySerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :space_name
+
+  has_one :space
 end

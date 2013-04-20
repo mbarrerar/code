@@ -1,7 +1,7 @@
 class Repository < ActiveRecord::Base
   include SizeMethods
 
-  default_scope order('name')
+  default_scope includes(:space).order('name')
 
   belongs_to :space
   has_many :collaborations, :dependent => :delete_all

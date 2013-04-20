@@ -2,13 +2,15 @@ class Space < ActiveRecord::Base
   include SizeMethods
   include Comparable
 
-  default_scope :order => 'name'
+  default_scope includes(:owner).order('name')
 
   has_many :deploy_keys, :as => :ssh_key_authenticatable, :class_name => "SshKey", :dependent => :delete_all
   has_many :repositories, :order => :name
   has_many :administrations, :dependent => :delete_all, :class_name => 'SpaceAdministration'
   has_many :administrators, :through => :administrations, :source => :user, :order => "full_name"
   belongs_to :owner, :class_name => "User", :foreign_key => :owner_id
+
+  delegate :name, :to => :owner, :prefix => true
 
   after_create :create_svn_space
   after_update :update_svn_space
