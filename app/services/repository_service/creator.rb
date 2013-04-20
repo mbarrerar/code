@@ -10,15 +10,15 @@ module RepositoryService
       args.symbolize_keys!
       @svn_util = args.fetch(:svn, default_svn_util)
       @current_user = args.fetch(:current_user)
-      @space = args.fetch(:space)
     end
 
-    # TODO: takes params Hash instead of single arg?
-    def create(repo_name)
-      @repository = create_in_db(repo_name)
+    def create(params)
+      create_in_db(params)
       create_on_file_system
-    rescue CreateError, ActiveRecord::RecordInvalid => e
-      # send out email?
+    rescue CreateError => e
+      @repository.errors.add(:base, e.message)
+    ensure
+      @repository
     end
 
     private
@@ -27,20 +27,21 @@ module RepositoryService
       UcbSvn
     end
 
-    # creates svn repo record in the database
-    def create_in_db(repo_name)
+    def create_in_db(params)
+      # TODO: add :enable_hudson_ci attribute
+      @repository = current_user.repositories.build(
+          :name => params[:name],
+          :space_id => params[:space_id],
+          :description => params[:description]
+      )
+
       unless space_owner_or_admin?
         raise CreateError, 'User is not Space Admin or Space Owner'
       end
 
-      space.repositories.create!(:name => repo_name)
+      @repository.save
     end
 
-    # creates svn repo on the filesystem and write out the
-    # repository's permissions to its ROOT/conf/authz file
-    #
-    # TODO: what if the repo is already on the filesystem?
-    #
     def create_on_file_system
       svn_util.create_repository(space.name, repository.name)
       svn_util.write_repository_authz_file(space.name, repository.name, authz_content)
@@ -48,7 +49,8 @@ module RepositoryService
     end
 
     def space_owner_or_admin?
-      space.owner_or_admin?(current_user)
+      @space = Space.find_by_id(@repository.space_id)
+      @space.nil? ? false : space.owner_or_admin?(current_user)
     end
 
     def authz_content

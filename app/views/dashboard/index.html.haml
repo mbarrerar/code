@@ -1,25 +1,2 @@
-- title('Dashboard')
-
-%br
-
-%table#repositories{:class => table_style }
-  %thead
-    %tr
-      %th Repository
-      %th Space
-      %th Owner
-      %th Last Commit
-      %th Created At
-  %tbody
-    - @repos.each do |repo|
-      %tr{:id => dom_id(repo) }
-        %td
-          - if true
-            = repo.name
-          - else
-            = link_to(repo.name, edit_repository_path)
-
-        %td= repo.space.name
-        %td= repo.owner.full_name
-        %td= repo.committed_at.try(:to_s, :mdy)
-        %td= repo.created_at.try(:to_s, :mdy)
+%div{ :data => {ng_app: 'code', ng_controller: 'DashboardController'} }
+  %ng-view

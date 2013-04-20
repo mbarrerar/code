@@ -20,3 +20,7 @@
 //= require admin.repositories.js
 //= require admin.spaces.js
 //= require admin.users.js
+//= require angular
+//= require angular-resource
+//= require angular-sanitize
+//= require_tree ./angular

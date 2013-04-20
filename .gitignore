@@ -19,3 +19,5 @@
 
 # Ignore rcov output
 coverage
+.idea
+code-rails3.iml

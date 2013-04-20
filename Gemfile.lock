@@ -32,6 +32,9 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     addressable (2.3.2)
+    angular-gem (1.1.4)
+      coffee-script (~> 2.2.0)
+      railties (>= 3.1)
     arel (3.0.2)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
@@ -48,6 +51,10 @@ GEM
       json
     childprocess (0.3.7)
       ffi (~> 1.0, >= 1.0.6)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.2)
     daemons (1.1.9)
     database_cleaner (0.9.1)
     diff-lcs (1.1.3)
@@ -211,6 +218,7 @@ DEPENDENCIES
   active_attr
   activerecord-jdbc-adapter
   activerecord-jdbcpostgresql-adapter
+  angular-gem
   bootstrap-sass (~> 2.3)
   capybara (~> 1.1.2)
   capybara-webkit

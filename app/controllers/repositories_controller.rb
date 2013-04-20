@@ -18,8 +18,9 @@ class RepositoriesController < ApplicationController
 
   def create
     @spaces = available_spaces
-    @repo = current_user.repositories.build(repository_params)
-    if @repo.save
+
+    @repo = repo_creator.create(repo_params)
+    if @repo.persisted?
       redirect_to(edit_repository_path(@repo), :flash => { success: msg_created(@repo) })
     else
       render('new')
@@ -34,7 +35,7 @@ class RepositoriesController < ApplicationController
   def update
     @spaces = available_spaces
     @repo = current_user.find_repository_administered(params[:id])
-    @repo.attributes = repository_params
+    @repo.attributes = repo_params
 
     if @repo.valid? && Repository.confirmation_required?(@repo)
       render('confirm_update')
@@ -68,8 +69,12 @@ class RepositoriesController < ApplicationController
 
 private
 
-  def repository_params
+  def repo_params
     params.require(:repository).permit(:space_id, :name, :description)
+  end
+
+  def repo_creator
+    @repo_creator ||= RepositoryService::Creator.new(:current_user => current_user)
   end
 
   def available_spaces

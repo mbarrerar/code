@@ -16,7 +16,8 @@ class Api::BaseController < ActionController::Base
   end
 
   def verify_auth_user
-    return true if ["development"].include?(Rails.env.to_s)
+    return true if %w(development).include?(Rails.env.to_s)
+
     Rails.logger.info("API Authentication attempt for: #{request.remote_ip}")
     if request.remote_ip == "127.0.0.1"
       Rails.logger.info("Authentication successful")
