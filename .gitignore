@@ -19,5 +19,9 @@
 
 # Ignore rcov output
 coverage
+
+# Ignore project dirs
 .idea
 code-rails3.iml
+var
+out
