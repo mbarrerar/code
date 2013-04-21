@@ -1,2 +1,34 @@
-%div{ :data => {ng_app: 'code', ng_controller: 'DashboardController'} }
-  %ng-view
+
+%div.row-fluid
+  %div.span6
+    %h2 Your Repositories
+    %table#repositories_owned{ :class => table_style }
+      %thead
+        %tr
+          %th Name
+          %th Last Commit
+      %tbody
+        - if @repositories_owned.empty?
+          = render('repositories/no_repositories', :colspan => 3)
+        - else
+          - @repositories_owned.each do |repository|
+            %tr{ :id => dom_id(repository) }
+              %td= repository.canonical_name
+              %td
+  %div.span6
+    %h2 Repositories Contributed To
+    %table#repositories_contributed{ :class => table_style }
+      %thead
+        %tr
+          %th Name
+          %th Owner
+          %th Permission
+      %tbody
+        - if @repositories_contributed.empty?
+          = render('repositories/no_repositories', :colspan => 3)
+        - else
+          - @repositories_contributed.each do |repository|
+            %tr{ :id => dom_id(repository) }
+              %td= repository.canonical_name
+              %td= repository.space.owner_name
+              %td

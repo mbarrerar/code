@@ -1,6 +1,5 @@
  class CollaboratorsController < ApplicationController
-  before_filter(:user)
-  before_filter(:repository)
+  before_filter(:find_repository)
   before_filter(:permissions)
 
   current_tab(:major, :repositories)
@@ -11,19 +10,16 @@
 
   
   def index
-    @collaborations = @repo.collaborations
-    @administrators = @repo.administrators
+    @collaborations = @repository.collaborations
   end
 
   def edit
-    @users = @repo.collaborators_available
-    @administrators = @repo.administrators
+    @users = User.all
   end
 
   def update
     repository.update_collaborators_from_params(current_user, params)
-    flash[:notice] = msg_updated('Collaborators')
-    redirect_to(repository_collaborations_url(@repo, :id => ''))
+    redirect_to(repository_collaborations_url(@repository), :flash => { success: msg_updated('Collaborators') })
   end
 
 
@@ -34,11 +30,7 @@ private
     @permissions.unshift('')
   end
 
-  def user
-    @user = current_user
-  end
-  
-  def repository
-    @repo = @user.find_repository_administered(params[:repository_id])
+  def find_repository
+    @repository ||= current_user.repositories.find(params[:repository_id])
   end
 end

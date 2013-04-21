@@ -28,4 +28,7 @@ class User < ActiveRecord::Base
     (spaces_owned.size == 1) ? spaces_owned.first : nil
   end
 
+  def to_s
+    "%s / %s / %s)" % [name, username, email]
+  end
 end

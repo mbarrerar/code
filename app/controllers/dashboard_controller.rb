@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    @repos = Repository.all
+    @repositories_owned = current_user.repositories
+    @repositories_contributed = []
   end
 
   def help

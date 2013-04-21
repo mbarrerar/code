@@ -14,12 +14,15 @@
       %th Last Commit
       %th Created At
   %tbody
-    - @repositories.each do |repo|
-      %tr{:id => dom_id(repo) }
-        %td
-          %i.icon-pencil
-          = link_to(repo.name, edit_repository_path(repo))
-        %td= link_to(repo.space.name, edit_space_path(repo.space))
-        %td= repo.owner.full_name
-        %td= repo.committed_at.try(:to_s, :mdy)
-        %td= repo.created_at.try(:to_s, :mdy)
+    - if @repositories.empty?
+      = render('no_repositories', :colspan => 5)
+    - else
+      - @repositories.each do |repo|
+        %tr{:id => dom_id(repo) }
+          %td
+            %i.icon-pencil
+            = link_to(repo.name, edit_repository_path(repo))
+          %td= link_to(repo.space.name, edit_space_path(repo.space))
+          %td= repo.owner.name
+          %td= repo.committed_at.try(:to_s, :mdy)
+          %td= repo.created_at.try(:to_s, :mdy)

@@ -1,26 +1,50 @@
-<h2>Repositories</h2>
-
 <ul class="nav nav-pills">
     <li data-ng-repeat="tab in tabs" data-ng-class="{active: tab.active}">
         <a href="#" data-ng-click="changeTab(tab)">{{tab.name}}</a>
     </li>
 </ul>
 
+<div class="row-fluid">
+    <div class="span6">
+        <h2>Your Repositories</h2>
+        <table id="repositories_owned" class="table table-condensed table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Space</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
 
-<table id="repositories" class="table table-condensed table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Space</th>
-            <th>Owner</th>
-        </tr>
-    </thead>
+            <tbody>
+                <tr id="{{repository.id}}" data-ng-repeat="repository in repositoriesOwned()">
+                    <td>{{repository.canonical_name()}}</td>
+                    <td>{{repository.space.name}}</td>
+                    <td>{{repository.space.owner.full_name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <tbody>
-        <tr id="{{repository.id}}" data-ng-repeat="repository in getRepositories()">
-            <td>{{repository.name}}</td>
-            <td>{{repository.space.name}}</td>
-            <td>{{repository.space.owner.full_name}}</td>
-        </tr>
-    </tbody>
-</table>
+
+    <div class="span6">
+        <h2>Repositories Contributed To</h2>
+        <table id="repositories_contributed" class="table table-condensed table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Space</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr id="{{repository.id}}" data-ng-repeat="repository in repositoriesContributed()">
+                    <td>{{repository.canonical_name()}}</td>
+                    <td>{{repository.space.name}}</td>
+                    <td>{{repository.space.owner.full_name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

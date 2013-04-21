@@ -1,11 +1,11 @@
-= title(repository_title(@repo))
-- set_bread_crumbs(:repositories_crumb, edit_repository_crumb(@repo), repository_collaborators_crumb(@repo), "Edit")
-= link_to('&larr; Back'.html_safe, repository_collaborators_path(@repo))
+= title(repository_title(@repository))
+
+= link_to('&larr; Back'.html_safe, repository_collaborators_path(@repository))
 
 %div
 = render(:partial => '/layouts/invitation')
 
-= form_tag(:method => 'post', :controller => 'collaborators', :action => 'update', :id => '') do
+= form_tag(:method => 'post', :controller => 'collaborators', :action => 'update') do
   = submit_tag('Update Collaborators', :class => 'btn btn-primary')
   %br
   %br
@@ -13,14 +13,13 @@
   %table#users{ :class => table_style }
     %thead
       %tr
-        %th Full Name
-        %th Username
-        %th Email
-        %th{ :width => '1%' }
+        %th{ :width => '15%' } Permission
+        %th User
+
     %tbody
       - @users.each do |user|
         %tr{ :id => dom_id(user) }
-          %td= user.full_name
-          %td= user.username
-          %td= user.email
           %td
+          %td
+            %span{ :style => "padding-right: 4em;" }= user.name
+            %span{ :style => "font-style: oblique;" }= "( #{user.username} / #{user.email} )"

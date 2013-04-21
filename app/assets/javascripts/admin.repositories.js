@@ -2,7 +2,7 @@
 $(function() {
     var dontSort = [];
 
-    $('table#repositories thead th').each(function() {
+    $('table thead th').each(function() {
         if ($(this).text() == "") {
             dontSort.push({ "bSortable": false });
         } else {
@@ -16,6 +16,7 @@ $(function() {
         aoColumns: dontSort,
         asStripeClasses: []
     });
+
 });
 
 
