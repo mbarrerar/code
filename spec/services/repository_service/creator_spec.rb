@@ -2,15 +2,16 @@ require 'spec_helper'
 
 
 describe RepositoryService::Creator do
-  let(:space) { FactoryGirl.create(:space) }
-  let(:creator) { RepositoryService::Creator.new(:current_user => space.owner) }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:space) { space_creator.create(:name => 'space_name') && space_creator.space }
+  let(:space_creator) { SpaceService::Creator.new(:current_user => user) }
+  let(:creator) { RepositoryService::Creator.new(:current_user => user) }
 
   context 'initialize(args)' do
     it 'requires :current_user and :space options' do
       expect { RepositoryService::Creator.new(:current_user => mock) }.to_not raise_error
       expect { RepositoryService::Creator.new }.to raise_error
     end
-
   end
 
   context 'create(repo_name)' do
@@ -28,16 +29,15 @@ describe RepositoryService::Creator do
 
       expect(File.exists?(repo_dir)).to be_true
       expect(File.exists?(authz_file)).to be_true
-      expect(File.readlines(authz_file).length).to eql(5)
-
-      # pp File.readlines(authz_file)
+      expect(File.readlines(authz_file).length).to(eql(5), File.readlines(authz_file))
     end
 
-    it 'fails if current_user is not owner or space administrator' do
-      random_user = FactoryGirl.create(:user)
-      creator = RepositoryService::Creator.new(:current_user => random_user)
+    it 'fails if current_user is not an owner' do
+      creator = RepositoryService::Creator.new(:current_user => FactoryGirl.create(:user))
+      creator.create(:name => 'name', :space_id => space.id)
+      repository = creator.repository
 
-      expect { creator.create(:name => 'name', :space_id => space.id) }.to raise_error
+      expect(repository.errors[:base]).to_not be_empty
     end
   end
 end

@@ -66,7 +66,7 @@ module RepositoryService
     end
 
     def authz_content
-      authz_file = AuthzFileContents.new
+      authz_file = AuthzFile.new
       authz_file.append_committers(repository.committers)
       authz_file.append_readers(repository.readers)
       authz_file.append_committers([OpenStruct.new(:username => space.deploy_user_name)])

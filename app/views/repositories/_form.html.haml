@@ -1,4 +1,4 @@
-= simple_form_for(@repo, :html => {class: 'form-horizontal'}) do |f|
+= simple_form_for(@repository, :html => {class: 'form-horizontal'}) do |f|
   = f.input(:space_id, :required => true, :as => :select, :collection => @spaces, :prompt => 'Select One')
   = f.input(:name)
   = f.input(:description, :input_html => { :rows => 4, :columns => 10 })

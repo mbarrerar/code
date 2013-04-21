@@ -15,55 +15,43 @@ class RepositoriesController < ApplicationController
     @repository = current_user.repositories.build
   end
 
-  #def create
-  #  @spaces = available_spaces
-  #
-  #  @repo = repo_creator.create(repo_params)
-  #  if @repo.persisted?
-  #    redirect_to(edit_repository_path(@repo), :flash => { success: msg_created(@repo) })
-  #  else
-  #    render('new')
-  #  end
-  #end
-  #
-  #def edit
-  #  @spaces = available_spaces
-  #  @repo = current_user.find_repository_administered(params[:id])
-  #end
-  #
-  #def update
-  #  @spaces = available_spaces
-  #  @repo = current_user.find_repository_administered(params[:id])
-  #  @repo.attributes = repo_params
-  #
-  #  if @repo.valid? && Repository.confirmation_required?(@repo)
-  #    render('confirm_update')
-  #  elsif @repo.save
-  #    redirect_to(edit_repository_path(@repo), :flash => { success: msg_updated(@repo) })
-  #  else
-  #    render('edit')
-  #  end
-  #end
-  #
-  #def confirm_update
-  #  @repo = current_user.find_repository_administered(params[:id])
-  #  @repo.update_attributes(params[:repository])
-  #
-  #  if params[:perform_notification]
-  #    msg = RepositoryUrlChangedMessage.new_from_repository_params(current_user(),
-  #                                                                 params[:repo_changed])
-  #    CollaboratorMailer.deliver_repository_url_changed_notification(msg)
-  #  end
-  #
-  #  flash[:notice] = msg_updated(@repo)
-  #  redirect_to(edit_repository_path(@repo))
-  #end
-  #
-  #def destroy
-  #  @repo = current_user.find_repository_administered(params[:id])
-  #  @repo.destroy
-  #  redirect_to(repositories_path, :flash => { success: msg_destroyed(@repo) })
-  #end
+  def create
+    @spaces = current_user.spaces_owned
+
+    repo_creator.create(repo_params)
+    @repository = repo_creator.repository
+
+    if @repository.persisted?
+      redirect_to(edit_repository_path(@repository), :flash => { success: msg_created(@repository) })
+    else
+      render('new')
+    end
+  end
+
+  def edit
+    @spaces = current_user.spaces_owned
+    @repository = current_user.repositories.find(params[:id])
+  end
+
+  # TODO: restore confirmation behaviour since repository name (or space)
+  # change will change the connection url
+  def update
+    @spaces = current_user.spaces_owned
+    @repository = current_user.repositories.find(params[:id])
+    @repository.attributes = repo_params
+
+    if @repository.save
+      redirect_to(edit_repository_path(@repository), :flash => { success: msg_updated(@repository) })
+    else
+      render('edit')
+    end
+  end
+
+  def destroy
+    @repository = current_user.repositories.find(params[:id])
+    @repository.destroy
+    redirect_to(repositories_path, :flash => { success: msg_destroyed(@repository) })
+  end
 
 
 private

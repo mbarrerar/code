@@ -1,52 +1,73 @@
 class InitialCreates < ActiveRecord::Migration
   def self.up
-    create_table :users, :force => true do |t|
-      t.integer :ldap_uid
-      t.string :username
-      t.string :name
-      t.string :email
-      t.string :department
-      t.boolean :admin, :null => false, :default => false
-      t.boolean :active, :null => false, :default => true
+    create_table "collaborations", :force => true do |t|
+      t.integer "repository_id", :null => false
+      t.integer "user_id", :null => false
+      t.string "permission", :default => "read", :null => false
       t.timestamps
     end
-    
-    create_table :spaces, :force => true do |t|
-      t.string :name, :null => false
-      t.text :description
-      # what are we tracking on size?
-      # t.integer :maximum_size, :null => false, :default => 0
-      # t.integer :actual_size, :null => false, :default => 0
+    add_index "collaborations", ["repository_id"], :name => "index_collaborations_on_repo_id"
+    add_index "collaborations", ["user_id"], :name => "index_collaborations_on_user_id"
+
+    create_table "repositories", :force => true do |t|
+      t.integer "space_id"
+      t.string "name", :null => false
+      t.integer "user_id", :null => false
+      t.integer "actual_size", :limit => 8, :default => 0
+      t.text "description"
+      t.datetime "committed_at"
+      t.boolean "uses_hudson_ci", :default => false, :null => false
       t.timestamps
     end
-    
-    create_table :space_administrations, :force => true do |t|
-      t.belongs_to :space, :null => false
-      t.belongs_to :user, :null => false
+    add_index "repositories", ["space_id"], :name => "index_repository_on_space_id"
+
+    create_table "sessions", :force => true do |t|
+      t.string "session_id", :null => false
+      t.text "data"
       t.timestamps
     end
-    
-    create_table :repos, :force => true do |t|
-      t.belongs_to :space
-      t.string :name, :null => false
-      t.text :description
-      # any size columns?
+    add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+    add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+    create_table "space_ownerships", :force => true do |t|
+      t.integer "space_id"
+      t.integer "user_id"
       t.timestamps
     end
-    
-    create_table :collaborations, :force => true do |t|
-      t.belongs_to :repo, :null => false
-      t.belongs_to :user, :null => false
-      t.string :permission, :null => false, :default => 'read'
+
+    create_table "spaces", :force => true do |t|
+      t.string "name", :null => false
+      t.text "description"
+      t.integer "actual_size", :limit => 8, :default => 0
+      t.timestamps
+    end
+
+    create_table "ssh_keys", :force => true do |t|
+      t.string "name", :null => false
+      t.text "key", :null => false
+      t.integer "user_id"
+      t.integer "ssh_key_authenticatable_id"
+      t.string "ssh_key_authenticatable_type"
+      t.timestamps
+    end
+    add_index "ssh_keys", ["ssh_key_authenticatable_id"], :name => "index_ssh_keys_on_ssh_key_authenticatable_id"
+    add_index "ssh_keys", ["user_id"], :name => "index_ssh_keys_on_user_id"
+
+    create_table "users", :force => true do |t|
+      t.integer "ldap_uid"
+      t.string "username"
+      t.string "name"
+      t.string "email"
+      t.boolean "admin", :default => false, :null => false
+      t.boolean "active", :default => true, :null => false
+      t.boolean "agreed_to_terms", :default => false, :null => false
+      t.datetime "last_svn_access"
+      t.datetime "last_login"
+      t.text "bio"
       t.timestamps
     end
   end
 
   def self.down
-    drop_table :collaborations
-    drop_table :space_administrations
-    drop_table :repos
-    drop_table :spaces
-    drop_table :users
   end
 end

@@ -11,7 +11,7 @@ class Repository < ActiveRecord::Base
   delegate :name, :to => :space, :prefix => true
   delegate :name, :email, :to => :owner, :prefix => true
 
-  validates_presence_of :name, :space_id
+  validates_presence_of :name, :space_id, :user_id
   validates_uniqueness_of :name, :scope => :space_id
   validates :name, :entity_name => { allow_blank: true }
 
@@ -31,4 +31,7 @@ class Repository < ActiveRecord::Base
     [space.name, name].join(' / ')
   end
 
+  def url
+    "svn+ssh://#{App.svn_username}@#{App.svn_connection_url}/#{space.name}/#{name}"
+  end
 end

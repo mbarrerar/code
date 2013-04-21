@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
 
   has_many :ssh_keys, :as => :ssh_key_authenticatable, :dependent => :delete_all
   has_many :collaborations
-  has_many :repositories, :through => :collaborations, :source => :repository
-  has_many :repositories_owned, :through => :collaborations
+  # has_many :repositories, :through => :collaborations, :source => :repository
+  has_many :repositories
+  # has_many :repositories_owned, :through => :collaborations
 
   has_many :space_ownerships, :dependent => :delete_all
   has_many :spaces_owned, :through => :space_ownerships, :source => :space

@@ -182,6 +182,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.7)
     strong_parameters (0.1.6)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -247,6 +248,7 @@ DEPENDENCIES
   simple_form (= 2.0.2)
   simplecov
   simplecov-rcov
+  sqlite3
   strong_parameters
   therubyracer
   therubyrhino

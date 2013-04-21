@@ -216,7 +216,7 @@ class UcbSvn
   # @return [nil]
   #    
   def self.initialize_authz_file(space_name, repo_name)
-    write_repository_authz_file(space_name, repo_name, Repository.authz_preamble)
+    write_repository_authz_file(space_name, repo_name, AuthzFile::PREAMBLE)
   end
   
   ##

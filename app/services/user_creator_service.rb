@@ -21,9 +21,9 @@ class UserCreatorService
   end
 
   def create!
-    @user           = User.new
-    @user.ldap_uid  = ldap_uid
-    @user.full_name = full_name
+    @user = User.new
+    @user.ldap_uid = ldap_uid
+    @user.name = full_name
     @user.save!
     @user
   rescue ActiveRecord::RecordInvalid => e

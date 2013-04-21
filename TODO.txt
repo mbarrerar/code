@@ -1,0 +1,3 @@
+* Have security activity logs showing when ssh_keys and deploy_keys have been added or deleted.
+* When user tries to create a repository for the first time, if they have no spaces, create a default
+  space for them behind the scenes.  The space should be the same name as their username.

@@ -1,8 +1,6 @@
 class SpaceDeployKeysController < ApplicationController
   before_filter(:find_space)
 
-  respond_to :html, :js
-
   current_tab(:major, :spaces)
   current_tab(:minor, :deploy_keys)
 
@@ -27,7 +25,6 @@ class SpaceDeployKeysController < ApplicationController
     end
   end
 
-  # TODO, use ssh_key_destroyer service since we need to send out notification
   def destroy
     @ssh_key = @space.deploy_keys.find(params[:id])
     @ssh_key.destroy
@@ -35,7 +32,6 @@ class SpaceDeployKeysController < ApplicationController
     respond_to do |format|
       format.js { render :template => 'ssh_keys/destroy' }
     end
-    # destroy_notification(@key)
   end
 
 

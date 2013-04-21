@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420181121) do
+ActiveRecord::Schema.define(:version => 20091130185547) do
 
   create_table "collaborations", :force => true do |t|
     t.integer  "repository_id",                     :null => false
@@ -19,26 +19,24 @@ ActiveRecord::Schema.define(:version => 20130420181121) do
     t.string   "permission",    :default => "read", :null => false
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
-    t.integer  "created_by_id"
   end
 
-  add_index "collaborations", ["created_by_id"], :name => "index_collaborations_on_created_by_id"
   add_index "collaborations", ["repository_id"], :name => "index_collaborations_on_repo_id"
   add_index "collaborations", ["user_id"], :name => "index_collaborations_on_user_id"
 
   create_table "repositories", :force => true do |t|
     t.integer  "space_id"
     t.string   "name",                                           :null => false
-    t.text     "description"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.integer  "user_id",                                        :null => false
     t.integer  "actual_size",    :limit => 8, :default => 0
+    t.text     "description"
     t.datetime "committed_at"
     t.boolean  "uses_hudson_ci",              :default => false, :null => false
-    t.integer  "owner_id",                                       :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
   end
 
-  add_index "repositories", ["space_id"], :name => "index_repos_on_space_id"
+  add_index "repositories", ["space_id"], :name => "index_repository_on_space_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -50,25 +48,6 @@ ActiveRecord::Schema.define(:version => 20130420181121) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-  create_table "space_administrations", :force => true do |t|
-    t.integer  "space_id",      :null => false
-    t.integer  "user_id",       :null => false
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "created_by_id"
-  end
-
-  add_index "space_administrations", ["created_by_id"], :name => "index_space_administrations_on_created_by_id"
-  add_index "space_administrations", ["space_id"], :name => "index_space_administrations_on_space_id"
-  add_index "space_administrations", ["user_id"], :name => "index_space_administrations_on_user_id"
-
-  create_table "space_owners", :force => true do |t|
-    t.integer  "space_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "space_ownerships", :force => true do |t|
     t.integer  "space_id"
     t.integer  "user_id"
@@ -79,19 +58,19 @@ ActiveRecord::Schema.define(:version => 20130420181121) do
   create_table "spaces", :force => true do |t|
     t.string   "name",                                    :null => false
     t.text     "description"
+    t.integer  "actual_size", :limit => 8, :default => 0
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
-    t.integer  "actual_size", :limit => 8, :default => 0
   end
 
   create_table "ssh_keys", :force => true do |t|
     t.string   "name",                         :null => false
     t.text     "key",                          :null => false
     t.integer  "user_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
     t.integer  "ssh_key_authenticatable_id"
     t.string   "ssh_key_authenticatable_type"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   add_index "ssh_keys", ["ssh_key_authenticatable_id"], :name => "index_ssh_keys_on_ssh_key_authenticatable_id"
@@ -104,12 +83,12 @@ ActiveRecord::Schema.define(:version => 20130420181121) do
     t.string   "email"
     t.boolean  "admin",           :default => false, :null => false
     t.boolean  "active",          :default => true,  :null => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
     t.boolean  "agreed_to_terms", :default => false, :null => false
     t.datetime "last_svn_access"
     t.datetime "last_login"
     t.text     "bio"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
 end
