@@ -28,7 +28,7 @@ class UserDeprovisioner
 
   def transfer_space_ownership
     spaces_owned = user.spaces_owned(true)
-    spaces_owned.each { |s| s.update_attribute(:owner_id, admin.id) }
+    spaces_owned.each { |s| s.update_attribute(:user_id, admin.id) }
 
     unless spaces_owned.empty?
       # AppAdminMailer.deliver_space_transfer_notification(admin, user, spaces_owned)

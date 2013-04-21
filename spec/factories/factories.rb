@@ -9,7 +9,6 @@ FactoryGirl.define do
   factory(:space) do
     sequence(:name) { |n| "name-#{n}" }
     description { |s| "description for #{s.name}" }
-    association(:owner, :factory => :user)
   end
 
   factory(:space_administration) do

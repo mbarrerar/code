@@ -1,6 +1,5 @@
-= title h("Space: #{@space.name}")
+= title("Space: #{@space.name}")
 - set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), 'Deploy Keys')
-= render('spaces/space_owner', :space => @space)
 
 
 %div.row-fluid

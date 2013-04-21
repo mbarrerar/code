@@ -7,8 +7,7 @@ class SpaceRepositoriesController < ApplicationController
 
 
   def index
-    @user = current_user()
-    @space = @user.spaces_administered.find(params[:space_id])
-    @repos = @space.repositories.all()
+    @space = current_user.spaces_owned.find(params[:space_id])
+    @repositories = @space.repositories.all
   end
 end

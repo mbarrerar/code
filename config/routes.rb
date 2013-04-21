@@ -24,7 +24,7 @@ CodeRails3::Application.routes.draw do
       post :confirm_update
     end
 
-    resources :collaborators, :except => [:new, :create, :destroy], :requirements => { :id => /.?/ } do
+    resources :collaborators, :except => [:new, :create, :destroy] do
       collection do
         get :edit
         post :update
@@ -39,7 +39,7 @@ CodeRails3::Application.routes.draw do
     end
 
     resources :repositories, :controller => 'space_repositories'
-    resources :administrators, :except => [:new, :create, :destroy], :controller => 'space_administrators', :requirements => { :id => /.?/ } do
+    resources :owners, :except => [:new, :create, :destroy], :controller => 'space_owners' do
       collection do
         get :edit
         post :update
@@ -64,14 +64,14 @@ CodeRails3::Application.routes.draw do
       member do
         get :login
       end
+
       resources :ssh_keys, :except => :show
       resources :collaborations, :only => [:index], :as => 'permissions', :controller => 'user_permissions'
     end
 
     resources :spaces do
       resources :repositories, :controller => 'space_repositories'
-      resources :space_administrations, :except => [:new, :create, :destroy],
-                :as => 'administrators', :controller => 'space_administrators', :requirements => { :id => /.?/ } do
+      resources :owners, :except => [:new, :create, :destroy], :controller => 'space_owners' do
         collection do
           get :edit
           post :update
@@ -89,8 +89,7 @@ CodeRails3::Application.routes.draw do
         post :confirm_update
       end
 
-      resources :collaborations, :except => [:new, :create, :destroy],
-                :controller => 'collaborators', :requirements => { :id => /.?/ } do
+      resources :collaborators, :except => [:new, :create, :destroy], :controller => 'collaborators' do
         collection do
           get :edit
           post :update

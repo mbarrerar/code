@@ -6,13 +6,13 @@
 FactoryGirl.define do
 
   factory(:user) do
-    full_name 'full_name'
+    name 'full_name'
     sequence(:ldap_uid) { |n| n }
     sequence(:username) { |n| "username-#{n}" }
     sequence(:email) { |n| "email-#{n}@email.com" }
     admin false
     active true
-    terms_and_conditions true
+    agreed_to_terms true
 
     trait(:admin) do
       full_name 'admin'

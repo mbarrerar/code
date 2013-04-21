@@ -7,57 +7,44 @@ class SpacesController < ApplicationController
 
 
   def index
-    @spaces = SpaceLookupService.find_by_viewing(current_user, params[:viewing])
+    @spaces = current_user.spaces_owned
   end
 
   def new
-    @space = current_user.spaces_owned.build
+    @space = current_user.spaces.build
   end
 
   def create
-    @space = current_user.spaces_owned.build
-    if @space.update_attributes(space_params)
+    space_creator.create(space_params)
+    @space = space_creator.space
+
+    if @space.persisted?
       redirect_to(spaces_url, :flash => { success: msg_created(@space)})
     else
       render('new')
     end
   end
 
-  def show
-    @space = current_user.spaces_administered.find(params[:id])
-  end
-
   def edit
-    @space = current_user.spaces_owned.find(params[:id])
+    @space = find_space
   end
 
+  # TODO: restore confirmation behaviour since space name change will
+  # change connection url of all repositories in a space
   def update
-    @space = current_user.spaces_owned.find(params[:id])
-    @space.attributes = space_params
+    space_updater.update(space_params)
 
-    if @space.valid? && Space.confirmation_required?(@space)
-      render('confirm_update')
-    elsif @space.save
+    if @space.valid?
       redirect_to(edit_space_path(@space), :flash => { success: msg_updated(@space) })
     else
       render('edit')
     end
   end
 
-  def confirm_update
-    @space = current_user.spaces_administered.find(params[:id])
-    @space.update_attributes(params[:space])
-
-    if params[:perform_notification]
-      messages = RepositoryUrlChangedMessage.new_from_space_params(current_user(), params[:space_changed])
-      messages.each { |msg| CollaboratorMailer.deliver_repository_url_changed_notification(msg) }
-    end
-
-    redirect_to(edit_space_path(@space), :flash => { success: msg_updated(@space)})
-  end
-
   def destroy
-    @space = current_user.spaces_owned.find(params[:id])
+    space_destroyer.destroy
+    @space = space_destroyer.space
+
     if @space.destroy
       redirect_to(spaces_url, :flash => { success: msg_destroyed(@space)})
     else
@@ -67,6 +54,22 @@ class SpacesController < ApplicationController
 
 
   private
+
+  def find_space
+    @space ||= current_user.spaces_owned.find(params[:id])
+  end
+
+  def space_updater
+    @space_creator ||= SpaceService::Updater.new(:current_user => current_user, :space => find_space)
+  end
+
+  def space_destroyer
+    @space_creator ||= SpaceService::Destroyer.new(:current_user => current_user, :space => find_space)
+  end
+
+  def space_creator
+    @space_creator ||= SpaceService::Creator.new(:current_user => current_user)
+  end
 
   def space_params
     params.require(:space).permit(:name, :description)

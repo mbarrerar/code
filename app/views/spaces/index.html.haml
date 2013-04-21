@@ -5,12 +5,13 @@
 
 = link_to_new('New Space', new_space_path)
 
+
 %table#spaces{ :class => table_style }
   %thead
     %tr
       %th Name
       %th Description
-      %th Owner
+      %th Repository Count
       %th Created At
   %tbody
     - @spaces.each do |space|
@@ -19,5 +20,5 @@
           %i.icon-pencil
           = link_to(space.name, edit_space_path(space))
         %td= truncate(space.description)
-        %td= space.owner.try(:full_name)
+        %td 10 Repositories
         %td= space.created_at.to_s(:ymd)

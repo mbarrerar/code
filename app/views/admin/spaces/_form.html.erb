@@ -1,6 +1,6 @@
 <%= simple_form_for([:admin,  space]) do |f| %>
     <%= f.input(:name) %>
-    <%= f.input(:owner_id, :as => :select, :prompt => "Select One", :collection => User.all, :required => true) %>
+    <%= f.input(:user_id, :as => :select, :prompt => "Select One", :collection => User.all, :required => true) %>
     <%= f.input(:description, :input_html => { :rows => 3, :columns => 10 }) %>
     <%= size_display(f) %>
 

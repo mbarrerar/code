@@ -40,8 +40,8 @@ module BreadCrumbHelper
     link_to('Deploy Keys', space_deploy_keys_url(space))
   end
 
-  def space_administrators_crumb(space)
-    link_to('Administrators', space_administrators_url(space))
+  def space_owners_crumb(space)
+    link_to('Owners', space_owners_url(space))
   end
 
   ###########################################################################

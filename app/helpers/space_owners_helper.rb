@@ -1,4 +1,4 @@
-module SpaceAdministratorsHelper
+module SpaceOwnersHelper
 
   ##
   # Predicate that determines if the user has any permission for the

@@ -1,7 +1,7 @@
 module SpacesHelper
 
   def space_link_to_edit(user, space)
-    default_options = {:class => "mini_button_widget"}
+    default_options = { :class => "mini_button_widget" }
     url = space.owned_by?(user) ? edit_space_url(space) : space_url(space)
     link_to("Edit", url, default_options)
   end
@@ -22,5 +22,13 @@ module SpacesHelper
     name = App.svn_username()
     host = App.svn_connection_url()
     "svn+ssh://#{name}@#{host}/#{space.name()}/#{repo.name()}"
+  end
+
+  def space_owner_check_box(user, space)
+    if space.owner?(user)
+      check_box_tag("owner_ids[#{user.id}]", 1, true)
+    else
+      check_box_tag("owner_ids[#{user.id}]", 1, false)
+    end
   end
 end

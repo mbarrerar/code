@@ -34,7 +34,7 @@ describe 'Space Validation' do
 
   it "should require owner" do
     space.owner = nil
-    space.should have_at_least(1).error_on(:owner_id)
+    space.should have_at_least(1).error_on(:user_id)
   end
 end
 

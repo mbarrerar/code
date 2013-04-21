@@ -3,8 +3,7 @@ class InitialCreates < ActiveRecord::Migration
     create_table :users, :force => true do |t|
       t.integer :ldap_uid
       t.string :username
-      t.string :first_name
-      t.string :last_name
+      t.string :name
       t.string :email
       t.string :department
       t.boolean :admin, :null => false, :default => false

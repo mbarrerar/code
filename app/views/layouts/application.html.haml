@@ -11,9 +11,11 @@
       %div.row-fluid
         = flash_messages
 
-      = yield
+      %div.row-fluid
+        = yield
 
-      %footer.pull-right= App::VERSION
+      %div.row-fluid
+        %footer.pull-right= App::VERSION
 
     = javascript_include_tag('application')
     = yield(:page_javascript)

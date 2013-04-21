@@ -2,8 +2,6 @@
 
 - set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), 'Repositories')
 
-= render('spaces/space_owner', :space => @space)
-
 %div.row-fluid
   %div.span3
     = minor_tabs(@space).html
@@ -12,7 +10,7 @@
       %h3 Repositories
       %div.boxed-group-inner
         = link_to_new('New Repository', new_repository_url(:space_id => @space.id))
-        - unless @repos.empty?
+        - unless @repositories.empty?
           %table#spaces{ :class => table_style }
             %thead
               %tr
@@ -20,7 +18,7 @@
                 %th Description
                 %th Created At
             %tbody
-              - @repos.each do |repo|
+              - @repositories.each do |repo|
                 %tr{ :id => dom_id(repo) }
                   %td
                     %i.icon-pencil

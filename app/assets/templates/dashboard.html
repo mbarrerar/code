@@ -1,5 +1,12 @@
 <h2>Repositories</h2>
 
+<ul class="nav nav-pills">
+    <li data-ng-repeat="tab in tabs" data-ng-class="{active: tab.active}">
+        <a href="#" data-ng-click="changeTab(tab)">{{tab.name}}</a>
+    </li>
+</ul>
+
+
 <table id="repositories" class="table table-condensed table-bordered table-hover">
     <thead>
         <tr>

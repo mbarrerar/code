@@ -1,0 +1,28 @@
+= title(space_title(@space))
+= link_to('&larr; Back'.html_safe, space_owners_url(@space))
+
+- set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), space_owners_crumb(@space), 'Edit')
+
+%div
+= render(:partial => '/layouts/invitation')
+
+= form_tag(:method => 'post', :controller => 'space_owners', :action => 'update') do
+  = submit_tag('Update Owners', :class => 'btn btn-primary')
+  %br
+  %br
+
+  %table#users{ :class => table_style }
+    %thead
+      %tr
+        %th Owner?
+        %th Full Name
+        %th Username
+        %th Email
+
+    %tbody
+      - @users.each do |user|
+        %tr{ :id => dom_id(user) }
+          %td= space_owner_check_box(user, @space)
+          %td= user.name
+          %td= user.username
+          %td= user.email

@@ -8,7 +8,7 @@
         %ul.nav
           %li.dropdown
             %a.dropdown-toggle{ 'data-toggle' => 'dropdown', :href => '#menu1' }
-              = current_user.full_name
+              = current_user.name
               - if user_is_admin?
                 %span.caret
                 %ul.dropdown-menu

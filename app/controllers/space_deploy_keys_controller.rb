@@ -1,6 +1,5 @@
 class SpaceDeployKeysController < ApplicationController
-  before_filter(:user)
-  before_filter(:space)
+  before_filter(:find_space)
 
   current_tab(:major, :spaces)
   current_tab(:minor, :deploy_keys)
@@ -9,42 +8,41 @@ class SpaceDeployKeysController < ApplicationController
   helper(SpaceTabsHelper)
 
 
-  def index()
-    @keys = @space.deploy_keys()
+  def index
+    @keys = @space.deploy_keys
   end
 
-  def new()
-    @key = @space.deploy_keys.build()
+  def new
+    @key = @space.deploy_keys.build
   end
 
-  def create()
+  def create
     @key = @space.deploy_keys.build(params[:ssh_key])
-    if @key.save()
-      flash[:notice] = msg_created("Deploy Key")
-      redirect_to(space_deploy_keys_url(@space))
+    if @key.save
+      redirect_to(space_deploy_keys_url(@space), :flash => { success: msg_created("Deploy Key") })
     else
       render("new")
     end
   end
 
-  def edit()
+  def edit
     @key = @space.deploy_keys.find(params[:id])
   end
 
-  def update()
+  def update
     @key = @space.deploy_keys.find(params[:id])
     @key.update_attributes(params[:ssh_key])
-    if @key.save()
-      flash[:notice] = msg_updated("Deploy Key")
-      redirect_to(space_deploy_keys_url(@space))
+    if @key.save
+      redirect_to(space_deploy_keys_url(@space), :flash => { success: msg_updated("Deploy Key") })
     else
       render("edit")
     end
   end
 
-  def destroy()
+  # TODO, use ssh_key_destroyer service since we need to send out notification
+  def destroy
     @key = @space.deploy_keys.find(params[:id])
-    @key.destroy()
+    @key.destroy
 
     respond_to do |format|
       format.html do
@@ -59,12 +57,8 @@ class SpaceDeployKeysController < ApplicationController
 
 private
 
-  def user()
-    @user ||= current_user()
-  end
-
-  def space()
-    @space ||= @user.spaces_administered.find(params[:space_id])
+  def find_space
+    @space ||= current_user.spaces_owned.find(params[:space_id])
   end
 
 end

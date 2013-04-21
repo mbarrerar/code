@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412221040) do
+ActiveRecord::Schema.define(:version => 20130420181121) do
 
   create_table "collaborations", :force => true do |t|
     t.integer  "repository_id",                     :null => false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130412221040) do
     t.integer  "actual_size",    :limit => 8, :default => 0
     t.datetime "committed_at"
     t.boolean  "uses_hudson_ci",              :default => false, :null => false
+    t.integer  "owner_id",                                       :null => false
   end
 
   add_index "repositories", ["space_id"], :name => "index_repos_on_space_id"
@@ -61,16 +62,27 @@ ActiveRecord::Schema.define(:version => 20130412221040) do
   add_index "space_administrations", ["space_id"], :name => "index_space_administrations_on_space_id"
   add_index "space_administrations", ["user_id"], :name => "index_space_administrations_on_user_id"
 
+  create_table "space_owners", :force => true do |t|
+    t.integer  "space_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "space_ownerships", :force => true do |t|
+    t.integer  "space_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "spaces", :force => true do |t|
     t.string   "name",                                    :null => false
     t.text     "description"
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
-    t.integer  "owner_id"
     t.integer  "actual_size", :limit => 8, :default => 0
   end
-
-  add_index "spaces", ["owner_id"], :name => "index_spaces_on_owner_id"
 
   create_table "ssh_keys", :force => true do |t|
     t.string   "name",                         :null => false
@@ -88,13 +100,13 @@ ActiveRecord::Schema.define(:version => 20130412221040) do
   create_table "users", :force => true do |t|
     t.integer  "ldap_uid"
     t.string   "username"
-    t.string   "full_name"
+    t.string   "name"
     t.string   "email"
-    t.boolean  "admin",                :default => false, :null => false
-    t.boolean  "active",               :default => true,  :null => false
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
-    t.boolean  "terms_and_conditions", :default => false, :null => false
+    t.boolean  "admin",           :default => false, :null => false
+    t.boolean  "active",          :default => true,  :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "agreed_to_terms", :default => false, :null => false
     t.datetime "last_svn_access"
     t.datetime "last_login"
     t.text     "bio"

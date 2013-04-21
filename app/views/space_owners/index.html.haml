@@ -1,0 +1,24 @@
+= title(space_title(@space))
+- set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), 'Owners')
+
+%div.row-fluid
+  %div.span3
+    = minor_tabs(@space).html
+  %div.span9
+    %div.boxed-group
+      %h3 Space Owners
+      %div.boxed-group-inner
+        = link_to_new('Edit', edit_space_owners_url(@space))
+        - unless @owners.empty?
+          %table#space_owners{ :class => table_style }
+            %thead
+              %tr
+                %th Username
+                %th Full Name
+                %th Email
+            %tbody
+              - @owners.each do |owner|
+                %tr{ :id => dom_id(owner) }
+                  %td= owner.username
+                  %td= owner.name
+                  %td= owner.email
