@@ -5,57 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="$WEBKIT$" id="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20130420181121_update_db_schema.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/space_service/creator.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/services/space_service/creator_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/space_service/destroyer.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/services/space_service/destroyer_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/validators/entity_name_validator.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/space_service/owner_updater.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/space_service/ownership_checker.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/space_ownership.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/space_service/updater.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/services/space_service/updater_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/validators/username_validator.rb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20110209225234_update_users_table.rb" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/space_administrators_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/space_owners_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/helpers/space_administrators_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/space_owners_helper.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/space_administrators/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/space_owners/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/space_administrators/index.html.haml" afterPath="$PROJECT_DIR$/app/views/space_owners/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20091130185547_initial_creates.rb" afterPath="$PROJECT_DIR$/db/migrate/20091130185547_initial_creates.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20100524171627_add_t_and_c_to_user.rb" afterPath="$PROJECT_DIR$/db/migrate/20100524171627_add_t_and_c_to_user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20110325215137_rename_repository.rb" afterPath="$PROJECT_DIR$/db/migrate/20110325215137_rename_repository.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/angular/controllers/DashboardController.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/angular/controllers/DashboardController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/spaces/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/spaces/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_site_banner.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/_site_banner.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/bread_crumb_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/collaboration.rb" afterPath="$PROJECT_DIR$/app/models/collaboration.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/templates/dashboard.html" afterPath="$PROJECT_DIR$/app/assets/templates/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/profiles/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/profiles/edit.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/spaces/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/spaces/edit.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories/factories.rb" afterPath="$PROJECT_DIR$/spec/factories/factories.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/repositories/index.html.haml" afterPath="$PROJECT_DIR$/app/views/repositories/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/space_deploy_keys/index.html.haml" afterPath="$PROJECT_DIR$/app/views/space_deploy_keys/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/space_repositories/index.html.haml" afterPath="$PROJECT_DIR$/app/views/space_repositories/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/spaces/index.html.haml" afterPath="$PROJECT_DIR$/app/views/spaces/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/spaces/new.html.haml" afterPath="$PROJECT_DIR$/app/views/spaces/new.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/repositories_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/repositories_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/repository.rb" afterPath="$PROJECT_DIR$/app/models/repository.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/space.rb" afterPath="$PROJECT_DIR$/app/models/space.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/space_deploy_keys_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/space_deploy_keys_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/space_lookup_service.rb" afterPath="$PROJECT_DIR$/app/services/space_lookup_service.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/space_repositories_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/space_repositories_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/space_spec.rb" afterPath="$PROJECT_DIR$/spec/models/space_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/space_tabs_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/space_tabs_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/spaces_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/spaces_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/spaces_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/spaces_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/user_deprovisioner.rb" afterPath="$PROJECT_DIR$/app/services/user_deprovisioner.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories/users.rb" afterPath="$PROJECT_DIR$/spec/factories/users.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/services/space_service/owner_updater_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/space_service/owner_updater.rb" afterPath="$PROJECT_DIR$/app/services/space_service/owner_updater.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/space_administrators_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/space_administrators_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/space_owners_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/space_owners_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/services/space_service/updater_spec.rb" afterPath="$PROJECT_DIR$/spec/services/space_service/updater_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="code-rails3.iws" />
@@ -65,7 +19,7 @@
     <file path="/user_login_service.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359744796063" ignored="false" />
     <file path="/database.yml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365544383052" ignored="false" />
     <file path="/.rvmrc" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359745896104" ignored="false" />
-    <file path="/Dummy.txt" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366482409954" ignored="false" />
+    <file path="/Dummy.txt" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366504555044" ignored="false" />
     <file path="/.gitignore" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366440779449" ignored="false" />
     <file path="/*.regexp" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359767754636" ignored="false" />
     <file path="/routes.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366500312061" ignored="false" />
@@ -125,7 +79,7 @@
     <file path="/repository_collaborators_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359867259439" ignored="false" />
     <file path="/space_repositories_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366499640259" ignored="false" />
     <file path="/space_tabs_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366500091359" ignored="false" />
-    <file path="/space_administrators_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359871743948" ignored="false" />
+    <file path="/space_administrators_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366505263988" ignored="false" />
     <file path="/_invitation.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359872594933" ignored="false" />
     <file path="/space_deploy_keys_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366499880702" ignored="false" />
     <file path="/spec_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365811022708" ignored="false" />
@@ -211,13 +165,14 @@
     <file path="/space_ownership.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366495586961" ignored="false" />
     <file path="/a.sql" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366493406997" ignored="false" />
     <file path="/repository_name_validator.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366493657501" ignored="false" />
-    <file path="/Ruby Console" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366503786776" ignored="false" />
+    <file path="/Ruby Console" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366504942661" ignored="false" />
     <file path="/destroyer_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366499053460" ignored="false" />
-    <file path="/updater_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366499113649" ignored="false" />
-    <file path="/space_owners_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366503278626" ignored="false" />
-    <file path="/owner_updater.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366504383637" ignored="false" />
+    <file path="/updater_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366504684400" ignored="false" />
+    <file path="/space_owners_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366504853235" ignored="false" />
+    <file path="/owner_updater.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366504915330" ignored="false" />
     <file path="/ownership_checker.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366502000766" ignored="false" />
     <file path="/spaces_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366503086838" ignored="false" />
+    <file path="/owner_updater_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366505359535" ignored="false" />
     <option name="TRACKING_ENABLED" value="$WEBKIT$" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="$WEBKIT$" />
@@ -349,7 +304,7 @@
       <file leaf-file-name="destroyer_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/services/space_service/destroyer_spec.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.0">
+            <state line="15" column="0" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -358,7 +313,25 @@
       <file leaf-file-name="updater_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/services/space_service/updater_spec.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="7" column="30" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+            <state line="23" column="13" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="owner_updater_spec.rb" pinned="false" current="$WEBKIT$" current-in-tab="$WEBKIT$">
+        <entry file="file://$PROJECT_DIR$/spec/services/space_service/owner_updater_spec.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="27" column="21" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.6585366">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="space_administrators_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/admin/space_administrators_controller.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="6" column="22" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -377,15 +350,6 @@
         <entry file="file://$PROJECT_DIR$/spec/factories/users.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
             <state line="18" column="21" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="-11.52">
               <folding />
             </state>
           </provider>
@@ -583,16 +547,16 @@
       <file leaf-file-name="space_owners_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/space_owners_controller.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="31" column="42" selection-start="575" selection-end="575" vertical-scroll-proportion="-19.84">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="owner_updater.rb" pinned="false" current="$WEBKIT$" current-in-tab="$WEBKIT$">
+      <file leaf-file-name="owner_updater.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/space_service/owner_updater.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="14" column="51" selection-start="332" selection-end="332" vertical-scroll-proportion="0.2586605">
+            <state line="22" column="67" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -753,8 +717,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/javascripts/angular/controllers/DashboardController.js" />
-        <option value="dbtable:/7084a17b/b9e7384c-fae7-42f0-bd3d-649fb364fbe0/code_development.ezsvn.collaborations" />
         <option value="dbtable:/7084a17b/b9e7384c-fae7-42f0-bd3d-649fb364fbe0/code_development.ezsvn.spaces" />
         <option value="dbtable:/7084a17b/b9e7384c-fae7-42f0-bd3d-649fb364fbe0/code_development.ezsvn.users" />
         <option value="$PROJECT_DIR$/db/migrate/20091130185547_initial_creates.rb" />
@@ -783,7 +745,6 @@
         <option value="$PROJECT_DIR$/spec/factories/users.rb" />
         <option value="$PROJECT_DIR$/spec/services/space_service/creator_spec.rb" />
         <option value="$PROJECT_DIR$/spec/services/space_service/destroyer_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/services/space_service/updater_spec.rb" />
         <option value="$PROJECT_DIR$/app/controllers/spaces_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/spaces/edit.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/space_repositories_controller.rb" />
@@ -800,10 +761,13 @@
         <option value="$PROJECT_DIR$/app/services/space_service/ownership_checker.rb" />
         <option value="$PROJECT_DIR$/app/views/space_owners/edit.html.haml" />
         <option value="$PROJECT_DIR$/app/helpers/spaces_helper.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/space_owners_controller.rb" />
         <option value="dbtable:/7084a17b/b9e7384c-fae7-42f0-bd3d-649fb364fbe0/code_development.ezsvn.space_ownerships" />
         <option value="$PROJECT_DIR$/app/models/space.rb" />
+        <option value="$PROJECT_DIR$/spec/services/space_service/updater_spec.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/space_owners_controller.rb" />
         <option value="$PROJECT_DIR$/app/services/space_service/owner_updater.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/space_administrators_controller.rb" />
+        <option value="$PROJECT_DIR$/spec/services/space_service/owner_updater_spec.rb" />
       </list>
     </option>
   </component>
@@ -987,6 +951,114 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="space_service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-rails3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -1036,115 +1108,7 @@
       <recent name="$PROJECT_DIR$/app/services" />
     </key>
   </component>
-  <component name="RunManager" selected="IRB console.Rails console: code-rails3">
-    <configuration default="false" name="SpaceService::Destroyer initialize(args) requires :current_user and :space arguments" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
-      <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
-      <module name="code-rails3" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="$WEBKIT$" />
-      <envs>
-        <env name="WEBKIT" value="$WEBKIT$" />
-        <env name="RAILS_ENV" value="test" />
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="$WEBKIT$" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="$WEBKIT$" track_test_folders="$WEBKIT$" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="$WEBKIT$">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/space_service/destroyer_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="SpaceService::Destroyer initialize(args) requires :current_user and :space arguments" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SpaceService::Destroyer destroy removes the space entry from the database" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
-      <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
-      <module name="code-rails3" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="$WEBKIT$" />
-      <envs>
-        <env name="WEBKIT" value="$WEBKIT$" />
-        <env name="RAILS_ENV" value="test" />
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="$WEBKIT$" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="$WEBKIT$" track_test_folders="$WEBKIT$" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="$WEBKIT$">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/space_service/destroyer_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="SpaceService::Destroyer destroy removes the space entry from the database" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SpaceService::Destroyer destroy removes all space_ownership entries from the database" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
-      <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
-      <module name="code-rails3" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="$WEBKIT$" />
-      <envs>
-        <env name="WEBKIT" value="$WEBKIT$" />
-        <env name="RAILS_ENV" value="test" />
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="$WEBKIT$" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="$WEBKIT$" track_test_folders="$WEBKIT$" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="$WEBKIT$">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/space_service/destroyer_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="SpaceService::Destroyer destroy removes all space_ownership entries from the database" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="RSpec.owner_updater_spec">
     <configuration default="false" name="routes" type="RakeRunConfigurationType" factoryName="Rake" temporary="$WEBKIT$">
       <module name="code-rails3" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -1190,6 +1154,114 @@
       <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/script/rails" />
       <IRB_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="console" />
       <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="$WEBKIT$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="SpaceService::OwnerUpdater update(owner_ids) updates the space owners in the database" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
+      <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
+      <module name="code-rails3" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="$WEBKIT$" />
+      <envs>
+        <env name="WEBKIT" value="$WEBKIT$" />
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="$WEBKIT$" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="$WEBKIT$" track_test_folders="$WEBKIT$" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="$WEBKIT$">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/space_service/owner_updater_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="SpaceService::OwnerUpdater update(owner_ids) updates the space owners in the database" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="SpaceService::OwnerUpdater update(owner_ids) keeps the current_user as an owner" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
+      <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
+      <module name="code-rails3" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="$WEBKIT$" />
+      <envs>
+        <env name="WEBKIT" value="$WEBKIT$" />
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="$WEBKIT$" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="$WEBKIT$" track_test_folders="$WEBKIT$" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="$WEBKIT$">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/space_service/owner_updater_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="SpaceService::OwnerUpdater update(owner_ids) keeps the current_user as an owner" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="owner_updater_spec" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
+      <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
+      <module name="code-rails3" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="$WEBKIT$" />
+      <envs>
+        <env name="WEBKIT" value="$WEBKIT$" />
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="$WEBKIT$" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="$WEBKIT$" track_test_folders="$WEBKIT$" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="$WEBKIT$">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/space_service/owner_updater_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
@@ -1471,19 +1543,19 @@
       <item index="1" class="java.lang.String" itemvalue="Rails.Development: code-rails3" />
       <item index="2" class="java.lang.String" itemvalue="Rake.test" />
       <item index="3" class="java.lang.String" itemvalue="Rake.spec" />
-      <item index="4" class="java.lang.String" itemvalue="RSpec.SpaceService::Destroyer initialize(args) requires :current_user and :space arguments" />
-      <item index="5" class="java.lang.String" itemvalue="RSpec.SpaceService::Destroyer destroy removes the space entry from the database" />
-      <item index="6" class="java.lang.String" itemvalue="RSpec.SpaceService::Destroyer destroy removes all space_ownership entries from the database" />
-      <item index="7" class="java.lang.String" itemvalue="Rake.routes" />
-      <item index="8" class="java.lang.String" itemvalue="IRB console.Rails console: code-rails3" />
+      <item index="4" class="java.lang.String" itemvalue="Rake.routes" />
+      <item index="5" class="java.lang.String" itemvalue="IRB console.Rails console: code-rails3" />
+      <item index="6" class="java.lang.String" itemvalue="RSpec.SpaceService::OwnerUpdater update(owner_ids) updates the space owners in the database" />
+      <item index="7" class="java.lang.String" itemvalue="RSpec.SpaceService::OwnerUpdater update(owner_ids) keeps the current_user as an owner" />
+      <item index="8" class="java.lang.String" itemvalue="RSpec.owner_updater_spec" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="IRB console.Rails console: code-rails3" />
-        <item index="1" class="java.lang.String" itemvalue="Rake.routes" />
-        <item index="2" class="java.lang.String" itemvalue="RSpec.SpaceService::Destroyer destroy removes all space_ownership entries from the database" />
-        <item index="3" class="java.lang.String" itemvalue="RSpec.SpaceService::Destroyer destroy removes the space entry from the database" />
-        <item index="4" class="java.lang.String" itemvalue="RSpec.SpaceService::Destroyer initialize(args) requires :current_user and :space arguments" />
+        <item index="0" class="java.lang.String" itemvalue="RSpec.owner_updater_spec" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.SpaceService::OwnerUpdater update(owner_ids) keeps the current_user as an owner" />
+        <item index="2" class="java.lang.String" itemvalue="RSpec.owner_updater_spec" />
+        <item index="3" class="java.lang.String" itemvalue="RSpec.SpaceService::OwnerUpdater update(owner_ids) updates the space owners in the database" />
+        <item index="4" class="java.lang.String" itemvalue="IRB console.Rails console: code-rails3" />
       </list>
     </recent_temporary>
   </component>
@@ -1596,7 +1668,11 @@
       <created>1366440807855</created>
       <updated>1366440807855</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="* refactor db schema&#10;* remove dead code&#10;* move business logic out of models and into services">
+      <created>1366504562221</created>
+      <updated>1366504562221</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1607,28 +1683,28 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.19850586" sideWeight="0.8277778" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.19850586" sideWeight="0.6333333" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.17222223" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17222223" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1388889" sideWeight="0.40661687" order="7" side_tool="$WEBKIT$" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="$WEBKIT$" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1388889" sideWeight="0.59338313" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="$WEBKIT$" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.26894343" sideWeight="0.8277778" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36666667" sideWeight="0.981857" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.26894343" sideWeight="0.6333333" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="$WEBKIT$" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.36666667" sideWeight="0.981857" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.53846157" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1388889" sideWeight="0.59338313" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1674,7 +1750,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="add basic serializers" />
+    <option name="LAST_COMMIT_MESSAGE" value="* refactor db schema&#10;* remove dead code&#10;* move business logic out of models and into services" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1701,6 +1777,7 @@
     <MESSAGE value="add baseline angular configuration" />
     <MESSAGE value="don't wrap json arrays with root namespace" />
     <MESSAGE value="add basic serializers" />
+    <MESSAGE value="* refactor db schema&#10;* remove dead code&#10;* move business logic out of models and into services" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1724,27 +1801,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="-11.52">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spaces/index.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="22" column="11" selection-start="455" selection-end="455" vertical-scroll-proportion="-14.08">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20110523184805_user_last_commit.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20110717231223_user_last_login.rb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1801,30 +1857,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/services/space_service/destroyer_spec.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_navigation.html.erb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/services/space_service/creator_spec.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/services/space_service/updater_spec.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="7" column="30" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2072,13 +2107,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/space_owners_controller.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/space.rb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="21" column="12" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
@@ -2086,9 +2114,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/spec/services/space_service/updater_spec.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/services/space_service/creator_spec.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/services/space_service/destroyer_spec.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/space_owners_controller.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="31" column="42" selection-start="575" selection-end="575" vertical-scroll-proportion="-19.84">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/services/space_service/owner_updater.rb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="14" column="51" selection-start="332" selection-end="332" vertical-scroll-proportion="0.2586605">
+        <state line="22" column="67" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="-11.52">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/space_administrators_controller.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/services/space_service/owner_updater_spec.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="27" column="21" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.6585366">
           <folding />
         </state>
       </provider>

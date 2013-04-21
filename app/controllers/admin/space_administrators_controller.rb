@@ -4,7 +4,7 @@ class Admin::SpaceAdministratorsController < Admin::BaseController
 
   helper('admin/space_tabs')
   helper('spaces')
-  helper('space_administrators')
+  helper('space_owners')
 
 
   def index

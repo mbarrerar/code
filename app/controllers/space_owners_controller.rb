@@ -17,12 +17,16 @@ class SpaceOwnersController < ApplicationController
   end
 
   def update
-    owner_updater.update(params[:owner_ids])
+    owner_updater.update(owner_ids)
     redirect_to(space_owners_url(@space), :flash => { success: msg_updated("Owners") })
   end
 
 
   private
+
+  def owner_ids
+    (params[:owner_ids] || {}).keys
+  end
 
   def owner_updater
     @owner_updater ||= SpaceService::OwnerUpdater.new(:current_user => current_user, :space => @space)

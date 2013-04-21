@@ -22,14 +22,13 @@ module SpaceService
     private
 
     def update_owners(owner_ids)
-      owner_ids ||= {}
-      owner_ids.delete(current_user.id.to_s)
+      owner_ids = owner_ids.map(&:to_i)
+      owner_ids.delete(current_user.id)
 
       ActiveRecord::Base.transaction do
         space.owners.clear
         space.owners.push(current_user)
-        new_owners = User.where("id IN(?)", owner_ids.keys)
-        new_owners.each { |user| space.owners.push(user) }
+        User.where("id IN(?)", owner_ids).each { |user| space.owners.push(user) }
       end
     end
   end
