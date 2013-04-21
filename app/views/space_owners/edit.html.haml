@@ -1,8 +1,6 @@
 = title(space_title(@space))
 = link_to('&larr; Back'.html_safe, space_owners_url(@space))
 
-- set_bread_crumbs(:spaces_crumb, edit_space_crumb(@space), space_owners_crumb(@space), 'Edit')
-
 %div
 = render(:partial => '/layouts/invitation')
 

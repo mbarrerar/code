@@ -39,6 +39,7 @@ CodeRails3::Application.routes.draw do
     end
 
     resources :repositories, :controller => 'space_repositories'
+    resources :deploy_keys, :except => [:show, :edit, :update], :controller => 'space_deploy_keys'
     resources :owners, :except => [:new, :create, :destroy], :controller => 'space_owners' do
       collection do
         get :edit
@@ -46,7 +47,6 @@ CodeRails3::Application.routes.draw do
         get :index
       end
     end
-    resources :deploy_keys, :except => 'show', :controller => 'space_deploy_keys'
   end
 
 

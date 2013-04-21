@@ -17,7 +17,7 @@ class SshKeysController < ApplicationController
   def create
     @ssh_key = current_user.ssh_keys.build(ssh_key_params)
     if @ssh_key.save
-      SshKeyAudit.log(@ssh_key, current_user, :create)
+      # SshKeyAudit.log(@ssh_key, current_user, :create)
       redirect_to(ssh_keys_url, :flash => { success: msg_created(@ssh_key) })
     else
       render('new')
@@ -27,7 +27,7 @@ class SshKeysController < ApplicationController
   def update
     @ssh_key = current_user.ssh_keys.find(params[:id])
     if @ssh_key.update_attributes(ssh_key_params)
-      SshKeyAudit.log(@ssh_key, current_user, :update)
+      # SshKeyAudit.log(@ssh_key, current_user, :update)
       redirect_to(ssh_keys_url, :flash => { success: msg_updated(@ssh_key) })
     else
       render('edit')
@@ -38,7 +38,7 @@ class SshKeysController < ApplicationController
     @ssh_key = current_user.ssh_keys.find(params[:id])
     @ssh_key.destroy
     
-    SshKeyAudit.log(@ssh_key, current_user, :destroy)
+    # SshKeyAudit.log(@ssh_key, current_user, :destroy)
 
     respond_with(@ssh_key)
   end

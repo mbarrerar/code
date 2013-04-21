@@ -1,6 +1,8 @@
 class SpaceDeployKeysController < ApplicationController
   before_filter(:find_space)
 
+  respond_to :html, :js
+
   current_tab(:major, :spaces)
   current_tab(:minor, :deploy_keys)
 
@@ -9,56 +11,59 @@ class SpaceDeployKeysController < ApplicationController
 
 
   def index
-    @keys = @space.deploy_keys
+    @ssh_keys = @space.deploy_keys
   end
 
   def new
-    @key = @space.deploy_keys.build
+    @ssh_key = @space.deploy_keys.build
   end
 
   def create
-    @key = @space.deploy_keys.build(params[:ssh_key])
-    if @key.save
+    @ssh_key = @space.deploy_keys.build(ssh_key_params)
+    if @ssh_key.save
       redirect_to(space_deploy_keys_url(@space), :flash => { success: msg_created("Deploy Key") })
     else
       render("new")
     end
   end
 
-  def edit
-    @key = @space.deploy_keys.find(params[:id])
-  end
-
-  def update
-    @key = @space.deploy_keys.find(params[:id])
-    @key.update_attributes(params[:ssh_key])
-    if @key.save
-      redirect_to(space_deploy_keys_url(@space), :flash => { success: msg_updated("Deploy Key") })
-    else
-      render("edit")
-    end
-  end
-
   # TODO, use ssh_key_destroyer service since we need to send out notification
   def destroy
-    @key = @space.deploy_keys.find(params[:id])
-    @key.destroy
+    @ssh_key = @space.deploy_keys.find(params[:id])
+    @ssh_key.destroy
 
     respond_to do |format|
-      format.html do
-        destroy_notification(@key)
-        redirect_to(space_deploy_keys_url(@space))
-      end
-      
-      format.js { render(:layout => false) }
+      format.js { render :template => 'ssh_keys/destroy' }
     end
+    # destroy_notification(@key)
   end
 
 
-private
+  private
+
+  def ssh_key_params
+    params.require(:ssh_key).permit(:name, :key)
+  end
 
   def find_space
     @space ||= current_user.spaces_owned.find(params[:space_id])
   end
 
+  def space
+    @space
+  end
+
+  helper_method :space
+
+  def ssh_key
+    @ssh_key
+  end
+
+  helper_method :ssh_key
+
+  def ssh_keys
+    @space.deploy_keys
+  end
+
+  helper_method :ssh_keys
 end

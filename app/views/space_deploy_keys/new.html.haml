@@ -1,0 +1,17 @@
+= title(space_title(space))
+
+%div.row-fluid
+  %div.span3
+    = minor_tabs(space).html
+  %div.span9
+    %div.boxed-group
+      %h3 Deploy Key
+      %div.boxed-group-inner
+        = simple_form_for(ssh_key, :html => {class: 'form-horizontal'}, :url => space_deploy_keys_path) do |f|
+          = f.input(:name)
+          = f.input(:key, :input_html => { :cols => 70, :rows => 10 })
+
+          = form_actions do
+            = save_button(f)
+            %span or
+            = link_to_cancel(space_deploy_keys_url(space))
