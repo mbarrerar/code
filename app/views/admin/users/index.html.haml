@@ -1,0 +1,29 @@
+%div= title("Users (#{users.length})")
+
+= link_to_new("New User", new_admin_user_path)
+
+%table{ :id => "users", :class => "table table-bordered"}
+  %thead
+    %tr
+      %th Username
+      %th Name
+      %th Email
+      %th Ldap Uid
+      %th Last SVN Access
+      %th Last Login
+      %th Admin?
+
+    %tbody
+      - users.each do |user|
+        %tr{ :id => dom_id(user) }
+          %td
+            %i.icon-pencil
+            = link_to(user.username, edit_admin_user_path(user))
+          %td= user.name
+          %td= user.email
+          %td= user.ldap_uid
+          %td= date_or_none(user.last_svn_access, :mdy)
+          %td= date_or_none(user.last_login, :mdy)
+          %td= boolean_check_mark(user.admin)
+
+

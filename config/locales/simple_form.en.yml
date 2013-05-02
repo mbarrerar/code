@@ -33,8 +33,6 @@ en:
 
     hints:
       user:
-        username: "Your Calnet ID (Read Only)."
-        full_name: "(Read Only)."
       ssh_key:
         name: "A descriptive name for your key"
         key: "The contents of your ssh public key file"

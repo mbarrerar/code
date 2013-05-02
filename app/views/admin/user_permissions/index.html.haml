@@ -1,0 +1,24 @@
+= title(user_title(user))
+
+%div.row-fluid
+  %div.span3
+    = user_left_nav_tabs(user).html
+  %div.span9
+    %div.boxed-group
+      %h3 Permissions
+      %div.boxed-group-inner
+        %table#permissions{:class => 'table table-hover table-condensed' }
+          %thead
+            %tr
+              %th Repository
+              %th Url
+              %th Permission
+          %tbody
+            - if @permissions.empty?
+              = render('no_permissions', :colspan => 3)
+            - else
+              - @permissions.each do |perm|
+                %tr{:id => dom_id(perm) }
+                  %td= perm.repository.name
+                  %td= perm.repository.url
+                  %td= perm.permissions

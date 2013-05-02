@@ -1,6 +1,6 @@
 = title(repository_title(@repository))
 
-= link_to('&larr; Back'.html_safe, repository_collaborators_path(@repository))
+= link_to(icon_left_arrow('Back'), repository_collaborators_path(@repository))
 
 %div
 = render(:partial => '/layouts/invitation')

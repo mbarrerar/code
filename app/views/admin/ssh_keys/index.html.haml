@@ -1,0 +1,31 @@
+= title(user_title(user))
+
+%div.row-fluid
+  %div.span3
+    = user_left_nav_tabs(user).html
+  %div.span9.boxed-group
+    %h3 SSH Keys
+    %div.boxed-group-inner
+      %div= link_to('Add SSH Key', new_admin_user_ssh_key_path(user), :class => "btn btn-mini btn-primary")
+      %br
+      %br
+
+      %table#ssh_keys{:class => 'table table-hover table-condensed'}
+        %thead
+          %tr
+            %th{:width => '1%'}
+            %th Key Name
+            %th Key Content
+            %th Created At
+        %tbody
+          - if ssh_keys.empty?
+            = render('/users/no_ssh_keys')
+          - else
+            - ssh_keys.each do |key|
+              %tr{:id => dom_id(key)}
+                %td= delete_button(key)
+                %td= key.name
+                %td= text_area_tag('key', key.key, :disabled => true, :cols => 50, :rows => 5)
+                %td= key.created_at.to_s(:mdy)
+
+

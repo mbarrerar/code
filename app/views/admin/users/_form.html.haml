@@ -1,0 +1,21 @@
+= simple_form_for([:admin, user], :html => {class: 'form-horizontal'}) do |f|
+  - disabled = !f.object.new_record?
+
+  = f.input(:username, :disabled => disabled, :as => :string)
+  = f.input(:ldap_uid, :disabled => disabled, :as => :string)
+  = f.input(:name, :hint => '')
+  = f.input(:email)
+
+  %br
+  %hr
+  %br
+
+  = f.input(:admin)
+  = f.input(:active)
+  = f.input(:agreed_to_terms)
+
+  = form_actions do
+    = save_button(f)
+    %span or
+    = link_to_cancel(admin_users_path)
+

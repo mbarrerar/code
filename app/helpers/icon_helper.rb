@@ -29,4 +29,8 @@ module IconHelper
     icon('search', options)
   end
 
+  def icon_left_arrow(options = {})
+    text = options.delete(:text)
+    "&larr; #{text}".html_safe
+  end
 end

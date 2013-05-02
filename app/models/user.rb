@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
   def to_s
     "%s / %s / %s)" % [name, username, email]
   end
+
+  def self.new_from_ldap_uid(ldap_uid)
+    User.new
+  end
 end

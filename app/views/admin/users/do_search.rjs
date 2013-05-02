@@ -1,1 +1,0 @@
-page.replace_html("user_search_results_container", :partial => "user_search_result", :locals => {:users => @users})

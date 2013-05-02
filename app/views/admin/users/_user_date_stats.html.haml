@@ -1,0 +1,14 @@
+%table.table.table-condensed.table-hover
+  %tbody
+    %tr
+      %th Last Login
+      %td= date_or_none(user.last_login)
+    %tr
+      %th Last SVN Access
+      %td= date_or_none(user.last_svn_access)
+    %tr
+      %th Created At
+      %td= date_or_none(user.created_at)
+    %tr
+      %th Updated At
+      %td= date_or_none(user.updated_at)

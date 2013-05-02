@@ -9,10 +9,10 @@ module Admin::UsersHelper
   end
 
   def user_title(user)
-    "#{user.full_name} (#{user.username})"
+    "#{user.name} (#{user.username})"
   end
 
-  def date_or_none(date, format=:mdy_hms)
-    date.try(:to_s, format) || "none"
+  def date_or_none(date, format=:ymd_hms)
+    date.try(:to_s, format) || "n/a"
   end
 end

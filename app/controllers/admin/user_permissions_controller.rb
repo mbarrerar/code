@@ -7,7 +7,7 @@ class Admin::UserPermissionsController < Admin::BaseController
 
   def index
     @user = User.find(params[:user_id])
-    @permissions = UserPermissionsService.permissions(user).sort_by { |perm| perm.repository.name }
+    @permissions = @user.collaborations
   end
 
   protected

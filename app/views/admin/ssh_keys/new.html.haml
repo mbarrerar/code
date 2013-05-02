@@ -1,0 +1,16 @@
+= title(user_title(user))
+
+%div.row-fluid
+  %div.span3
+    = user_left_nav_tabs(user).html
+  %div.span9.boxed-group
+    %h3 New Key
+    %div.boxed-group-inner
+      = simple_form_for([:admin, user, ssh_key], :html => {class: 'form-horizontal'}) do |f|
+        = f.input(:name)
+        = f.input(:key, :input_html => { :cols => 90, :rows => 10 })
+
+        = form_actions do
+          = save_button(f)
+          %span or
+          = link_to_cancel(admin_user_ssh_keys_path(user))

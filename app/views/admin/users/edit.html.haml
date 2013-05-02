@@ -1,0 +1,16 @@
+%div= title(user_title(user))
+
+%div.row-fluid
+  %div.span3
+    = user_left_nav_tabs(user).html
+    %div.boxed-group
+      %h3 User Date Stats
+      %div.boxed-group-inner
+        = render(:partial => "user_date_stats", :user => user)
+        = button_to("Login As User", login_admin_user_path(user), :method => :get, :class => 'btn-primary')
+  %div.span9
+    %div.boxed-group
+      %h3 User Details
+      %div.boxed-group-inner
+        = render('form', :user => user)
+        = delete_button_to([:admin, user], :label => "Delete this User")
