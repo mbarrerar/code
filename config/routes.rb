@@ -65,7 +65,7 @@ CodeRails3::Application.routes.draw do
         get :login
       end
 
-      resources :ssh_keys, :except => :show
+      resources :ssh_keys, :except => [:show, :edit, :update]
       resources :collaborations, :only => [:index], :as => 'permissions', :controller => 'user_permissions'
     end
 

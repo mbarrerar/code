@@ -32,7 +32,6 @@ module CodeRails3
     config.active_record.observers = [
         # :collaboration_observer,
         # :space_administration_observer,
-        :ssh_key_observer,
         :user_observer
     ]
 
