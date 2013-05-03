@@ -14,6 +14,7 @@ module UcbSvnCleanupHelper
     remove_all_users
     remove_all_spaces
 
+    AuthzKeysFile.new.delete
     Repository.delete_all
     Collaboration.delete_all
     SpaceAdministration.delete_all

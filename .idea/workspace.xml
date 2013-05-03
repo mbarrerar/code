@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="$WEBKIT$" id="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/ssh_key_service/creator.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/services/ssh_key_service/creator_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/ssh_key_service/destroyer.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/services/ssh_key_service/destroyer_spec.rb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/observers/ssh_key_observer.rb" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/services/authorized_keys_file.rb" afterPath="$PROJECT_DIR$/app/models/authz_key_file_writer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/ssh_keys_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/ssh_keys_controller.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/authz_key_file_writer.rb" afterPath="$PROJECT_DIR$/app/models/authz_keys_file.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/ssh_key_service/creator.rb" afterPath="$PROJECT_DIR$/app/services/ssh_key_service/creator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/ssh_key_service/destroyer.rb" afterPath="$PROJECT_DIR$/app/services/ssh_key_service/destroyer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/support/ucb_svn_cleanup_helper.rb" afterPath="$PROJECT_DIR$/spec/support/ucb_svn_cleanup_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="code-rails3.iws" />
@@ -20,7 +16,7 @@
     <file path="/user_login_service.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359744796063" ignored="false" />
     <file path="/database.yml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365544383052" ignored="false" />
     <file path="/.rvmrc" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359745896104" ignored="false" />
-    <file path="/Dummy.txt" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367555511213" ignored="false" />
+    <file path="/Dummy.txt" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367557452041" ignored="false" />
     <file path="/.gitignore" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366440779449" ignored="false" />
     <file path="/*.regexp" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359767754636" ignored="false" />
     <file path="/routes.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367529943879" ignored="false" />
@@ -38,7 +34,7 @@
     <file path="/user.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367527331802" ignored="false" />
     <file path="/application.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365808049124" ignored="false" />
     <file path="/_site_banner.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365528612428" ignored="false" />
-    <file path="/temp.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366493409496" ignored="false" />
+    <file path="/temp.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367598010640" ignored="false" />
     <file path="/profiles_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366050620054" ignored="false" />
     <file path="/simple_form.en.yml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359856250379" ignored="false" />
     <file path="/_form.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367521523857" ignored="false" />
@@ -49,7 +45,7 @@
     <file path="/edit.html.erb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367521196984" ignored="false" />
     <file path="/application.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1359769480953" ignored="false" />
     <file path="/ucb_svn.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366519905703" ignored="false" />
-    <file path="/config.yml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365617937809" ignored="false" />
+    <file path="/config.yml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367598226511" ignored="false" />
     <file path="/app_config.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365618000549" ignored="false" />
     <file path="/ssh_key.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365619509689" ignored="false" />
     <file path="/base_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366431772903" ignored="false" />
@@ -88,7 +84,7 @@
     <file path="/collaboration_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365615311393" ignored="false" />
     <file path="/hudson_ssh_key_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365617032974" ignored="false" />
     <file path="/repository_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365615105626" ignored="false" />
-    <file path="/ucb_svn_cleanup_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365613784060" ignored="false" />
+    <file path="/ucb_svn_cleanup_helper.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367600111434" ignored="false" />
     <file path="/helpers.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365810700620" ignored="false" />
     <file path="/hudson_ssh_key.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365616951026" ignored="false" />
     <file path="/factories.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1365539487997" ignored="false" />
@@ -140,9 +136,9 @@
     <file path="/admin.html.haml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366052134378" ignored="false" />
     <file path="/dashboard_controller.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366521100455" ignored="false" />
     <file path="/help.html.haml" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366080374257" ignored="false" />
-    <file path="/creator.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367556985430" ignored="false" />
+    <file path="/creator.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367598741753" ignored="false" />
     <file path="/updater.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366502032944" ignored="false" />
-    <file path="/destroyer.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367557042125" ignored="false" />
+    <file path="/destroyer.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367598751012" ignored="false" />
     <file path="/authz_file.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366519880199" ignored="false" />
     <file path="/authz_file_contents.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1366084330488" ignored="false" />
     <file path="/creator_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367557419764" ignored="false" />
@@ -181,6 +177,9 @@
     <file path="/authz_key_file_writer.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367531309582" ignored="false" />
     <file path="$PROJECT_DIR$/../../ucb_ruby_apps/apsearch/app/models/warning.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367536181638" ignored="false" />
     <file path="/warning.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367536181638" ignored="false" />
+    <file path="/authz_keys_writer_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367601543521" ignored="false" />
+    <file path="/authz_keys_writer.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367600187483" ignored="false" />
+    <file path="/authz_keys_file_spec.rb" changelist="5ecb381d-b2ee-4c40-aee4-c47d1448de6b" time="1367601198875" ignored="false" />
     <option name="TRACKING_ENABLED" value="$WEBKIT$" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="$WEBKIT$" />
@@ -287,15 +286,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_repository_detail.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/repositories/_repository_detail.html.haml">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TODO.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TODO.txt">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
@@ -380,7 +370,7 @@
       <file leaf-file-name="creator.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/ssh_key_service/creator.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+            <state line="25" column="19" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -395,10 +385,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="creator_spec.rb" pinned="false" current="$WEBKIT$" current-in-tab="$WEBKIT$">
+      <file leaf-file-name="creator_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/services/ssh_key_service/creator_spec.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="18" column="48" selection-start="516" selection-end="516" vertical-scroll-proportion="0.42666668">
+            <state line="18" column="31" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -431,10 +421,73 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="authz_key_file_writer.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/authz_key_file_writer.rb">
+      <file leaf-file-name="authz_keys_file.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/authz_keys_file.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="99" column="57" selection-start="2443" selection-end="2443" vertical-scroll-proportion="0.0">
+            <state line="100" column="10" selection-start="2491" selection-end="2491" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_config.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/services/app_config.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ldap_person_finder_service.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/services/ldap_person_finder_service.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/config.yml">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="12" column="49" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authz_keys_file_spec.rb" pinned="false" current="$WEBKIT$" current-in-tab="$WEBKIT$">
+        <entry file="file://$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="18" column="96" selection-start="578" selection-end="578" vertical-scroll-proportion="0.42666668">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spec_helper.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="43" column="28" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ucb_svn_cleanup_helper.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/support/ucb_svn_cleanup_helper.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="16" column="22" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="collaboration_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/models/collaboration_spec.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="76" column="0" selection-start="2421" selection-end="2421" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -443,7 +496,16 @@
       <file leaf-file-name="destroyer.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/ssh_key_service/destroyer.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="40" column="40" selection-start="962" selection-end="962" vertical-scroll-proportion="0.0">
+            <state line="23" column="19" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/models/app_spec.rb">
+          <provider selected="$WEBKIT$" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -489,15 +551,6 @@
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
             <state line="35" column="12" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="entity_name_validator.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/validators/entity_name_validator.rb">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -566,37 +619,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/users/index.html.haml">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="20" column="31" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/users/edit.html.haml">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
             <state line="16" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/users/new.html.haml">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/user_permissions/index.html.haml">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="7" column="21" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -656,33 +682,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_permissions_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/user_permissions_controller.rb">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="14" column="10" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/users/_form.html.haml">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="0" column="69" selection-start="32" selection-end="69" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/users_controller.rb">
-          <provider selected="$WEBKIT$" editor-type-id="text-editor">
-            <state line="14" column="14" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_user_date_stats.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/users/_user_date_stats.html.haml">
           <provider selected="$WEBKIT$" editor-type-id="text-editor">
@@ -728,12 +727,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20091130185547_initial_creates.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/config/database.yml" />
-        <option value="dbtable:/7084a17b/180e4c39-a192-4828-8cba-71e01d839610/..repositories" />
-        <option value="$PROJECT_DIR$/app/services/user_creator_service.rb" />
-        <option value="$PROJECT_DIR$/app/models/ucb_svn.rb" />
         <option value="$PROJECT_DIR$/app/services/repository_service/creator.rb" />
         <option value="$PROJECT_DIR$/spec/services/repository_service/creator_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/authz_file.rb" />
@@ -775,10 +768,16 @@
         <option value="$PROJECT_DIR$/app/models/authorized_keys_file.rb" />
         <option value="$PROJECT_DIR$/app/models/authz_key_file_writer.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/app/services/ssh_key_service/creator.rb" />
-        <option value="$PROJECT_DIR$/app/services/ssh_key_service/destroyer.rb" />
         <option value="$PROJECT_DIR$/spec/services/ssh_key_service/destroyer_spec.rb" />
         <option value="$PROJECT_DIR$/spec/services/ssh_key_service/creator_spec.rb" />
+        <option value="$PROJECT_DIR$/config/config.yml" />
+        <option value="$PROJECT_DIR$/spec/models/authz_keys_writer_spec.rb" />
+        <option value="$PROJECT_DIR$/app/services/ssh_key_service/creator.rb" />
+        <option value="$PROJECT_DIR$/app/services/ssh_key_service/destroyer.rb" />
+        <option value="$PROJECT_DIR$/app/models/authz_keys_writer.rb" />
+        <option value="$PROJECT_DIR$/spec/support/ucb_svn_cleanup_helper.rb" />
+        <option value="$PROJECT_DIR$/app/models/authz_keys_file.rb" />
+        <option value="$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb" />
       </list>
     </option>
   </component>
@@ -790,7 +789,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
+    <option name="x" value="3360" />
     <option name="width" value="1920" />
     <option name="height" value="1200" />
   </component>
@@ -980,11 +979,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ssh_key_service" />
+              <option name="myItemId" value="support" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1002,29 +997,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="space_service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1053,46 +1026,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-rails3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ssh_key_service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1155,8 +1088,8 @@
       <recent name="$PROJECT_DIR$/spec/factories" />
     </key>
   </component>
-  <component name="RunManager" selected="RSpec.creator_spec">
-    <configuration default="false" name="destroyer_spec" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
+  <component name="RunManager" selected="RSpec.authz_keys_file_spec">
+    <configuration default="false" name="AuthzKeysFile#initialize(args) auto creates authorized_key file if it does not exist" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
       <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
       <module name="code-rails3" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -1178,10 +1111,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/ssh_key_service/destroyer_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="AuthzKeysFile#initialize(args) auto creates authorized_key file if it does not exist" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
@@ -1192,7 +1125,7 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="SshKeyService::Creator create(key_params) audit logs creation of the key" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
+    <configuration default="false" name="AuthzKeysFile#create should create the file with correct permissions" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
       <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
       <module name="code-rails3" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -1214,10 +1147,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/ssh_key_service/creator_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="SshKeyService::Creator create(key_params) audit logs creation of the key" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="AuthzKeysFile#create should create the file with correct permissions" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
@@ -1228,7 +1161,7 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="SshKeyService::Creator create(key_params) saves the keys to db" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
+    <configuration default="false" name="AuthzKeysFile#create should create the authorized_keys file" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
       <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
       <module name="code-rails3" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -1250,10 +1183,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/ssh_key_service/creator_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="SshKeyService::Creator create(key_params) saves the keys to db" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="AuthzKeysFile#create should create the authorized_keys file" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
@@ -1264,7 +1197,7 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="SshKeyService::Creator create(key_params) writes the key to the ssh authorized_keys file" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
+    <configuration default="false" name="AuthzKeysFile#delete should delete the authorized_keys file" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
       <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
       <module name="code-rails3" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -1286,10 +1219,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/ssh_key_service/creator_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="SshKeyService::Creator create(key_params) writes the key to the ssh authorized_keys file" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="AuthzKeysFile#delete should delete the authorized_keys file" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="2.11.1" />
@@ -1300,7 +1233,7 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="creator_spec" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
+    <configuration default="false" name="authz_keys_file_spec" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="$WEBKIT$">
       <predefined_log_file id="RUBY_RSPEC" enabled="$WEBKIT$" />
       <module name="code-rails3" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -1322,7 +1255,7 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/services/ssh_key_service/creator_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
@@ -1613,19 +1546,19 @@
       <item index="1" class="java.lang.String" itemvalue="Rails.Development: code-rails3" />
       <item index="2" class="java.lang.String" itemvalue="Rake.test" />
       <item index="3" class="java.lang.String" itemvalue="Rake.spec" />
-      <item index="4" class="java.lang.String" itemvalue="RSpec.destroyer_spec" />
-      <item index="5" class="java.lang.String" itemvalue="RSpec.SshKeyService::Creator create(key_params) audit logs creation of the key" />
-      <item index="6" class="java.lang.String" itemvalue="RSpec.SshKeyService::Creator create(key_params) saves the keys to db" />
-      <item index="7" class="java.lang.String" itemvalue="RSpec.SshKeyService::Creator create(key_params) writes the key to the ssh authorized_keys file" />
-      <item index="8" class="java.lang.String" itemvalue="RSpec.creator_spec" />
+      <item index="4" class="java.lang.String" itemvalue="RSpec.AuthzKeysFile#initialize(args) auto creates authorized_key file if it does not exist" />
+      <item index="5" class="java.lang.String" itemvalue="RSpec.AuthzKeysFile#create should create the file with correct permissions" />
+      <item index="6" class="java.lang.String" itemvalue="RSpec.AuthzKeysFile#create should create the authorized_keys file" />
+      <item index="7" class="java.lang.String" itemvalue="RSpec.AuthzKeysFile#delete should delete the authorized_keys file" />
+      <item index="8" class="java.lang.String" itemvalue="RSpec.authz_keys_file_spec" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="RSpec.creator_spec" />
-        <item index="1" class="java.lang.String" itemvalue="RSpec.SshKeyService::Creator create(key_params) writes the key to the ssh authorized_keys file" />
-        <item index="2" class="java.lang.String" itemvalue="RSpec.SshKeyService::Creator create(key_params) saves the keys to db" />
-        <item index="3" class="java.lang.String" itemvalue="RSpec.SshKeyService::Creator create(key_params) audit logs creation of the key" />
-        <item index="4" class="java.lang.String" itemvalue="RSpec.destroyer_spec" />
+        <item index="0" class="java.lang.String" itemvalue="RSpec.authz_keys_file_spec" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.AuthzKeysFile#delete should delete the authorized_keys file" />
+        <item index="2" class="java.lang.String" itemvalue="RSpec.authz_keys_file_spec" />
+        <item index="3" class="java.lang.String" itemvalue="RSpec.AuthzKeysFile#create should create the file with correct permissions" />
+        <item index="4" class="java.lang.String" itemvalue="RSpec.AuthzKeysFile#create should create the authorized_keys file" />
       </list>
     </recent_temporary>
   </component>
@@ -1762,16 +1695,21 @@
       <created>1367529660207</created>
       <updated>1367529660207</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="create services for creating and destroying ssh_keys">
+      <created>1367557455343</created>
+      <updated>1367557455343</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1920" height="1200" extended-state="6" />
+    <frame x="3360" y="0" width="1920" height="1200" extended-state="6" />
     <editor active="$WEBKIT$" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32579187" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2671875" sideWeight="0.6361991" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45701358" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1781,6 +1719,7 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994455" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1388889" sideWeight="0.59338313" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="$WEBKIT$" content_ui="tabs" />
@@ -1788,13 +1727,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.40021345" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.3796875" sideWeight="0.6361991" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="$WEBKIT$" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.3638009" sideWeight="0.70597655" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="$WEBKIT$" weight="0.3638009" sideWeight="0.70597655" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.53846157" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32592592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1388889" sideWeight="0.59338313" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1840,7 +1777,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="convert admin/user views to haml" />
+    <option name="LAST_COMMIT_MESSAGE" value="create services for creating and destroying ssh_keys" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1872,6 +1809,7 @@
     <MESSAGE value="fix broken repo specs" />
     <MESSAGE value="fix repository collaborators" />
     <MESSAGE value="convert admin/user views to haml" />
+    <MESSAGE value="create services for creating and destroying ssh_keys" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1883,62 +1821,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/locales/simple_form.en.yml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/validators/entity_name_validator.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/users_controller.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="14" column="14" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/repositories/_repository_detail.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/user_permissions_controller.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="14" column="10" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/_form.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="0" column="69" selection-start="32" selection-end="69" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/index.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="20" column="31" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/user_permissions/index.html.haml">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="7" column="21" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/users/new.html.haml">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="4" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
@@ -2107,13 +1989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/authz_key_file_writer.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="99" column="57" selection-start="2443" selection-end="2443" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/space.rb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="21" column="12" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
@@ -2212,20 +2087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/ssh_key_service/creator.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/ssh_key_service/destroyer.rb">
-      <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="40" column="40" selection-start="962" selection-end="962" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/services/ssh_key_service/destroyer_spec.rb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
         <state line="24" column="0" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0">
@@ -2235,7 +2096,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/services/ssh_key_service/creator_spec.rb">
       <provider selected="$WEBKIT$" editor-type-id="text-editor">
-        <state line="18" column="48" selection-start="516" selection-end="516" vertical-scroll-proportion="0.42666668">
+        <state line="18" column="31" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/app_spec.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/collaboration_spec.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="76" column="0" selection-start="2421" selection-end="2421" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.yml">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="12" column="49" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/ssh_key_service/creator.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="25" column="19" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/app_config.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/ldap_person_finder_service.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/ssh_key_service/destroyer.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="23" column="19" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="43" column="28" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/support/ucb_svn_cleanup_helper.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="16" column="22" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/authz_keys_file.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="100" column="10" selection-start="2491" selection-end="2491" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/authz_keys_file_spec.rb">
+      <provider selected="$WEBKIT$" editor-type-id="text-editor">
+        <state line="18" column="96" selection-start="578" selection-end="578" vertical-scroll-proportion="0.42666668">
           <folding />
         </state>
       </provider>

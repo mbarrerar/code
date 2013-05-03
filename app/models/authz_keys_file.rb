@@ -1,52 +1,32 @@
-class AuthzKeyFileWriter
+##
+# Responsible for managing reading/writing ssh public keys to ~/.ssh/authorized_keys
+#
+class AuthzKeysFile
+  attr_accessor :svn_root, :ssh_dir, :app_group
 
   def initialize(args={})
     @svn_root = args.fetch(:svn_root, default_svn_root)
     @ssh_dir = args.fetch(:ssh_dir, default_ssh_dir)
     @app_group = args.fetch(:app_group, default_app_group)
+
+    create
+  end
+
+  def entries
+    File.readlines(file_path)
   end
 
   ##
-  # Auto create authorized_keys file if it doesn't exist
-  # Make sure .ssh is 0700
-  # Make sure authorized_keys is 0660
+  # Location of the .ssh/authorized_keys file
   #
-  # Typically, sshd requireds that the permissions are 0700 and 0600.  However,
-  # we assume that sshd_conf has the following config option: "StrictModes no"
-  # which relaxes its default restriction on these files.
-  #
-  # @return [nil]
-  #
-  def create(ssh_keys=[])
-    Rails.logger.debug("Initializing authorized_keys file: #{file_path}")
-
-    FileUtils.mkdir_p(@ssh_dir) unless File.exists?(@ssh_dir)
-    FileUtils.chmod(0770, @ssh_dir)
-
-    FileUtils.touch(file_path) unless File.exists?(file_path)
-    App.call_os_cmd("chmod 0660 #{file_path}")
-
-    # TODO
-    # FileUtils.chmod doesn't set correct permissions
-    # FileUtils.chmod(0660, authorized_keys_file())
-    App.call_os_cmd("chgrp #{@app_group} #{file_path}")
-
-    self.write(ssh_keys)
-
-    if File.exists?(file_path)
-      Rails.logger.debug('authorized_keys file initialization: [   OK   ]')
-    else
-      Rails.logger.debug('authorized_keys file initialization: [ FAILED ]')
-    end
+  def file_path
+    "#{@ssh_dir}/authorized_keys"
   end
 
   def write(ssh_keys)
-    unless File.exists?(file_path)
-      Rails.logger.warn("Required file does not exist: #{file_path}")
-      create
-    end
+    create_file unless File.exists?(file_path)
 
-    Rails.logger.debug("Writing authorized_keys file: #{file_path}")
+    Rails.logger.debug("Writing ssh keys to: #{file_path}")
 
     File.open(file_path, "w") do |f|
       f.flock(File::LOCK_EX)
@@ -55,7 +35,47 @@ class AuthzKeyFileWriter
     end
   end
 
+  ##
+  # Create authorized_keys file if it doesn't exist
+  # Make sure .ssh is 0700
+  # Make sure authorized_keys is 0660
+  #
+  # Typically, sshd requireds that the permissions are 0700 and 0600.  However,
+  # we assume that sshd_conf has the following config option: "StrictModes no"
+  # which relaxes its default restriction on these files.
+  #
+  def create
+    unless File.exists?(ssh_dir)
+      FileUtils.mkdir_p(ssh_dir)
+      FileUtils.chmod(0770, ssh_dir)
+    end
+
+    if File.exists?(file_path)
+      Rails.logger.debug("Found existing authorized_keys file: #{file_path}")
+    else
+      Rails.logger.debug("Creating authorized_keys file: #{file_path}")
+      FileUtils.touch(file_path)
+    end
+
+    # TODO
+    # FileUtils.chmod doesn't set correct permissions
+    # FileUtils.chmod(0660, authorized_keys_file())
+    App.call_os_cmd("chmod 0660 #{file_path}")
+    App.call_os_cmd("chgrp #{app_group} #{file_path}")
+
+    if File.exists?(file_path)
+      Rails.logger.debug('authorized_keys file initialization: [   OK   ]')
+    else
+      Rails.logger.debug('authorized_keys file initialization: [ FAILED ]')
+    end
+  end
+
+  def delete
+    File.delete(file_path)
+  end
+
   private
+
 
   def default_svn_root
     Pathname.new(AppConfig.svn_root)
@@ -69,21 +89,6 @@ class AuthzKeyFileWriter
     AppConfig.app_group
   end
 
-  def svn_root
-    @svn_root
-  end
-
-  def ssh_dir
-    @ssh_dir
-  end
-
-  ##
-  # Location of the .ssh/authorized_keys file
-  #
-  def file_path
-    "#{@ssh_dir}/authorized_keys"
-  end
-
   ##
   # Enables us to specify svn urls like: (svn+ssh://server.berkeley.edu/repo)
   # instead of: (svn+ssh://server.berkeley.edu/apps/home/ezsvn/spaces/repo)
@@ -93,7 +98,7 @@ class AuthzKeyFileWriter
   # @return [String] virtual root url used for our repos.
   #
   def virtual_root
-    "-r #{@svn_root}/spaces"
+    "-r #{svn_root}/spaces"
   end
 
   ##

@@ -21,7 +21,7 @@ module SshKeyService
     private
 
     def default_key_writer
-      AuthzKeyFileWriter.new
+      AuthzKeysFile.new
     end
 
     def default_audit_logger
